@@ -1,0 +1,145 @@
+[global]
+title = Dunst
+class = Dunst
+monitor = 0
+follow = mouse
+indicate_hidden = yes
+shrink = yes
+
+width = (0, 800)
+height = 700
+origin = top-right
+offset = 16x52
+
+progress_bar = true
+progress_bar_height = 11
+progress_bar_frame_width = 2
+progress_bar_min_width = 120
+
+transparency = 0
+separator_height = 2
+padding = 8
+horizontal_padding = 8
+text_icon_padding = 0
+frame_width = 3
+# frame_color = "#bd93f9"   #dracula
+frame_color = "#C9CBFF"     #catppuccin
+separator_color = frame
+corner_radius = 0
+
+sort = no
+idle_threshold = 120
+
+font = Iosevka Nerd Font 13
+
+line_height = 0
+markup = full
+format = "<b>%s</b>\n\n%b"
+alignment = left
+# vertical_alignment = center
+
+show_age_threshold = 60
+word_wrap = yes
+ellipsize = middle
+ignore_newline = no
+stack_duplicates = true
+hide_duplicate_count = true
+show_indicators = no
+icon_position = left
+min_icon_size = 16
+max_icon_size = 48
+
+icon_path = /usr/share/icons/Adwaita/48x48/status/:/usr/share/icons/Adwaita/48x48/devices/:/usr/share/icons/Adwaita/48x48/legacy/
+
+sticky_history = no
+history_length = 20
+
+browser = microsoft-edge-stable
+
+always_run_script = true
+
+# startup_notification = false
+# verbosity = mesg
+# ignore_dbusclose = false
+# force_xwayland = false
+# force_xinerama = false
+
+mouse_left_click = do_action, close_current
+mouse_middle_click = close_current
+mouse_right_click = close_all
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+Escape
+context = ctrl+shift+period
+
+[urgency_low]
+timeout = 7
+icon = /home/mm/.config/dunst/normal.svg
+
+# # dracula colors
+# background = "#22212c"
+# foreground = "#f8f8f2"
+# frame_color = "#bd93f9"
+# highlight = "#bd93f9"
+
+# # tokyonight colors
+# background = "#1a1b26EF"
+# foreground = "#c0caf5"
+# frame_color = "#7aa2f7"
+# highlight = "#7aa2f7"
+
+# catppuccin colors
+background = "#1E1D2D"
+foreground = "#D9E0EE"
+frame_color = "#C9CBFF"
+highlight = "#C9CBFF"
+
+
+[urgency_normal]
+timeout = 7
+icon = /home/mm/.config/dunst/normal.svg
+
+# # dracula colors
+# background = "#22212c"
+# foreground = "#f8f8f2"
+# highlight = "#bd93f9"
+# frame_color = "#bd93f9"
+
+# # tokyonight colors
+# background = "#1a1b26EF"
+# foreground = "#c0caf5"
+# frame_color = "#7aa2f7"
+# highlight = "#7aa2f7"
+
+# catppuccin colors
+background = "#1E1D2D"
+foreground = "#D9E0EE"
+frame_color = "#C9CBFF"
+highlight = "#C9CBFF"
+
+
+[urgency_critical]
+timeout = 0
+    
+# # dracula colors
+# background = "#22212c"
+# foreground = "#f8f8f2"
+# frame_color = "#ff9580"
+# highlight = "#ff9580"
+
+# # tokyonight colors
+# background = "#1a1b26"
+# foreground = "#c0caf5"
+# frame_color = "#f7768e"
+# highlight = "#f7768e"
+
+# catppuccin colors
+background = "#1E1D2D"
+foreground = "#D9E0EE"
+frame_color = "#F28FAD"
+highlight = "#F28FAD"
+
+# vim: ft=cfg
+

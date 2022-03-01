@@ -1,0 +1,70 @@
+{
+    "dark": [
+        "#1a1b26",
+        "#1a1b26"
+    ],
+    "grey": [
+        "#414868",
+        "#414868"
+    ],
+    "light": [
+        "#c0caf5",
+        "#c0caf5"
+    ],
+    "text": [
+        "#c0caf5",
+        "#c0caf5"
+    ],
+    "focus": [
+        "#7aa2f7",
+        "#7aa2f7"
+    ],
+    "urgent": [
+        "#e0af68",
+        "#e0af68"
+    ],
+    "active": [
+        "#7aa2f7",
+        "#7aa2f7"
+    ],
+    "inactive": [
+        "#414868",
+        "#414868"
+    ],
+    "selection": [
+        "#565f89",
+        "#565f89"
+    ],
+    "red": [
+        "#f7768e",
+        "#f7768e"
+    ],
+    "green": [
+        "#9ece6a",
+        "#9ece6a"
+    ],
+    "blue": [
+        "#7aa2f7",
+        "#7aa2f7"
+    ],
+    "yellow": [
+        "#e0af68",
+        "#e0af68"
+    ],
+    "magenta": [
+        "#bb9af7",
+        "#bb9af7"
+    ],
+    "orange": [
+        "#ff9e64",
+        "#ff9e64"
+    ],
+    "cyan": [
+        "#7dcfff",
+        "#7dcfff"
+    ],
+    "comment": [
+        "#565f89",
+        "#565f89"
+    ]
+}

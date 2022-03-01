@@ -1,0 +1,106 @@
+configuration {
+	modi:				            "drun";
+	font:				            "Iosevka Nerd Font Medium 13";
+	display-drun: 			        "";
+    drun-display-format:            " {name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    show-icons:                     true;
+	sidebar-mode: 			        false;
+}
+
+/* @import "colors-dracula.rasi" */
+@import "colors-catppuccin.rasi"
+
+window {
+	transparency:                   "real";
+    background-color:               @bg;
+    text-color:                     @fg;
+	border-radius:                  0px;
+	width:			    	        40%;
+	padding: 			            20px;
+	border:				            3px;
+	border-color:			        @se;
+}
+
+prompt {
+	enabled:			            true;
+	horizontal-align:		        0.5;
+	vertical-align:			        0.5;
+	background-color:		        @bgb;
+	border:                         2px;
+	border-color:                   @se;
+	border-radius:                  2px;
+    text-color:                     @ac;
+	font:				            "Iosevka Nerd Font Medium 13";
+	padding:			            0.5% 1.5% 0.5% 1%;
+}
+
+entry {
+	placeholder:			        "...";
+	expand:                         true;
+	padding:                        1%;
+	text-color:                     @fg;
+    background-color:               @bgb;
+    placeholder-color:              @fg;
+	border:				            2px;
+	border-color:			        @se;
+	font:				            "Iosevka Nerd Font Medium 12";
+	border-radius:			        2px;
+	cursor:				            text;
+}
+
+inputbar {
+	children: 			            [ prompt, entry ];
+	expand:                         false;
+	spacing:			            1%;
+    text-color:                     @fg;
+    background-color:               @bg;
+}
+
+listview {
+	background-color:               @bg;
+    text-color:                     @fg;
+    columns:                        1;
+	lines:	                        6;
+	cycle:                          false;
+	dynamic:                        true;
+	layout:                         vertical;
+}
+
+mainbox {
+	children:                       [ inputbar, listview ];
+	spacing:                       	2%;
+    background-color:               @bg;
+	padding:                        1% 0.5% 1% 0.5%;
+}
+
+element {
+	orientation:                    horizontal;
+	border-radius:                  2px;
+	padding:			            1% 0.6%;
+    background-color:               @bg;
+    text-color:                     @fg;
+}
+
+element-icon {
+    size:                           30px;
+    border:                         0px;
+    background-color: 				inherit;
+}
+
+element-text {
+	expand:                         true;
+	horizontal-align:               0;
+    vertical-align:                 0.5;
+	background-color:               inherit;
+    text-color:                     inherit;
+}
+
+element selected {
+	background-color:               @se;
+	text-color:                     @bg;
+	border-radius:                  2px;
+}
+
+listview, element, element selected, element-icon, element-text {
+	cursor:				pointer;
+}
