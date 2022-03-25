@@ -177,7 +177,7 @@ alias .5='cd ../../../../..'
 alias cat='bat'
 
 # top change to ytop
-alias top='ytop'
+alias top='btm'
 
 # update system
 alias update='sudo pacman -Syu && paru -Sua'
