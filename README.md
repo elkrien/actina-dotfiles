@@ -1,9 +1,10 @@
-## ELKRIEN's DOTFILES
+## 👽 ELKRIEN's DOTFILES
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/cat-qtile.gif"/>
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/cat-qtile.gif" width="600px"/>
 </p>
 
+### 🌼 INFORMATIONS
 - **System:** Arch Linux
 - **Window Manager:** Qtile + Qtile Extras
 - **Colours:** Catppuccin (GTK + all available app themes)
