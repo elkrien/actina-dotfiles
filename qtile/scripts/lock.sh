@@ -9,8 +9,9 @@ CY='#B5E8E0'  # cyan
 YE='#FAE3B0'  # yellow
 PI='#F5C2E7'  # pink
 RE='#F28FAD'  # red 
-PU='#96CDFB'  # blue
-DPU='#96CDFB' # blue
+PU='C9CBFF'   # lavender
+BL='#96CDFB'  # blue
+DPU='#C9CBFF' # lavender
 
 i3lock \
 -e                      \

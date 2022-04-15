@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+#set background
+nitrogen --restore
+
+leftwm-command "UnloadTheme"
+
+pkill compton
+pkill picom
+pkill polybar
+pkill conky
+if [ -x "$(command -v eww)" ]; then
+  eww kill
+fi

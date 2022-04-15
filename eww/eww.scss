@@ -1,0 +1,241 @@
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+  font-family: "Inter Nerd Font"//"JetBrainsMono Nerd Font";
+}
+
+.bar{
+    background-color: #1E1E2E;
+    padding: 0 0.6rem;
+}
+/** tooltip!! **/
+tooltip.background {
+    background-color: #1E1E2E;
+    font-size: 16;
+    border-radius: 10px;
+    color: #D9E0EE;
+}
+
+tooltip label {
+    margin: 6px;
+}
+
+scale trough highlight {
+    all: unset;
+    background-color: #302D41;
+    min-height: 10px;
+    min-width: 16px;
+    border-radius: 8px;
+}
+
+scale trough {
+    all: unset;
+    background-color: #302D41;
+    border-radius: 8px;
+    min-height: 10px;
+    min-width: 80px;
+    margin: 0.6rem;
+}
+
+.cpubar {
+    color: #96CDFB;
+    background-color: #302D41;
+  	border-radius: 10px;
+    margin: 0.6rem;
+}
+
+.diskbar {
+    color: #FAE3B0;
+    background-color: #302D41;
+  	border-radius: 10px;
+}
+.membar {
+    color: #C9CBFF;
+    background-color: #302D41;
+  	border-radius: 10px;
+}
+.iconmem {
+    color: #1E1E2E;
+    margin: 0.6rem;
+    font-size: 0.5rem;
+}
+.workspaces button:hover {
+  	color: #C9CBFF;
+}
+.ws-button-mine {
+  	color: #C9CBFF;
+  	background-color: #1E1E2E;
+  	font-size: 22px;
+}
+.ws-button-visible {
+  	color: #F8BD96;
+  	background-color: #1E1E2E;
+  	font-size: 22px;
+}
+.ws-button-busy {
+  	color: #6E6C7E;
+  	font-size: 22px;
+}
+
+.ws-button {
+  	color: #6E6C7E;
+  	font-size: 28px;
+}
+
+.button-off { 
+    color: #F28FAD;
+    font-size: 18px;
+}
+
+.button-reb, .button-lock, .button-sleep {
+    margin: 0 0.4rem;
+}
+
+.button-reb { 
+    color: #DDB6F2;
+    font-size: 19px;
+}
+.button-lock {
+    color: #ABE9B3;
+    font-size: 18px;
+}
+.button-sleep {
+    color: #FAE3B0;
+    font-size: 18px;
+}
+.button-logout {
+    color: #E8A2AF;
+    font-size: 18px;
+}
+
+.weather-details { 
+    margin: 0 0.6rem; 
+    color: #DDB6F2;
+}
+
+.button-music {
+   color: #DDB6F2;
+   margin: 0 0.7rem;
+}
+.button-pause {
+    font-size: 1.5rem;
+}
+.song_cover_art {
+    color: #FAE3B0;
+    background-size: cover;	
+	  background-position: center;
+    min-height: 24px;
+	  min-width: 24px;
+	  margin: 10px;
+	  border-radius: 100px;
+}
+
+.volumemicBar trough highlight {
+    background-color: #89DCEB;
+}
+.volumeBar trough highlight {
+    background-color: #96CDFB;
+}
+.musicBar trough highlight {
+    background-color: #DDB6F2;
+}
+
+.muted {
+    color: #F28FAD;
+    font-size: 20px;
+}
+
+.nomuted {
+    color: #96CDFB;    
+    font-size: 20px;
+}
+
+.loud {
+    color: #FAE3B0;
+    font-size: 20px;
+}
+
+.micnomuted {
+    color: #89DCEB;
+    font-size: 18px;
+}
+
+.micmuted {
+    color: #F28FAD;
+    font-size: 18px;
+}
+
+.label {
+ // font-size: 2rem;
+    margin: 0rem 0rem 0rem 0.6rem;
+}
+.weather, .time, .button-off{
+    margin: 0rem 0.6rem;
+}
+
+.cal {
+  background-color: #1E1E2E;
+  font-size: 16px;
+  font-weight: normal;
+
+.cal-in {
+    padding: 0px 10px 0px 10px;
+
+.cal {
+     &.highlight {
+          padding: 20px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.module_essid {
+    font-size: 15;
+    //color: #DDB6F2;
+    margin: 0px 10px 0px 0px;
+}
+.module-wifi {
+    font-size: 20;
+    //color: #DDB6F2;
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+}
+
+.module-updates-text {
+    font-size: 15;
+    //color: #DDB6F2;
+    margin: 0px 10px 0px 0px;
+}
+.module-updates-icon {
+    font-size: 20;
+    //color: #DDB6F2;
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+}
+
+calender {
+  color: #D9E0EE;
+}
+calendar:selected {
+  color: #C9CBFF;
+}
+
+calendar.header {
+color: #D9E0EE;
+font-weight: bold;
+}
+
+calendar.button {
+color: #C9CBFF;
+}
+
+calendar.highlight {
+color: #C9CBFF;
+font-weight: bold;
+}
+
+calendar:indeterminate {
+color: #6E6C7E;
+}

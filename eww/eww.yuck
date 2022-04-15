@@ -1,0 +1,301 @@
+(defwidget bar []
+    (centerbox
+        (box :space-evenly false :orientation "h"
+        (workspaces))
+        
+        (time)
+        ;;(music)
+
+        (box :halign "end" :hexpand true :orientation "h" :space-evenly false
+          ;; (disk)
+          ;; (cpu)
+          ;; (mem)
+          ;; (weather)
+        (updates)
+        (volume)
+        (micvolume)
+        (wifi)
+        (power)
+        ))
+    )
+
+;; Variables
+(defpoll temperature :interval "20m" "curl -s 'wttr.in/?format=%c%f'")
+(defpoll weatherstats :interval "30m" "curl -s 'wttr.in/?format=%P+%w+%p+%h'")
+
+(deflisten cover_art "./scripts/music.sh --cover")
+(deflisten song "./scripts/music.sh --song")
+(deflisten song_status "./scripts/music.sh --status")
+(defpoll current_status :interval "1s"  "./scripts/music.sh --time")
+
+(defpoll ctime :interval "1s"  "./scripts/music.sh --ctime")
+(defpoll ttime :interval "1s"  "./scripts/music.sh --ttime")
+(defpoll timeVar :interval "10s" "date '+%H:%M'")
+(defpoll dateVar :interval "600s" "date '+%A %d.%m.%y'")
+(defpoll volumepoll :interval "999s" "./scripts/volume.sh")
+(defpoll micvolumepoll :interval "999s" "./scripts/micvolume.sh")
+(defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi.sh --COL")
+(defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi.sh --ESSID")
+(defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi.sh --ICON")
+(defpoll COL_UPDATES :interval "10m" "~/.config/eww/scripts/updates.sh --COL")
+(defpoll TEXT_UPDATES :interval "10m" "~/.config/eww/scripts/updates.sh --UPDATES")
+(defpoll ICON_UPDATES :interval "10m" "~/.config/eww/scripts/updates.sh --ICON")
+
+
+(defvar volum false)
+(defvar micvolum false)
+(defvar bright false)
+(defvar power false)
+(defvar weather false)
+(defvar music false)
+(defvar search false)
+(defvar time false)
+(defvar cal false)
+(defvar wifi_rev false)
+(defvar updates false)
+
+
+
+;; Widgets
+
+(defwidget wifi [] 
+  (eventbox :tooltip "WIFI" :onhover "eww update wifi_rev=true"
+			  :onhoverlost "eww update wifi_rev=false"
+		(box :vexpand "false" :hexpand "false" :space-evenly "false"
+				(eventbox :cursor "hand"(button :class "module-wifi" :onclick "alacritty -e nmtui" :wrap "false" :limit-width 12 :style "color: ${COL_WLAN};" WLAN_ICON))
+	(revealer :transition "slideright"
+			  :reveal wifi_rev
+			  :duration "350ms"
+	(label    :class "module_essid"
+			  :text ESSID_WLAN
+              :style "color: ${COL_WLAN};"
+			  :orientation "h"
+			  )))))
+
+(defwidget updates [] 
+  (eventbox :tooltip "System updates" :onhover "eww update updates=true"
+			  :onhoverlost "eww update updates=false"
+		(box :vexpand "false" :hexpand "false" :space-evenly "false"
+				(eventbox :cursor "hand"(button :class "module-updates-icon" :onclick "alacritty -e sudo pacman -Syu && paru -Sua" :wrap "false" :limit-width 20 :style "color: ${COL_UPDATES};" ICON_UPDATES))
+	(revealer :transition "slideright"
+			  :reveal updates
+			  :duration "350ms"
+	(label    :class "module-updates-text"
+			  :text TEXT_UPDATES
+              :style "color: ${COL_UPDATES};"			  
+              :orientation "h"
+			  )))))
+
+
+(defwidget volume []
+  (eventbox :tooltip "Sound volume: ${volumepoll.content}%" :onhover "eww update volum=true && eww update currentVolume=$(pamixer --get-volume)"   
+    :onhoverlost "eww update volum=false"
+    (box :orientation "h" :space-evenly false 
+        (eventbox :cursor "hand"(button :class "${volumepoll.class} label" :onclick `eww update volumepoll="$(./scripts/volume.sh toggle)"` "${volumepoll.icon} "))
+        (revealer :transition "slideleft" 
+			  :reveal volum 
+			  :duration "500ms"
+        (scale :class "volumeBar"
+            :min 0
+            :max 101
+            :onchange `eww update volumepoll="$(./scripts/volume.sh {})"` 
+            :value "${volumepoll.content}" )
+))))
+
+
+(defwidget micvolume []
+  (eventbox :tooltip "Mic volume: ${micvolumepoll.content}%" :onhover "eww update micvolum=true"   
+    :onhoverlost "eww update micvolum=false"
+    (box :orientation "h" :space-evenly false 
+        (eventbox :cursor "hand"(button :class "${micvolumepoll.class} label" :onclick `eww update micvolumepoll="$(./scripts/micvolume.sh toggle)"` "${micvolumepoll.icon} "))
+        (revealer :transition "slideleft" 
+			  :reveal micvolum 
+			  :duration "500ms"
+        (scale :class "volumemicBar"
+            :min 0
+            :max 101
+            :onchange `eww update micvolumepoll="$(./scripts/micvolume.sh {})"` 
+            :value "${micvolumepoll.content}")
+            
+))))
+
+(defwidget mem []
+  (box :vexpand "false" :hexpand "false"
+  (circular-progress  :value {EWW_RAM.used_mem_perc}
+    :class "membar"
+    :start-angle 0
+    :thickness 4
+    (button 
+                :class "iconmem"
+                :limit-width 2
+                :tooltip " ${round(EWW_RAM.used_mem_perc,1)}%"
+                :show_truncated false
+                :wrap false
+                "")
+    ))             
+  )
+
+(defwidget cpu []
+  (box :vexpand "false" :hexpand "false"
+  (circular-progress  :value {EWW_CPU.avg}
+    :class "cpubar"
+    :start-angle 0
+    :thickness 4
+    (button 
+                :class "iconmem"
+                :limit-width 2
+                :tooltip " ${round(EWW_CPU.avg,1)}%"
+                :show_truncated false
+                :wrap false
+                "")
+    ))             
+  )
+
+(defwidget disk []
+  (box :vexpand "false" :hexpand "false"
+  (circular-progress  :value {EWW_DISK["/"].used_perc}
+    :class "diskbar"
+    :start-angle 0
+    :thickness 4
+    (button 
+                :class "iconmem"
+                :limit-width 2
+                :tooltip " ${round(EWW_DISK["/"].used_perc,1)}%"
+                :show_truncated false
+                :wrap false
+                "")
+    ))             
+  )
+(defwidget power []
+	(eventbox   :hexpand false 
+                :onhover "eww update power=true"	
+				:onhoverlost "eww update power=false" 
+                :cursor "hand"
+	(box		:orientation "h"					
+				:space-evenly "false" 	 
+                :class "powerLabel label"
+
+	(button		:class "button-off"					
+				:tooltip "Shutdown"		 
+				:onclick "shutdown now"	"")
+	(revealer	:transition "slideright"				
+				:reveal power			 
+				:duration "250ms"
+    (box        :space-evenly true
+  	(button		:class "button-reb"					
+	  			:tooltip "Reboot"
+				:onclick "reboot" "")  
+  	(button		:class "button-lock"					
+	  			:tooltip "Lockscreen"
+				:onclick "dm-tool lock" "")
+  	(button		:class "button-sleep"					
+	  			:tooltip "Sleep"
+				:onclick "systemctl suspend" "")
+    (button      :class "button-logout"
+                :tooltip "Logout"
+                :onclick "pkill -f leftwm" ""))
+    ))))
+
+
+(defwidget weather []
+	(eventbox   :hexpand false 
+                :onhover "eww update weather=true"	
+				:onhoverlost "eww update weather=false" 
+	(box		:orientation "h"					
+				:space-evenly "false" 	 
+                :class "weather"
+
+	(label		:class "weather"					
+				:tooltip "Weather"		 
+                :limit-width "10"
+                :wrap false
+				:text "${temperature}")
+	(revealer	:transition "slideright"				
+				:reveal weather			 
+				:duration "250ms"
+  	(label		:class "weather-details"					
+	  			:tooltip "Weather"
+                :limit-width "30"
+                :wrap false
+				:text "${weatherstats}")))))
+
+
+
+(defwidget time []
+    (eventbox :cursor "hand"
+	(button		:class "date"					
+				:tooltip "${dateVar}"		 
+				:onclick "eww open --toggle calendar"	"${timeVar}"))
+	)
+
+
+
+(defwidget music []
+	(eventbox   :hexpand false 
+                :onhover "eww update music=true"	
+                :cursor "hand"
+				:onhoverlost "eww update music=false" 
+	(box		:orientation "h"					
+				:space-evenly false 	 
+                :class "musiclabel"
+
+    (button      
+                :onclick "tdrop -ma -y 55 -x 7 -w 30% -h 40% -n musicplayer kitty -e ncmpcpp" 
+    (box        :space-evenly false
+                :orientation "h"
+    (box :class "song_cover_art" :vexpand "false" :hexpand "false" :style "background-image: url('${cover_art}');")
+    (label      :text "${song}"
+                :limit-width 30
+                :wrap false)
+      )
+                )
+	(revealer	:transition "slideright"				
+				:reveal music			 
+                :expand true
+				:duration "300ms"
+    (box :space-evenly false
+  	(button		:class "button-music"					
+	  			:tooltip "Previous"
+				:onclick "./scripts/music.sh --prev" "")
+  	(button		:class "button-music button-pause"					
+	  			:tooltip "Toggle"
+				:onclick "./scripts/music.sh --toggle " "${song_status}")
+  	(button		:class "button-music"					
+	  			:tooltip "Next"
+				:onclick "./scripts/music.sh --next" "")
+
+(scale :class "musicBar" :onscroll "mpc -q seek {}" :min 0 :active "true" :max 100 :value "${current_status}" :tooltip "${ctime}/${ttime}")
+    )
+))))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :valign "center"
+       :halign "start"
+       :spacing 8
+    (literal :content {wm-tags})))
+
+(defwindow calendar
+	:geometry (geometry :x "-43%" 
+		:y "4%" 
+		:width "270px" 
+		:height "60px"
+        :anchor "top right")
+    (calendar :class "cal")
+)
+
+(deflisten wm-tags
+  "leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid")
+
+(defwindow bar 
+    :monitor 0
+    :wm-ignore false
+    :reserve (struts :distance "38px" :side "top")
+    :windowtype "dock"
+    :stacking "bg"
+    :geometry (geometry :width "100%"
+        :height "20px"
+        :anchor "top left")
+    (bar))

@@ -1,0 +1,31 @@
+# Elkrien
+
+spacing         = 3
+hide_ascii      = true
+key_color       = "Green"
+separator       = ""
+separator_color = "Red"
+
+[randomize]
+key_color       = false
+
+[box]
+border          = "rounded"
+visible         = true
+
+[palette]
+glyph           = "  "
+visible         = true
+
+[bar]
+glyph           = "●"
+hide_delimiters = true
+visible         = false
+
+[box.inner_margin]
+x               = 2
+y               = 1
+
+[custom_ascii]
+color           = "Cyan"
+path            = "~/.config/macchina/themes/archlinuxsmall.ascii"

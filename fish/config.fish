@@ -206,7 +206,10 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 alias mi='micro'
 
 # neovim
-alias v='lvim'
+alias v='nvim'
+
+# helix
+alias hx='helix'
 
 # du change to dua
 alias du='dua i'
