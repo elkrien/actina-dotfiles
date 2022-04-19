@@ -17,8 +17,8 @@ ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 eww daemon &
 
 # Boot picom or compton if it exists
-# picom --experimental-backends --config ~/.config/picom/picom.conf &> /dev/null &
-picom --experimental-backends --config ~/Pobrane/bspdots-main/config/picom/picom.conf &> /dev/null &
+picom --experimental-backends --config ~/.config/picom/picom.conf &> /dev/null &
+# picom --experimental-backends --config ~/Pobrane/bspdots-main/config/picom/picom.conf &> /dev/null &
 
 # Set the theme.toml config
 leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
@@ -33,7 +33,7 @@ nitrogen --restore
 setxkbmap -layout pl
 
 # set touchpad (for Lenovo laptop)
-# xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
 
 # Locksreen
 xidlehook \

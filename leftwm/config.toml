@@ -1,15 +1,16 @@
+### Modkey and tags
 modkey = "Mod4"
 workspaces = []
 tags = ["", "", "", "", "", "", "", "", ""]
 
-# Tag Behaviour
+### Tag Behaviour
 # disable_current_tag_swap = true
 
-# Focus behaviour
+### Focus behaviour
 focus_behaviour = "Sloppy" #"Driven" #"ClickTo"
 focus_new_windows = true
 
-# Scratchpads
+### Scratchpads
 [[scratchpad]]
 name = "Alacritty-scratchpad"
 value = "alacritty"
@@ -42,223 +43,268 @@ y = 250
 height = 600
 width = 1200
 
-# Keybindings
+### Keybindings
+
+# Open terminal in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
 value = "Alacritty-scratchpad" # Name set for the scratchpad
 modifier = ["modkey", "Shift"]
 key = "Return"
 
+# Open Ranger in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
 value = "ranger"
 modifier = ["modkey", "Shift"]
 key = "e"
 
+# Open Spotify in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
 value = "spotify"
 modifier = ["modkey", "Shift"]
 key = "a"
 
+# Open Radio in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
 value = "radio"
 modifier = ["modkey"]
 key = "a"
 
+# Applications launcher (rofi)
 [[keybind]]
 command = "Execute"
-value ="rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/small-launcher-alt.rasi" 
+value = "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/small-launcher-alt.rasi"
 modifier = ["modkey"]
 key = "r"
 
+# Open Terminal (Alacritty)
 [[keybind]]
 command = "Execute"
 value = "alacritty"
 modifier = ["modkey"]
 key = "Return"
 
+# PowerMenu
 [[keybind]]
 command = "Execute"
-value = "~/.config/qtile/scripts/powermenu.sh"
+value = "~/.scripts/powermenu.sh"
 modifier = ["modkey"]
 key = "p"
 
+# Open File Explorer (Nemo)
 [[keybind]]
 command = "Execute"
 value = "nemo"
 modifier = ["modkey"]
 key = "e"
 
+# Open Visual Code
 [[keybind]]
 command = "Execute"
 value = "code"
 modifier = ["modkey"]
 key = "v"
 
+# Open Web Browser (Microsoft Edge)
 [[keybind]]
 command = "Execute"
 value = "microsoft-edge-stable"
 modifier = ["modkey"]
 key = "w"
 
+# Open Mail Client (Maispring)
 [[keybind]]
 command = "Execute"
 value = "mailspring"
 modifier = ["modkey"]
 key = "m"
 
+# Screenshot Menu 
 [[keybind]]
 command = "Execute"
 value = "flameshot gui"
 modifier = ["modkey"]
 key = "s"
 
+# Screenshot Menu (rofi)
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/rofi-screenshot"
+modifier = ["modkey", "Shift"]
+key = "s"
+
+# Screenshot rofi stop recording
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/rofi-screenshot -s"
+modifier = ["modkey", "Control"]
+key = "s"
+
+# Windows switcher
 [[keybind]]
 command = "Execute"
 value = "rofi -show window -theme ~/.config/rofi/windows-alt.rasi"
 modifier = ["Alt"]
 key = "Tab"
 
+# Show Keybindings
 [[keybind]]
 command = "Execute"
-value = "~/.config/qtile/scripts/keys.sh"
+value = "~/.scripts/keys.sh"
 modifier = ["modkey"]
 key = "t"
 
-[[keybind]]
-command = "Execute"
-value = "~/.config/qtile/scripts/rofi-screenshot"
-modifier = ["modkey", "Shift"]
-key = "s"
-
+# Toggle Full Screen
 [[keybind]]
 command = "Execute"
 value = "leftwm-command ToggleFullScreen"
 modifier = ["modkey"]
 key = "f"
 
+# Close Active Window
 [[keybind]]
 command = "CloseWindow"
 modifier = ["modkey", "Shift"]
 key = "q"
 
+# Close Active Window
 [[keybind]]
 command = "CloseWindow"
 modifier = ["modkey"]
 key = "q"
 
+# Reload LeftWM (soft)
 [[keybind]]
 command = "SoftReload"
 modifier = ["modkey", "Shift"]
 key = "r"
 
+# Move to last Workspace
 [[keybind]]
 command = "MoveToLastWorkspace"
 modifier = ["modkey", "Shift"]
 key = "w"
 
+# Swap Tags
 [[keybind]]
 command = "SwapTags"
 modifier = ["modkey"]
 key = "b"
 
+# Movie active window up
 [[keybind]]
 command = "MoveWindowUp"
 modifier = ["modkey", "Shift"]
 key = "k"
 
+# Move active window down
 [[keybind]]
 command = "MoveWindowDown"
 modifier = ["modkey", "Shift"]
 key = "j"
 
+# Move active window up
 [[keybind]]
 command = "MoveWindowUp"
 modifier = ["modkey", "Shift"]
 key = "Up"
 
+# Move active window down
 [[keybind]]
 command = "MoveWindowDown"
 modifier = ["modkey", "Shift"]
 key = "Down"
 
+# Focus active window up
 [[keybind]]
 command = "FocusWindowUp"
 modifier = ["modkey"]
 key = "k"
 
+# Focus active window down
 [[keybind]]
 command = "FocusWindowDown"
 modifier = ["modkey"]
 key = "j"
 
+# Change layout (next)
 [[keybind]]
 command = "NextLayout"
 modifier = ["modkey"]
 key = "space"
 
+[[keybind]]
+command = "NextLayout"
+modifier = ["modkey", "Control"]
+key = "Up"
+
+# Change layout (previous)
 [[keybind]]
 command = "PreviousLayout"
 modifier = ["modkey", "Shift"]
 key = "space"
 
 [[keybind]]
+command = "PreviousLayout"
+modifier = ["modkey", "Control"]
+key = "Down"
+
+# Focus next workspace
+[[keybind]]
 command = "FocusWorkspaceNext"
 modifier = ["modkey"]
 key = "l"
 
+# Focus previous workspace
 [[keybind]]
 command = "FocusWorkspacePrevious"
 modifier = ["modkey"]
 key = "h"
 
-[[keybind]]
-command = "NextLayout"
-modifier = ["modkey", "Control"]
-key = "Up"
-
-[[keybind]]
-command = "PreviousLayout"
-modifier = ["modkey", "Control"]
-key = "Down"
-
+# Focus next tag
 [[keybind]]
 command = "FocusNextTag"
 modifier = ["modkey"]
 key = "Down"
 
+# Focus previous tag
 [[keybind]]
 command = "FocusPreviousTag"
 modifier = ["modkey"]
 key = "Up"
 
+# Swap screens left
 [[keybind]]
 command = "Execute"
 value = "leftwm-command SwapScreens"
 modifier = ["modkey"]
 key = "Left"
 
+# Swap screens right
 [[keybind]]
 command = "Execute"
 value = "leftwm-command SwapScreens"
 modifier = ["modkey"]
 key = "Right"
 
+# Move active window to next workspace (left)
 [[keybind]]
 command = "MoveWindowToNextWorkspace"
-modifier = ["modkey","Shift"]
+modifier = ["modkey", "Shift"]
 key = "Left"
 
+# Move active window to next workspace (right)
 [[keybind]]
 command = "MoveWindowToNextWorkspace"
-modifier = ["modkey","Shift"]
+modifier = ["modkey", "Shift"]
 key = "Right"
 
 [[keybind]]
 command = "FocusPreviousTag"
-modifier = ["Control","Alt"]
+modifier = ["Control", "Alt"]
 key = "Left"
 
 [[keybind]]
@@ -268,7 +314,7 @@ key = "Right"
 
 [[keybind]]
 command = "FocusPreviousTag"
-modifier = ["Control","Alt"]
+modifier = ["Control", "Alt"]
 key = "Up"
 
 [[keybind]]

@@ -4,17 +4,17 @@ updatesarch="$(checkupdates 2> /dev/null | wc -l)"
 updatesaur="$(paru -Qua 2> /dev/null | wc -l)"
 updates=$(("$updatesarch" + "$updatesaur"))
 
-if [ $updates ] ; then
-    icon=""
+if [ $updates != 0 ] ; then
+    icon=""
     text="${updates} updates"
     col="#F8BD96"
 
 else
-    icon=""
+    icon=""
     text="No updates"
     col="#ABE9B3"
 fi
-
+#亂
 
 
 if [[ "$1" == "--COL" ]]; then
