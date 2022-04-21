@@ -93,8 +93,8 @@
 ;; Volume and mic variables
 (defvar volum false)
 (defvar micvolum false)
-(defpoll volumepoll :interval "999s" "./scripts/volume.sh")
-(defpoll micvolumepoll :interval "999s" "./scripts/micvolume.sh")
+(defpoll volumepoll :interval "999s" "~/.config/eww/scripts/volume.sh")
+(defpoll micvolumepoll :interval "999s" "~/.config/eww/scripts/micvolume.sh")
 
 ;; Volume widget
 (defwidget volume []
@@ -109,7 +109,7 @@
         :cursor "hand"
         (button 
           :class "${volumepoll.class} label" 
-          :onclick `eww update volumepoll="$(./scripts/volume.sh toggle)"` "${volumepoll.icon} "
+          :onclick `eww update volumepoll="$(~/.config/eww/scripts/volume.sh toggle)"` "${volumepoll.icon} "
         )
       )
       (revealer
@@ -120,7 +120,7 @@
           :class "volumeBar"
           :min 0
           :max 101
-          :onchange `eww update volumepoll="$(./scripts/volume.sh {})"`
+          :onchange `eww update volumepoll="$(~/.config/eww/scripts/volume.sh {})"`
           :value "${volumepoll.content}"
         )
       )
@@ -141,7 +141,7 @@
         :cursor "hand"
         (button
           :class "${micvolumepoll.class} label"
-          :onclick `eww update micvolumepoll="$(./scripts/micvolume.sh toggle)"` "${micvolumepoll.icon} "
+          :onclick `eww update micvolumepoll="$(~/.config/eww/scripts/micvolume.sh toggle)"` "${micvolumepoll.icon} "
         )
       )
       (revealer
@@ -160,96 +160,7 @@
   )
 )
 
-;;;;;; POWER MEMU WIDGET
 
-;; Power menu variables
-(defvar power_m false)
-
-;; Power menu widget
-(defwidget power []
-	(eventbox
-    :hexpand false
-    :onhover "eww update power_m=true"
-		:onhoverlost "eww update power_m=false"
-    :cursor "hand"
-	  (box
-      :orientation "h"
-			:space-evenly "false"
-      :class "powerLabel label"
-      (button
-        :class "button-off"					
-				:tooltip "Shutdown"
-				:onclick "shutdown now"	""
-      )
-	    (revealer
-        :transition "slideright"
-				:reveal power_m
-				:duration "250ms"
-        (box
-          :space-evenly true
-  	      (button
-            :class "button-reb"				
-	  			  :tooltip "Reboot"
-				    :onclick "reboot" ""
-          )
-  	      (button
-            :class "button-lock"
-	  			  :tooltip "Lockscreen"
-				    :onclick "~/.scripts/lock.sh" ""
-          )
-  	      (button
-            :class "button-sleep"
-	  			  :tooltip "Sleep"
-				    :onclick "systemctl suspend" ""
-          )
-          (button
-            :class "button-logout"
-            :tooltip "Logout"
-            :onclick "pkill -f leftwm" ""
-          )
-        )
-      )
-    )
-  )
-)
-
-; ;;;;;; BRIGHTNESS WIDGET
-;
-; ;; Brightness variables
-; (defvar bright false)
-; (defpoll current-brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
-;
-; ;; Brightness widget
-; (defwidget bright []
-;   (eventbox 
-;     :tooltip "Brightness: ${current-brightness}%" 
-;     :onhover "eww update bright=true"   
-;     :onhoverlost "eww update bright=false"
-;     (box 
-;       :orientation "h" 
-;       :space-evenly false 
-;       (eventbox 
-;         :cursor "hand"
-;         (button 
-;           :class "brightness-icon" 
-;           ""
-;         )
-;       )
-;       (revealer
-;         :transition "slideleft" 
-; 			  :reveal bright
-; 			  :duration "500ms"
-;         (scale
-;           :class "bribar"
-;           :min 0
-;           :max 101
-;           :onchange "brightnessctl set {}%"
-;           :value current-brightness
-;         )
-;       )
-;     )
-;   )
-; )
 
 ;;;;;; DATE AND TIME WIDGET
 
@@ -269,28 +180,6 @@
     )
   )
 )
-
-; ;;;;;; BATTERY WIDGET
-;
-; ;; Battery widget variables
-; (defpoll battery :interval "1s"	"~/.config/eww/scripts/battery.sh icon")
-; (defpoll battery-cappacity :interval "1s"	"~/.config/eww/scripts/battery.sh percent")
-;
-; ;; Battery widget
-; (defwidget bat []
-; 	(box	
-;     :vexpand "false" 
-;     :hexpand "false" 
-;     :orientation "h"	
-; 		:space-evenly "false"
-; 	  (label	
-;       :class "bat"		
-; 		  :halign "end"		
-; 		  :text battery	
-; 		  :tooltip "Battery: ${battery-cappacity}%"
-;     )
-;   )
-; )
 
 ;;;;;; WORKSPACES WIDGET
 
@@ -317,7 +206,7 @@
 ;; Music bar variables
 (defpoll music-icon :interval "1s" "~/.config/eww/scripts/music.sh get-icon")
 (deflisten music-name "playerctl --follow metadata --format '{{ artist }} - {{ title }}'")
-(deflisten music-title "playerctl --follow metadata --format {{title}}")
+(deflisten music-title "playerctl --player=ncspot --follow metadata --format {{title}}")
 
 ;; Music bar widget
 (defwidget music []
@@ -386,17 +275,86 @@
       (micvolume)
       (wifi)
       (time)
-      (power)
+      ; (power) ;power menu on bar (reveal)
+      (power-window)
     )
   )
 )
+
+;;;;;; POWER MENU WINDOW WIDGET
+
+;; Powermenu window (box) icons widget 
+(defwidget lock-power-restart-logout []
+     (box :orientation "v"
+          :halign "center"
+          :valign "center"
+          :space-evenly "false"
+          :spacing 30
+          (box :orientation "v"
+               :halign "center"
+               :valign "center"
+               :space-evenly "false"
+               (button :onclick "systemctl reboot"
+                    :class "restart-btn"
+                    :tooltip "Restart"
+                    ""))
+          (box :orientation "v"
+               :halign "center"
+               :valign "center"
+               :space-evenly "false"
+               (button :onclick "~/.scripts/lock.sh"
+                    :class "lock-btn"
+                    :tooltip "Lock"
+                    ""))
+          (box :orientation "v"
+               :halign "center"
+               :valign "center"
+               :space-evenly "false"
+               (button :onclick "systemctl suspend"
+                    :class "sleep-btn"
+                    :tooltip "Suspend"
+                    ""))
+          (box :orientation "v"
+               :halign "center"
+               :valign "center"
+               :space-evenly "false"
+               (button :onclick "pkill -f leftwm"
+                    :class "logout-btn"
+                    :tooltip "Logout"
+                    ""))
+          (box :orientation "v"
+               :halign "center"
+               :valign "center"
+               :space-evenly "false"
+               (button :onclick "systemctl poweroff"
+                       :class "power-btn"
+                       :tooltip "Power off"
+                       ""))))
+
+;; Powermenu window widget (box)
+(defwidget powermenu []
+     (box :class "powermenu"
+          :orientation "v"
+          (lock-power-restart-logout)))
+
+;; Powermenu window bar icon widget
+(defwidget power-window []
+     (box :orientation "h"
+          :halign "end"
+          :valign "center"
+          :space-evenly "false"
+          (button :onclick "eww open --toggle powermenu-window"
+                  :onrightclick "systemctl poweroff"
+                  :class "power-icon"
+                  :tooltip "Power off"
+                  "⏻")))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    WINDOWS    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; CALENDAR WINDOW 
-
 (defwindow calendar
 	:geometry 
     (geometry 
@@ -412,7 +370,6 @@
 )
 
 ;; BAR WINDOW
-
 (defwindow bar 
     :monitor 0
     :wm-ignore false
@@ -433,7 +390,6 @@
 )
 
 ;; MUSIC PLAYER WINDOW
-
 (defwindow music-player-window
   :monitor 0
   :wm-ignore true
@@ -445,10 +401,75 @@
   (music-player)
 )
 
+;; POWERMENU WINDOW
+(defwindow powermenu-window
+    :monitor 0
+    :wm-ignore true
+    :geometry (geometry :x "-5px"
+                        :y "40px"
+                        :width "4%"
+                        :height "32%"
+                        :anchor "top right")
+    (powermenu))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; NOT USED WIDGETS AND WINDOWS ;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+; ;;;;;; POWER MENU BAR WIDGET (bar revealer)
+;
+; ;; Power menu variables
+; (defvar power_m false)
+;
+; ;; Power menu widget
+; (defwidget power []
+; 	(eventbox
+;     :hexpand false
+;     :onhover "eww update power_m=true"
+; 		:onhoverlost "eww update power_m=false"
+;     :cursor "hand"
+; 	  (box
+;       :orientation "h"
+; 			:space-evenly "false"
+;       :class "powerLabel label"
+;       (button
+;         :class "button-off"					
+; 				:tooltip "Shutdown"
+; 				:onclick "shutdown now"	""
+;       )
+; 	    (revealer
+;         :transition "slideright"
+; 				:reveal power_m
+; 				:duration "250ms"
+;         (box
+;           :space-evenly true
+;   	      (button
+;             :class "button-reb"				
+; 	  			  :tooltip "Reboot"
+; 				    :onclick "reboot" ""
+;           )
+;   	      (button
+;             :class "button-lock"
+; 	  			  :tooltip "Lockscreen"
+; 				    :onclick "~/.scripts/lock.sh" ""
+;           )
+;   	      (button
+;             :class "button-sleep"
+; 	  			  :tooltip "Sleep"
+; 				    :onclick "systemctl suspend" ""
+;           )
+;           (button
+;             :class "button-logout"
+;             :tooltip "Logout"
+;             :onclick "pkill -f leftwm" ""
+;           )
+;         )
+;       )
+;     )
+;   )
+; )
 
 ;;;;;; WEATHER WIDGET
 
@@ -491,6 +512,66 @@
 ;;    )
 ;;  )
 ;;)
+
+; ;;;;;; BRIGHTNESS WIDGET
+;
+; ;; Brightness variables
+; (defvar bright false)
+; (defpoll current-brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+;
+; ;; Brightness widget
+; (defwidget bright []
+;   (eventbox 
+;     :tooltip "Brightness: ${current-brightness}%" 
+;     :onhover "eww update bright=true"   
+;     :onhoverlost "eww update bright=false"
+;     (box 
+;       :orientation "h" 
+;       :space-evenly false 
+;       (eventbox 
+;         :cursor "hand"
+;         (button 
+;           :class "brightness-icon" 
+;           ""
+;         )
+;       )
+;       (revealer
+;         :transition "slideleft" 
+; 			  :reveal bright
+; 			  :duration "500ms"
+;         (scale
+;           :class "bribar"
+;           :min 0
+;           :max 101
+;           :onchange "brightnessctl set {}%"
+;           :value current-brightness
+;         )
+;       )
+;     )
+;   )
+; )
+
+; ;;;;;; BATTERY WIDGET
+;
+; ;; Battery widget variables
+; (defpoll battery :interval "1s"	"~/.config/eww/scripts/battery.sh icon")
+; (defpoll battery-cappacity :interval "1s"	"~/.config/eww/scripts/battery.sh percent")
+;
+; ;; Battery widget
+; (defwidget bat []
+; 	(box	
+;     :vexpand "false" 
+;     :hexpand "false" 
+;     :orientation "h"	
+; 		:space-evenly "false"
+; 	  (label	
+;       :class "bat"		
+; 		  :halign "end"		
+; 		  :text battery	
+; 		  :tooltip "Battery: ${battery-cappacity}%"
+;     )
+;   )
+; )
 
 ;;;;;;; MEMORY STATUS WIDGET
 ;;(defwidget mem []
@@ -557,3 +638,182 @@
 ;;    )
 ;;  )
 ;;)
+
+
+
+;;;;;;;;;;;;;;; okklol ;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+; (defwidget launchermenu []
+;      (box :class "launchermenu"
+;           :orientation "v"
+;           (pfp)))
+;
+; (defwidget sep []
+;   (box :orientation "h"
+;        :valign "center"
+;        (label :class "sepbar" :text "|")))
+;
+; (defwidget workspaces []
+;      (literal :content ws))
+
+; (defwidget music []
+;     (box :class "music"
+;          :orientation "h"
+;          :space-evenly true
+;          :halign "center"
+;          :valign "center"
+;          :tooltip "music"
+;          (eventbox :onhover "${eww} update hover_mus=true"
+;                    :onhoverlost "${eww} update hover_mus=false"
+;                    (box :orientation "h"
+;                         :space-evenly "false"
+;                         :halign "start"
+;                         :valign "center"
+;                         (label :class "music-label"
+;                                :text song_artist
+;                                :wrap "true")
+;                         (revealer :reveal hover_mus
+;                                   :transition "slideright"
+;                                   :duration "0.5"
+;                                   (box :orientation "h"
+;                                        :space-evenly "false"
+;                                        :halign "start"
+;                                        :valign "center"
+;                                        (button :class "song_btn_prev" :onclick "/home/okk/Documents/eww/bar/scripts/music_info --prev" "")
+;                                        (button :class "song_btn_play" :onclick "/home/okk/Documents/eww/bar/scripts/music_info --toggle" song_status)
+;                                        (button :class "song_btn_next" :onclick "/home/okk/Documents/eww/bar/scripts/music_info --next" "")))))))
+;
+; (defwidget vol []
+;     (box :class "micvol"
+;          :halign "start"
+;          :valign "center"
+;          :orientation "h"
+;          (box :class "menu-box"
+;               :orientation "h"
+;               :halign "end"
+;               :valign "center"
+;               :space-evenly "false"
+;               (button :onclick "/home/okk/Documents/eww/bar/scripts/pop-launcher"
+;                       ""))
+;          (box :class "mic"
+;               (eventbox :onhover "${eww} update hover_mic=true"
+;                         :onhoverlost "${eww} update hover_mic=false"
+;               (box :orientation "h"
+;                    :space-evenly "false"
+;                    :halign "start"
+;                    :valign "center"
+;                    (label :text ""
+;                           :wrap "true"
+;                           :class "mic-icon")
+;                           (revealer :reveal true
+;                                     :transition "slideright"
+;                                     :duration "0.5"
+;                                     (scale :class "micbar"
+;                                            :orientation "h"
+;                                            :value mic_percent
+;                                            :tooltip "mic is on ${mic_percent}%"
+;                                            :min-value 0
+;                                            :max-value 100
+;                                            :onchange "amixer -D pulse sset Capture {}%")))))
+;          (box :class "vol"
+;               (eventbox :onhover "${eww} update hover_vol=true"
+;                         :onhoverlost "${eww} update hover_vol=false"
+;                         (box :orientation "h"
+;                              :space-evenly "false"
+;                              :halign "start"
+;                              :valign "center"
+;                              (label :text ""
+;                                     :wrap "true"
+;                                     :class "vol-icon")
+;                                     (revealer :reveal true
+;                                               :transition "slideright"
+;                                               :duration "0.5"
+;                                               (scale :class "volbar"
+;                                                      :orientation "h"
+;                                                      :value volume_percent
+;                                                      :tooltip "volume is on ${volume_percent}%"
+;                                                      :min-value 0
+;                                                      :max-value 100
+;                                                      :onchange "amixer -D pulse sset Master {}%")))))))
+;
+; (defwidget cpu-and-mem []
+;     (box :class "cpu-and-mem"
+;          :orientation "h"
+;          :halign "end"
+;          :valign "center"
+;          :space-evenly "false"
+;          (circular-progress :class "cpu"
+;                             :tooltip "using ${cpu}% cpu"
+;                             :value cpu
+;                             :thickness 12)
+;          (circular-progress :class "mem"
+;                             :tooltip "using ${memory}% ram"
+;                             :value memory
+;                             :thickness 12)))
+
+; (defwidget power-time-cpu-mem-music []
+;     (box :class "time-cpu-mem"
+;          :halign "end"
+;          :valign "center"
+;          :space-evenly "false"
+;          :orientation "h"
+;          (music)
+;          (sep)
+;          (cpu-and-mem)
+;          (sep)
+;          (label :text "${date}/"
+;                 :class "time-label"
+;                 :halign "end"
+;                 :valign "center"
+;                 :space-evenly "false"
+;                 :tooltip "time"
+;                 :orientation "h")
+;          (label :text time0
+;                 :class "time-label"
+;                 :halign "end"
+;                 :valign "center"
+;                 :space-evenly "false"
+;                 :tooltip "time"
+;                 :orientation "h"
+;                 )
+;           (sep)
+;           (power)))
+
+
+; (defwidget pfp []
+;      (box :orientation "v"
+;           :space-evenly "false"
+;           :halign "middle"
+;           :valign "start"
+;           (image :path "/home/okk/Documents/eww/bar/assets/pfp.png"
+;                  :class "launcher-icon"
+;                  :image-width 250
+;                  :image-height 250)
+;           (label :text "okklol"
+;                  :class "launcher-pfp-label")
+;           (label :text "${time0} - ${date}"
+;                  :class "launcher-pfp-label2")
+;           (box :orientation "h"
+;                :space-evenly true
+;                (button :class "launcher-btn"
+;                        :onclick "spotify & disown"
+;                        :tooltip "discord"
+;                        "ﭮ")
+;                (button :class "launcher-btn"
+;                        :onclick "spotify & disown"
+;                        :tooltip "spotify"
+;                        "")
+;                (button :class "launcher-btn"
+;                        :onclick "steam & disown"
+;                        :tooltip "steam"
+;                        "")
+;                (button :class "launcher-btn"
+;                        :onclick "firefox -P default-release & disown"
+;                        :tooltip "firefox non-private"
+;                        "")
+;                (button :class "launcher-btn"
+;                        :onclick "code & disown"
+;                        :tooltip "vscode"
+;                        "﬏"))))
