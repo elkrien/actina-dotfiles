@@ -95,6 +95,7 @@ tooltip label {
     font-family: "Inter Nerd Font";
 }
 
+
 //   POWER MENU WINDOW
 .power-icon
 {
@@ -383,6 +384,100 @@ calendar:indeterminate {
   min-height: 200px;
 }
 
+//   DASHBOARD
+.dashboard-icon
+{
+    color: $sky;
+    font-family: "Inter Nerd Font";
+    font-size: 24px;
+    margin: 0px 20px 0px 5px;
+}
+
+.dashboard-window
+{
+    background-color: $black2;
+    border-radius: 5px;
+    border: 3px solid $black3;
+}
+
+.dashboard-small-cal
+{  
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  background-color: $black3;
+  border-radius: 7px;
+}
+
+.dashboard-time-day
+{ 
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: $black3;
+  border-radius: 7px;
+}
+
+.dashboard-weather
+{ 
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: $black3;
+  border-radius: 7px;
+}
+
+.dashboard-time
+{
+    font-family: "Inter Nerd Font";
+    font-size: 80px;
+    margin-top: 10px;
+    color: $peach;
+    font-weight: 700;
+}
+
+.dashboard-day
+{
+  font-family: "Inter Nerd Font";
+  font-size: 24px;
+  font-weight: 700;
+  color: $green;
+}
+
+.dashboard-month
+{
+  font-family: "Inter Nerd Font";
+  font-size: 24px;
+  font-weight: 700;
+  color: $blue;
+}
+
+.dashboard-date
+{
+  font-family: "Inter Nerd Font";
+  color: $red;
+  font-size: 80px;
+  margin-top: 10px;
+  font-weight: 700;
+;
+}
+
+.dashboard-btn
+{
+    color: $white;
+    font-family: "Inter Nerd Font";
+    font-size: 50px;
+    margin-top: 80px;
+}
+
+.dashboard-btn:hover
+{
+    color: $lavender;
+    font-family: "Inter Nerd Font";
+    font-size: 50px;
+    margin-top: 80px;
+}
 /////////////////  NOT USED ///////////////////
 
 // // BATTERY
