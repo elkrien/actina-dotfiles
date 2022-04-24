@@ -63,7 +63,7 @@
         :cursor "hand"
         (button 
           :class "module-updates-icon" 
-          :onclick "alacritty -e sudo pacman -Syu && paru -Sua" 
+          :onclick "python3 ~/.scripts/check_updates.py" 
           :wrap "false" 
           :limit-width 20 
           :style "color: ${updatesVar.color};"
@@ -248,6 +248,7 @@
 ;; Dashboard variables
 (defpoll number_day :interval "5h" "date \"+%d\"")
 (defpoll month_name :interval "5h" "~/.config/eww/scripts/getmonth.sh")
+(defpoll day_name :interval "5h" "~/.config/eww/scripts/getday.sh")
 (defpoll weather-icon :interval "20m"  "cat /tmp/weather/weather-icon")
 (defpoll temperature :interval "20m"  "cat /tmp/weather/weather-degree")
 (defpoll weather-hex :interval "20m"  "cat /tmp/weather/weather-hex")
@@ -259,64 +260,47 @@
           :halign "end"
           :valign "center"
           :space-evenly "false"
-          (button :onclick "eww open --toggle dashboard-window"
+          (button :onclick "eww open-many --toggle dashboard-smcal-window dashboard-bigcal-window dashboard-weather-window dashboard-resources-window"
                   :class "dashboard-icon"
                   :tooltip "Dashboard"
                   ""))) ;;
 
-;; Dashboard elements widget
-(defwidget dashboard-elements []
-  (box
-    :orientation "v"
-    :space-evenly "false"
-    (box 
-      :orientation "h"
-      :space-evenly "false"
-      ;:halign "start"
-      ;:valign "start"
-      (box
-        :orientation "v"
+;; Dashboard small calendar
+(defwidget dashboard-smcal []
+  (box  :orientation "v"
         :space-evenly "false"
         :class "dashboard-small-cal"
-        :width "200"
-        :height "200"
-        (label 
-          :text "${number_day}"
-          :class "dashboard-date"
-        )
-        (label 
-          :text month_name
-          :class "dashboard-month"
-        )
-      )
-      (box
+    (label  :text "${number_day}"
+            :class "dashboard-date")
+    (label  :text month_name
+            :class "dashboard-month")))
+
+;; Dashboard big calendar
+(defwidget dashboard-bigcal []
+  (box
         :orientation "v"
         :space-evenly "false"
         :class "dashboard-time-day"
-        :width "300"
-        :height "200"
-        ;:halign: "center"
         (label
           :class "dashboard-time"
           :text "${timeVar}"
         )
         (label
           :class "dashboard-day"
-          :text "Poniedziałek"
+          :text day_name
         )
-      )
-    )
+   )
+)
+
+;; Dashboard weather
+(defwidget dashboard-weather []
     (box
       :space-evenly "false"
-      :class "dashboard-weather"
-      ;:width "300"
-      :height "180"
+      :class "dashboard-weather-resources"
       :orientation "h"
-      ;:halign "fill"
       (box 
         :orientation "h" 
         :space-evenly "false"
-        ; :width "150"
         (box 
           :class "weather-icon" 
           :style "color: ${weather-hex}" {weather-icon}
@@ -335,11 +319,14 @@
         )
       )
     )
-    (centerbox
+)
+
+;; Dashboard resources
+(defwidget dashboard-resources []
+
+  (centerbox
       :space-evenly "false"
-      :class "dashboard-weather"
-      :width "300"
-      :height "180"
+      :class "dashboard-weather-resources"
       :orientation "h" 
  			(box 
         :class "res_box" 
@@ -413,17 +400,8 @@
         )
 				(label :class "res_text_disk" :valign "end" :halign "center" :text "${round(EWW_DISK["/"].used_perc,1)}%")
       )
-    )
   )
 )
-
-;; Dashboard window widget (box)
-(defwidget dashboard []
-     (box :class "dashboard-window"
-          :orientation "v"
-          (dashboard-elements)))
-
-
 
 ;;;;;; POWER MENU WINDOW WIDGET
 
@@ -587,16 +565,49 @@
                         :anchor "top right")
     (powermenu))
 
-;; DASHBOARD WINDOW
-(defwindow dashboard-window
+;; DASHBOARD WINDOW - SMALL CALENDAR
+(defwindow dashboard-smcal-window
     :monitor 0
     :wm-ignore true
     :geometry (geometry :x "5px"
                         :y "40px"
-                        :width "500"
-                        :height "560"
+                        :width "160"
+                        :height "160"
                         :anchor "top left")
-    (dashboard))
+    (dashboard-smcal))
+
+;; DASHBOARD WINDOW - BIG CALENDAR
+(defwindow dashboard-bigcal-window
+    :monitor 0
+    :wm-ignore true
+    :geometry (geometry :x "170px"
+                        :y "40px"
+                        :width "280"
+                        :height "160"
+                        :anchor "top left")
+    (dashboard-bigcal))
+
+;; DASHBOARD WINDOW - WEATHER
+(defwindow dashboard-weather-window
+    :monitor 0
+    :wm-ignore true
+    :geometry (geometry :x "5px"
+                        :y "205px"
+                        :width "445"
+                        :height "160"
+                        :anchor "top left")
+    (dashboard-weather))
+
+;; DASHBOARD WINDOW - RESOURCES
+(defwindow dashboard-resources-window
+    :monitor 0
+    :wm-ignore true
+    :geometry (geometry :x "5px"
+                        :y "370px"
+                        :width "445"
+                        :height "160"
+                        :anchor "top left")
+    (dashboard-resources))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; NOT USED WIDGETS AND WINDOWS ;;;;;;;;;;;;;;;;;;;;

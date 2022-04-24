@@ -384,7 +384,7 @@ calendar:indeterminate {
   min-height: 200px;
 }
 
-//   DASHBOARD
+// DASHBOARD
 .dashboard-icon
 {
     color: $sky;
@@ -393,39 +393,25 @@ calendar:indeterminate {
     margin: 0px 20px 0px 5px;
 }
 
-.dashboard-window
-{
-    background-color: $black2;
-    border-radius: 5px;
-    border: 3px solid $black3;
-}
-
 .dashboard-small-cal
 {  
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  background-color: $black3;
-  border-radius: 7px;
+  background-color: $black2;
+  border-radius: 5px;
+  border: 3px solid $black3;
 }
 
 .dashboard-time-day
 { 
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: $black3;
-  border-radius: 7px;
+  background-color: $black2;
+  border-radius: 5px; 
+  border: 3px solid $black3;
 }
 
-.dashboard-weather
+.dashboard-weather-resources
 { 
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  background-color: $black3;
-  border-radius: 7px;
+  background-color: $black2;
+  border-radius: 5px;
+  border: 3px solid $black3;
 }
 
 .dashboard-time
@@ -467,11 +453,11 @@ calendar:indeterminate {
   margin: 0px 0px 0px 40px;
   font-family: "Inter Nerd Font";
 }
+
 .weather-stat {
   font-family: "Inter Nerd Font";
   font-size: 24px;
   font-weight: bold;
-  // margin-left: 35px;
   margin-top: 10px;
   color: $lavender;
 }
@@ -482,26 +468,23 @@ calendar:indeterminate {
   font-size: 48px;
   font-family: "Inter Nerd Font";
   font-weight: 900;
-  color: $yellow;
+  color: $pink;
 }
 
 .res_box {
-	// background-color: ;
-	// border: 1px solid #E6DFD7;
-	// border-radius: 12px;
 	padding: 14px 18px 14px 18px;
 }
 
 .res_circle {
-	background-color: $black4;
-	border: 0px solid $black2;
+	background-color: $black3;
+	border: 0px solid $black1;
 	border-radius: 100%;
 	padding: 0px;
 }
 
 .res_circle_small {
-	background-color: $black3;
-	border: 0px solid $black2;
+	background-color: $black2;
+	border: 0px solid $black3;
 	border-radius: 100%;
 	padding: 40px;
   font-family: "Inter Nerd Font";
@@ -509,8 +492,8 @@ calendar:indeterminate {
 }
 
 .res_text_cpu {
-	background-color: $black4;
-	border: 1px solid $black3;
+	background-color: $black3;
+	border: 1px solid $black1;
   font-family: "Inter Nerd Font";
   border-radius: 16px;
 	font-size : 14px;
@@ -521,8 +504,8 @@ calendar:indeterminate {
 }
 
 .res_text_mem {
-	background-color: $black4;
-	border: 1px solid $black3;
+	background-color: $black3;
+	border: 1px solid $black1;
   font-family: "Inter Nerd Font";
   border-radius: 16px;
 	font-size : 14px;
@@ -533,15 +516,15 @@ calendar:indeterminate {
 }
 
 .res_text_disk {
-	background-color: $black4;
-	border: 1px solid $black3;
+	background-color: $black3;
+	border: 1px solid $black1;
   font-family: "Inter Nerd Font";
   border-radius: 16px;
 	font-size : 14px;
 	padding: 0px 8px 0px 8px;
 	margin: 0px 0px 0px 0px;
 	font-weight : bold;
-  color: $maroon;
+  color: $yellow;
 }
 
 .res_cpu {
@@ -553,7 +536,7 @@ calendar:indeterminate {
 }
 
 .res_disk {
-	color: $maroon;
+	color: $yellow;
 }
 
 /////////////////  NOT USED ///////////////////
