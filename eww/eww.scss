@@ -462,22 +462,100 @@ calendar:indeterminate {
   font-weight: 700;
 ;
 }
-
-.dashboard-btn
-{
-    color: $white;
-    font-family: "Inter Nerd Font";
-    font-size: 50px;
-    margin-top: 80px;
+.weather-icon {
+  font-size: 120px;
+  margin: 0px 0px 0px 40px;
+  font-family: "Inter Nerd Font";
+}
+.weather-stat {
+  font-family: "Inter Nerd Font";
+  font-size: 24px;
+  font-weight: bold;
+  // margin-left: 35px;
+  margin-top: 10px;
+  color: $lavender;
 }
 
-.dashboard-btn:hover
-{
-    color: $lavender;
-    font-family: "Inter Nerd Font";
-    font-size: 50px;
-    margin-top: 80px;
+.temperature {
+  // margin-left: 35px;
+  margin-top: 30px;
+  font-size: 48px;
+  font-family: "Inter Nerd Font";
+  font-weight: 900;
+  color: $yellow;
 }
+
+.res_box {
+	// background-color: ;
+	// border: 1px solid #E6DFD7;
+	// border-radius: 12px;
+	padding: 14px 18px 14px 18px;
+}
+
+.res_circle {
+	background-color: $black4;
+	border: 0px solid $black2;
+	border-radius: 100%;
+	padding: 0px;
+}
+
+.res_circle_small {
+	background-color: $black3;
+	border: 0px solid $black2;
+	border-radius: 100%;
+	padding: 40px;
+  font-family: "Inter Nerd Font";
+  font-weight: bold;
+}
+
+.res_text_cpu {
+	background-color: $black4;
+	border: 1px solid $black3;
+  font-family: "Inter Nerd Font";
+  border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+  color: $green;
+}
+
+.res_text_mem {
+	background-color: $black4;
+	border: 1px solid $black3;
+  font-family: "Inter Nerd Font";
+  border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+  color: $blue;
+}
+
+.res_text_disk {
+	background-color: $black4;
+	border: 1px solid $black3;
+  font-family: "Inter Nerd Font";
+  border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+  color: $maroon;
+}
+
+.res_cpu {
+	color: $green;
+}
+
+.res_mem {
+	color: $blue;
+}
+
+.res_disk {
+	color: $maroon;
+}
+
 /////////////////  NOT USED ///////////////////
 
 // // BATTERY
