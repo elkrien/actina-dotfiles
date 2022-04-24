@@ -14,10 +14,10 @@ fi
 # If you dunno, head to openweathermap.org, and make and account 
 #(completely free I swear, and then get your API Key and  your City ID)
 # I wish I was smart enough to do it like Elena, but this is the top I could do lol
-KEY="2b19a7c68543a30e31f14cbdb52555d6"
-ID="759734"
-UNIT="metric" #Options are 'metric' and 'imperial'
-LANG="pl"
+KEY=""
+ID=""
+UNIT="" #Options are 'metric' and 'imperial'
+LANG=""
 weather=$(curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="$KEY"&id="$ID"&units="$UNIT"&lang="$LANG"")
 echo $weather
 if [ ! -z "$weather" ]; then
