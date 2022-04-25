@@ -417,8 +417,8 @@ calendar:indeterminate {
 .dashboard-time
 {
     font-family: "Inter Nerd Font";
-    font-size: 80px;
-    margin-top: 10px;
+    font-size: 70px;
+    margin-top: 15px;
     color: $peach;
     font-weight: 700;
 }
@@ -426,7 +426,7 @@ calendar:indeterminate {
 .dashboard-day
 {
   font-family: "Inter Nerd Font";
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: $green;
 }
@@ -434,7 +434,7 @@ calendar:indeterminate {
 .dashboard-month
 {
   font-family: "Inter Nerd Font";
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: $blue;
 }
@@ -443,20 +443,20 @@ calendar:indeterminate {
 {
   font-family: "Inter Nerd Font";
   color: $red;
-  font-size: 80px;
-  margin-top: 10px;
+  font-size: 70px;
+  margin-top: 15px;
   font-weight: 700;
 ;
 }
 .weather-icon {
-  font-size: 120px;
+  font-size: 100px;
   margin: 0px 0px 0px 40px;
   font-family: "Inter Nerd Font";
 }
 
 .weather-stat {
   font-family: "Inter Nerd Font";
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
   color: $lavender;
@@ -465,9 +465,9 @@ calendar:indeterminate {
 .temperature {
   // margin-left: 35px;
   margin-top: 30px;
-  font-size: 48px;
+  font-size: 50px;
   font-family: "Inter Nerd Font";
-  font-weight: 900;
+  font-weight: 700;
   color: $pink;
 }
 
@@ -500,7 +500,7 @@ calendar:indeterminate {
 	padding: 0px 8px 0px 8px;
 	margin: 0px 0px 0px 0px;
 	font-weight : bold;
-  color: $green;
+  color: $red;
 }
 
 .res_text_mem {
@@ -524,11 +524,11 @@ calendar:indeterminate {
 	padding: 0px 8px 0px 8px;
 	margin: 0px 0px 0px 0px;
 	font-weight : bold;
-  color: $yellow;
+  color: $green;
 }
 
 .res_cpu {
-	color: $green;
+	color: $red;
 }
 
 .res_mem {
@@ -536,7 +536,7 @@ calendar:indeterminate {
 }
 
 .res_disk {
-	color: $yellow;
+	color: $green;
 }
 
 /////////////////  NOT USED ///////////////////

@@ -10,38 +10,27 @@
 
 ;; WiFi widget
 (defwidget wifi [] 
-  (eventbox 
-    :tooltip "WIFI" 
-    :onhover "eww update wifi_rev=true"
-		:onhoverlost "eww update wifi_rev=false"
-		(box 
-      :vexpand "false" 
-      :hexpand "false" 
-      :space-evenly "false"
+  (eventbox :tooltip "WIFI" 
+            :onhover "eww update wifi_rev=true"
+		        :onhoverlost "eww update wifi_rev=false"
+		(box  :vexpand "false" 
+          :hexpand "false" 
+          :space-evenly "false"
 			(eventbox 
-        :cursor "hand"
-        (button 
-          :class "module-wifi" 
-          :onclick "alacritty -e nmtui" 
-          :wrap "false" 
-          :limit-width 12 
-          :style "color: ${wifiVar.color};" "${wifiVar.icon}"
-        )
-      )
-	    (revealer 
-        :transition "slideright"
-			  :reveal wifi_rev
-			  :duration "350ms"
-	      (label  
-          :class "module_essid"
-			    :text "${wifiVar.content}"
-          :style "color: ${wifiVar.color};"
-			    :orientation "h"
-			  )
-      )
-    )
-  )
-)
+        (button :class "module-wifi" 
+                :onclick "alacritty -e nmtui & disown" 
+                :wrap "false" 
+                :limit-width 12 
+                :style "color: ${wifiVar.color};" 
+                "${wifiVar.icon}"))
+	    (revealer :transition "slideright"
+			          :reveal wifi_rev
+			          :duration "350ms"
+	      (button :class "module_essid"
+                :onclick "alacritty -e nmtui & disown" 
+                :style "color: ${wifiVar.color};"
+			          :orientation "h"
+                "${wifiVar.content}" )))))
 
 ;;;;;; UPDATES WIDGET
 
@@ -51,39 +40,29 @@
 
 ;; Updates widget
 (defwidget updates [] 
-  (eventbox 
-    :tooltip "System updates" 
-    :onhover "eww update upd=true"
-    :onhoverlost "eww update upd=false"
-		(box 
-      :vexpand "false" 
-      :hexpand "false" 
-      :space-evenly "false"
+  (eventbox :tooltip "System updates" 
+            :onhover "eww update upd=true"
+            :onhoverlost "eww update upd=false"
+		(box  :vexpand "false" 
+          :hexpand "false" 
+          :space-evenly "false"
       (eventbox 
-        :cursor "hand"
-        (button 
-          :class "module-updates-icon" 
-          :onclick "python3 ~/.scripts/check_updates.py" 
-          :wrap "false" 
-          :limit-width 20 
-          :style "color: ${updatesVar.color};"
-          ""
-        )
-      )
-	    (revealer 
-        :transition "slideright"
-        :reveal upd
-        :duration "350ms"
-	      (label
-          :class "module-updates-text"
-          :text "${updatesVar.content}"
-          :style "color: ${updatesVar.color};"			  
-          :orientation "h"
-			  )
-      )
-    )
-  )
-)
+        (button :class "module-updates-icon" 
+                :onclick "python3 ~/.scripts/check_updates.py & disown"
+                :onrightclick "alacritty -e paru & disown"
+                :wrap "false" 
+                :limit-width 20 
+                :style "color: ${updatesVar.color};"
+                ""))
+	    (revealer :transition "slideright"
+                :reveal upd
+                :duration "350ms"
+	      (button :class "module-updates-text"
+                :onclick "python3 ~/.scripts/check_updates.py & disown"
+                :onrightclick "alacritty -e paru & disown"
+                :style "color: ${updatesVar.color};"			  
+                :orientation "h"
+                "${updatesVar.content}")))))
 
 ;;;;;; SOUND AND MICROPHONE WIDGETS
 ;; Volume and mic variables
@@ -94,70 +73,43 @@
 
 ;; Volume widget
 (defwidget volume []
-  (eventbox 
-    :tooltip "Sound volume: ${volumepoll.content}%" 
-    :onhover "eww update volum=true && eww update currentVolume=$(pamixer --get-volume)"   
-    :onhoverlost "eww update volum=false"
-    (box 
-      :orientation "h" 
-      :space-evenly false 
+  (eventbox :tooltip "Sound volume: ${volumepoll.content}%" 
+            :onhover "eww update volum=true && eww update currentVolume=$(pamixer --get-volume)"   
+            :onhoverlost "eww update volum=false"
+    (box  :orientation "h" 
+          :space-evenly false 
       (eventbox 
-        :cursor "hand"
-        (button 
-          :class "${volumepoll.class} label" 
-          :onclick `eww update volumepoll="$(~/.config/eww/scripts/volume.sh toggle)"` "${volumepoll.icon} "
-        )
-      )
-      (revealer
-        :transition "slideleft" 
-			  :reveal volum
-			  :duration "500ms"
-        (scale
-          :class "volumeBar"
-          :min 0
-          :max 101
-          :onchange `eww update volumepoll="$(~/.config/eww/scripts/volume.sh {})"`
-          :value "${volumepoll.content}"
-        )
-      )
-    )
-  )
-)
+        (button :class "${volumepoll.class} label" 
+                :onclick `eww update volumepoll="$(~/.config/eww/scripts/volume.sh toggle)"` "${volumepoll.icon} "))
+      (revealer :transition "slideleft" 
+			          :reveal volum
+			          :duration "500ms"
+        (scale  :class "volumeBar"
+                :min 0
+                :max 101
+                :onchange `eww update volumepoll="$(~/.config/eww/scripts/volume.sh {})"`
+                :value "${volumepoll.content}")))))
 
 ;; Microphone widget
 (defwidget micvolume []
-  (eventbox
-    :tooltip "Mic volume: ${micvolumepoll.content}%"
-    :onhover "eww update micvolum=true"
-    :onhoverlost "eww update micvolum=false"
-    (box
-      :orientation "h"
-      :space-evenly false
+  (eventbox :tooltip "Mic volume: ${micvolumepoll.content}%"
+            :onhover "eww update micvolum=true"
+            :onhoverlost "eww update micvolum=false"
+    (box  :orientation "h"
+          :space-evenly false
       (eventbox
-        :cursor "hand"
-        (button
-          :class "${micvolumepoll.class} label"
-          :onclick `eww update micvolumepoll="$(~/.config/eww/scripts/micvolume.sh toggle)"` "${micvolumepoll.icon} "
-        )
-      )
-      (revealer
-        :transition "slideleft"
-			  :reveal micvolum
-			  :duration "500ms"
-        (scale
-          :class "volumemicBar"
-          :min 0
-          :max 101
-          :onchange `eww update micvolumepoll="$(./scripts/micvolume.sh {})"`
-          :value "${micvolumepoll.content}"
-        )
-      )
-    )
-  )
-)
+        (button :class "${micvolumepoll.class} label"
+                :onclick `eww update micvolumepoll="$(~/.config/eww/scripts/micvolume.sh toggle)"` "${micvolumepoll.icon} "))
+      (revealer :transition "slideleft"
+			          :reveal micvolum
+			          :duration "500ms"
+        (scale  :class "volumemicBar"
+                :min 0
+                :max 101
+                :onchange `eww update micvolumepoll="$(./scripts/micvolume.sh {})"`
+                :value "${micvolumepoll.content}")))))
 
 ;;;;;; DATE AND TIME WIDGET
-
 ;; Date and time variables
 (defvar time false)
 (defpoll timeVar :interval "1s" "date '+%H:%M'")
@@ -166,34 +118,23 @@
 ;; Date and time widget
 (defwidget time []
   (eventbox
-    :cursor "hand"
-	  (button
-      :class "date"	
-			:tooltip "${dateVar}"
-			:onclick "eww open --toggle calendar"	"${timeVar}"
-    )
-  )
-)
+	  (button :class "date"	
+			      :tooltip "${dateVar}"
+			      :onclick "eww open --toggle calendar"	"${timeVar}")))
 
 ;;;;;; WORKSPACES WIDGET
-
 ;; Workspaces widget variables
 (deflisten wm-tags "leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid")
 
 ;; Workspaces widget
 (defwidget workspaces []
-  (box 
-    :class "workspaces"
-    :orientation "h"
-    :space-evenly true
-    :valign "center"
-    :halign "start"
-    :spacing 8
-    (literal 
-      :content {wm-tags}
-    )
-  )
-)
+  (box  :class "workspaces"
+        :orientation "h"
+        :space-evenly true
+        :valign "center"
+        :halign "start"
+        :spacing 8
+    (literal :content {wm-tags})))
 
 ;;;;;; MUSIC BAR CONTROLS WIDGET
 
@@ -204,47 +145,30 @@
 
 ;; Music bar widget
 (defwidget music []
-  (box 
-    :orientation "h"
-    :space-evenly false   
-    :tooltip music-name
-    (button 
-      :onclick "playerctl previous"
-      :class "prev-next-icon" "ﭢ"
-    )
-    (button 
-      :onclick "~/.config/eww/scripts/music.sh toggle-music"
-      :class "music-icon" music-icon
-    )
-    (button 
-      :onclick "playerctl next"
-      :class "prev-next-icon" "ﭠ"
-    )
-    (button
-      :onclick "eww open --toggle music-player-window"
-      :class "music-title-bar" 
-      (label
-        :text music-title
-        :limit-width 30
-      )
-    )
-  )
-)
+  (box  :orientation "h"
+        :space-evenly false   
+        :tooltip music-name
+    (button :onclick "playerctl previous"
+            :class "prev-next-icon" "ﭢ")
+    (button :onclick "~/.config/eww/scripts/music.sh toggle-music"
+            :class "music-icon" music-icon)
+    (button :onclick "playerctl next"
+            :class "prev-next-icon" "ﭠ")
+    (button :onclick "eww open --toggle music-player-window"
+            :class "music-title-bar" 
+      (label  :text music-title
+              :limit-width 30))))
 
 ;;;;;; MUSIC PLAYER WIDGET
-
 ;; Music player variables
 (defpoll playercontrols :interval "1s" "scripts/music-window.sh")
 
 ;; Music player widget
 (defwidget music-player []
   (box :class "player"
-    (literal :content playercontrols :valign "center")
-  )
-)
+    (literal :content playercontrols :valign "center")))
 
 ;;;;;; DASHBOARD WIDGET
-
 ;; Dashboard variables
 (defpoll number_day :interval "5h" "date \"+%d\"")
 (defpoll month_name :interval "5h" "~/.config/eww/scripts/getmonth.sh")
@@ -256,14 +180,14 @@
 
 ;; Dashboard icon widget
 (defwidget dashboard-icon []
-     (box :orientation "h"
-          :halign "end"
-          :valign "center"
-          :space-evenly "false"
-          (button :onclick "eww open-many --toggle dashboard-smcal-window dashboard-bigcal-window dashboard-weather-window dashboard-resources-window"
-                  :class "dashboard-icon"
-                  :tooltip "Dashboard"
-                  ""))) ;;
+  (box  :orientation "h"
+        :halign "end"
+        :valign "center"
+        :space-evenly "false"
+    (button :onclick "eww open-many --toggle dashboard-smcal-window dashboard-bigcal-window dashboard-weather-window dashboard-resources-window"
+            :class "dashboard-icon"
+            :tooltip "Dashboard"
+            ""))) ;;   ﯟ ﰧ   ﰧ 
 
 ;; Dashboard small calendar
 (defwidget dashboard-smcal []
@@ -277,231 +201,180 @@
 
 ;; Dashboard big calendar
 (defwidget dashboard-bigcal []
-  (box
-        :orientation "v"
+  (box  :orientation "v"
         :space-evenly "false"
         :class "dashboard-time-day"
-        (label
-          :class "dashboard-time"
-          :text "${timeVar}"
-        )
-        (label
-          :class "dashboard-day"
-          :text day_name
-        )
-   )
-)
+    (label  :class "dashboard-time"
+            :text "${timeVar}")
+    (label  :class "dashboard-day"
+            :text day_name)))
 
 ;; Dashboard weather
 (defwidget dashboard-weather []
-    (box
-      :space-evenly "false"
-      :class "dashboard-weather-resources"
-      :orientation "h"
-      (box 
-        :orientation "h" 
-        :space-evenly "false"
-        (box 
-          :class "weather-icon" 
-          :style "color: ${weather-hex}" {weather-icon}
-        )
-        
-      )
-      (box 
-        :orientation "v" 
-        :space-evenly "false"
-        :hexpand "true"
-        (box 
-          :class "temperature" "${temperature}  "
-        )
-        (box 
-          :class "weather-stat" {weather-stat}
-        )
-      )
-    )
-)
+  (box  :space-evenly "false"
+        :class "dashboard-weather-resources"
+        :orientation "h"
+    (box  :orientation "h" 
+          :space-evenly "false"
+      (box  :class "weather-icon" 
+            :style "color: ${weather-hex}" {weather-icon}))
+    (box  :orientation "v" 
+          :space-evenly "false"
+          :hexpand "true"
+      (box  :class "temperature" "${temperature}  ")
+      (box  :class "weather-stat" {weather-stat}))))
 
 ;; Dashboard resources
 (defwidget dashboard-resources []
-
-  (centerbox
-      :space-evenly "false"
-      :class "dashboard-weather-resources"
-      :orientation "h" 
- 			(box 
-        :class "res_box" 
-        :orientation "v" 
-        :valign "center" 
-        :halign "center" 
-        :spacing 15 
-        :space-evenly "false"
-				(box 
-          :class "res_circle" 
+  (centerbox  :space-evenly "false"
+              :class "dashboard-weather-resources"
+              :orientation "h" 
+ 		(box  :class "res_box" 
           :orientation "v" 
           :valign "center" 
-          :halign "center"
-					(circular-progress 
-            :class "res_cpu" 
-            :value {EWW_CPU.avg} 
-            :thickness 12
-						(label 
-              :class "res_circle_small" 
-              :text "CPU"
-            )
-          )
-        )
-				(label :class "res_text_cpu" :valign "end" :halign "center" :text "${round(EWW_CPU.avg,1)}%")
-      )
-      (box 
-        :class "res_box" 
-        :orientation "v" 
-        :valign "center" 
-        :halign "center" 
-        :spacing 15 
-        :space-evenly "false"
-				(box 
-          :class "res_circle" 
+          :halign "center" 
+          :spacing 15 
+          :space-evenly "false"
+			(box  :class "res_circle" 
+            :orientation "v" 
+            :valign "center" 
+            :halign "center"
+				(circular-progress  :class "res_cpu" 
+                            :value {EWW_CPU.avg} 
+                            :thickness 12
+					(label  :class "res_circle_small" 
+                  :text "CPU")))
+			(label :class "res_text_cpu" 
+             :valign "end" 
+             :halign "center" 
+             :text "${round(EWW_CPU.avg,1)}%"))
+    (box  :class "res_box" 
           :orientation "v" 
           :valign "center" 
-          :halign "center"
-					(circular-progress 
-            :class "res_mem" 
-            :value {EWW_RAM.used_mem_perc} 
-            :thickness 12
-						(label 
-              :class "res_circle_small" 
-              :text "MEM"
-            )
-          )
-        )
-				(label :class "res_text_mem" :valign "end" :halign "center" :text "${round(EWW_RAM.used_mem_perc,1)}%")
-      )
-      (box 
-        :class "res_box" 
-        :orientation "v" 
-        :valign "center" 
-        :halign "center" 
-        :spacing 15 
-        :space-evenly "false"
-				(box 
-          :class "res_circle" 
+          :halign "center" 
+          :spacing 15 
+          :space-evenly "false"
+			(box  :class "res_circle" 
+            :orientation "v" 
+            :valign "center" 
+            :halign "center"
+				(circular-progress  :class "res_mem" 
+                            :value {EWW_RAM.used_mem_perc} 
+                            :thickness 12
+					(label  :class "res_circle_small" 
+                  :text "MEM")))
+			(label  :class "res_text_mem" 
+              :valign "end" 
+              :halign "center" 
+              :text "${round(EWW_RAM.used_mem_perc,1)}%"))
+    (box  :class "res_box" 
           :orientation "v" 
           :valign "center" 
-          :halign "center"
-					(circular-progress 
-            :class "res_disk" 
-            :value {EWW_DISK["/"].used_perc} 
-            :thickness 12
-						(label 
-              :class "res_circle_small" 
-              :text "HDD"
-            )
-          )
-        )
-				(label :class "res_text_disk" :valign "end" :halign "center" :text "${round(EWW_DISK["/"].used_perc,1)}%")
-      )
-  )
-)
+          :halign "center" 
+          :spacing 15 
+          :space-evenly "false"
+			(box  :class "res_circle" 
+            :orientation "v" 
+            :valign "center" 
+            :halign "center"
+				(circular-progress  :class "res_disk" 
+                            :value {EWW_DISK["/"].used_perc} 
+                            :thickness 12
+					(label  :class "res_circle_small" 
+                  :text "HDD")))
+			(label  :class "res_text_disk" 
+              :valign "end" 
+              :halign "center" 
+              :text "${round(EWW_DISK["/"].used_perc,1)}%"))))
 
 ;;;;;; POWER MENU WINDOW WIDGET
 
-;; Powermenu window (box) icons widget 
+;; Powermenu window (box) widget 
 (defwidget lock-power-restart-logout []
-     (box :orientation "v"
+  (box  :orientation "v"
+        :halign "center"
+        :valign "center"
+        :space-evenly "false"
+        :spacing 30
+    (box  :orientation "v"
           :halign "center"
           :valign "center"
           :space-evenly "false"
-          :spacing 30
-          (box :orientation "v"
-               :halign "center"
-               :valign "center"
-               :space-evenly "false"
-               (button :onclick "systemctl reboot"
-                    :class "restart-btn"
-                    :tooltip "Restart"
-                    ""))
-          (box :orientation "v"
-               :halign "center"
-               :valign "center"
-               :space-evenly "false"
-               (button :onclick "~/.scripts/lock.sh"
-                    :class "lock-btn"
-                    :tooltip "Lock"
-                    ""))
-          (box :orientation "v"
-               :halign "center"
-               :valign "center"
-               :space-evenly "false"
-               (button :onclick "systemctl suspend"
-                    :class "sleep-btn"
-                    :tooltip "Suspend"
-                    ""))
-          (box :orientation "v"
-               :halign "center"
-               :valign "center"
-               :space-evenly "false"
-               (button :onclick "pkill -f leftwm"
-                    :class "logout-btn"
-                    :tooltip "Logout"
-                    ""))
-          (box :orientation "v"
-               :halign "center"
-               :valign "center"
-               :space-evenly "false"
-               (button :onclick "systemctl poweroff"
-                       :class "power-btn"
-                       :tooltip "Power off"
-                       ""))))
+      (button :onclick "systemctl reboot"
+              :class "restart-btn"
+              :tooltip "Restart"
+              ""))
+    (box  :orientation "v"
+          :halign "center"
+          :valign "center"
+          :space-evenly "false"
+      (button :onclick "eww open --toggle powermenu-window && ~/.scripts/lock.sh"
+              :class "lock-btn"
+              :tooltip "Lock"
+              ""))
+    (box  :orientation "v"
+          :halign "center"
+          :valign "center"
+          :space-evenly "false"
+      (button :onclick "systemctl suspend"
+              :class "sleep-btn"
+              :tooltip "Suspend"
+              ""))
+    (box  :orientation "v"
+          :halign "center"
+          :valign "center"
+          :space-evenly "false"
+      (button :onclick "pkill -f leftwm"
+              :class "logout-btn"
+              :tooltip "Logout"
+              ""))
+    (box  :orientation "v"
+          :halign "center"
+          :valign "center"
+          :space-evenly "false"
+      (button :onclick "systemctl poweroff"
+              :class "power-btn"
+              :tooltip "Power off"
+              ""))))
 
 ;; Powermenu window widget (box)
 (defwidget powermenu []
-     (box :class "powermenu"
-          :orientation "v"
-          (lock-power-restart-logout)))
+  (box  :class "powermenu"
+        :orientation "v"
+    (lock-power-restart-logout)))
 
 ;; Powermenu window bar icon widget
 (defwidget power-window []
-     (box :orientation "h"
-          :halign "end"
-          :valign "center"
-          :space-evenly "false"
-          (button :onclick "eww open --toggle powermenu-window"
-                  :onrightclick "systemctl poweroff"
-                  :class "power-icon"
-                  :tooltip "PowerMenu"
-                  "⏻")))
+  (box  :orientation "h"
+        :halign "end"
+        :valign "center"
+        :space-evenly "false"
+    (button :onclick "eww open --toggle powermenu-window"
+            :onrightclick "systemctl poweroff"
+            :class "power-icon"
+            :tooltip "PowerMenu"
+            "⏻")))
 
 ;;;;;; MAIN BAR WIDGET
 (defwidget bar []
   (centerbox
-    (box 
-      :space-evenly false 
-      :orientation "h"     
+    (box  :space-evenly false 
+          :orientation "h"     
       (dashboard-icon)
-      (music)
-    )
-    (box 
-      :space-evenly false 
-      :orientation "h"
-      (workspaces)
-    )
-    (box 
-      :halign "end" 
-      :hexpand true 
-      :orientation "h" 
-      :space-evenly false
+      (music))
+    (box  :space-evenly false 
+          :orientation "h"
+      (workspaces))
+    (box  :halign "end" 
+          :hexpand true 
+          :orientation "h" 
+          :space-evenly false
       (updates)
-      ; (bat)
-      ; (bright)
       (volume)
       (micvolume)
       (wifi)
       (time)
-      ; (power) ;power menu on bar (reveal)
-      (power-window)
-    )
-  )
-)
+      (power-window))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    WINDOWS    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -509,38 +382,27 @@
 
 ;; CALENDAR WINDOW 
 (defwindow calendar
-	:geometry 
-    (geometry 
-      :x "-1%" 
-	    :y "4%" 
-		  :width "270px" 
-		  :height "60px"
-      :anchor "top right"
-    )
-    (calendar 
-      :class "cal"
-    )
-)
+  :monitor 0
+  :wm-ignore true
+	:geometry (geometry :x "-1%" 
+	                    :y "4%" 
+		                  :width "270px" 
+		                  :height "60px"
+                      :anchor "top right")
+  (calendar :class "cal"))
 
 ;; BAR WINDOW
 (defwindow bar 
-    :monitor 0
-    :wm-ignore false
-    :reserve 
-      (struts 
-        :distance "38px" 
-        :side "top"
-      )
-    :windowtype "dock"
-    :stacking "bg"
-    :geometry 
-      (geometry 
-        :width "100%"
-        :height "20px"
-        :anchor "top left"
-      )
-    (bar)
-)
+  :monitor 0
+  :wm-ignore false
+  :reserve (struts  :distance "38px" 
+                    :side "top")
+  :windowtype "dock"
+  :stacking "bg"
+  :geometry (geometry :width "100%"
+                      :height "20px"
+                      :anchor "top left")
+  (bar))
 
 ;; MUSIC PLAYER WINDOW
 (defwindow music-player-window
@@ -551,8 +413,7 @@
                       :width "600"
                       :height "240px"
                       :anchor "top left")
-  (music-player)
-)
+  (music-player))
 
 ;; POWERMENU WINDOW
 (defwindow powermenu-window
@@ -841,141 +702,6 @@
 
 
 
-; (defwidget launchermenu []
-;      (box :class "launchermenu"
-;           :orientation "v"
-;           (pfp)))
-;
-; (defwidget sep []
-;   (box :orientation "h"
-;        :valign "center"
-;        (label :class "sepbar" :text "|")))
-;
-; (defwidget workspaces []
-;      (literal :content ws))
-
-; (defwidget music []
-;     (box :class "music"
-;          :orientation "h"
-;          :space-evenly true
-;          :halign "center"
-;          :valign "center"
-;          :tooltip "music"
-;          (eventbox :onhover "${eww} update hover_mus=true"
-;                    :onhoverlost "${eww} update hover_mus=false"
-;                    (box :orientation "h"
-;                         :space-evenly "false"
-;                         :halign "start"
-;                         :valign "center"
-;                         (label :class "music-label"
-;                                :text song_artist
-;                                :wrap "true")
-;                         (revealer :reveal hover_mus
-;                                   :transition "slideright"
-;                                   :duration "0.5"
-;                                   (box :orientation "h"
-;                                        :space-evenly "false"
-;                                        :halign "start"
-;                                        :valign "center"
-;                                        (button :class "song_btn_prev" :onclick "/home/okk/Documents/eww/bar/scripts/music_info --prev" "")
-;                                        (button :class "song_btn_play" :onclick "/home/okk/Documents/eww/bar/scripts/music_info --toggle" song_status)
-;                                        (button :class "song_btn_next" :onclick "/home/okk/Documents/eww/bar/scripts/music_info --next" "")))))))
-;
-; (defwidget vol []
-;     (box :class "micvol"
-;          :halign "start"
-;          :valign "center"
-;          :orientation "h"
-;          (box :class "menu-box"
-;               :orientation "h"
-;               :halign "end"
-;               :valign "center"
-;               :space-evenly "false"
-;               (button :onclick "/home/okk/Documents/eww/bar/scripts/pop-launcher"
-;                       ""))
-;          (box :class "mic"
-;               (eventbox :onhover "${eww} update hover_mic=true"
-;                         :onhoverlost "${eww} update hover_mic=false"
-;               (box :orientation "h"
-;                    :space-evenly "false"
-;                    :halign "start"
-;                    :valign "center"
-;                    (label :text ""
-;                           :wrap "true"
-;                           :class "mic-icon")
-;                           (revealer :reveal true
-;                                     :transition "slideright"
-;                                     :duration "0.5"
-;                                     (scale :class "micbar"
-;                                            :orientation "h"
-;                                            :value mic_percent
-;                                            :tooltip "mic is on ${mic_percent}%"
-;                                            :min-value 0
-;                                            :max-value 100
-;                                            :onchange "amixer -D pulse sset Capture {}%")))))
-;          (box :class "vol"
-;               (eventbox :onhover "${eww} update hover_vol=true"
-;                         :onhoverlost "${eww} update hover_vol=false"
-;                         (box :orientation "h"
-;                              :space-evenly "false"
-;                              :halign "start"
-;                              :valign "center"
-;                              (label :text ""
-;                                     :wrap "true"
-;                                     :class "vol-icon")
-;                                     (revealer :reveal true
-;                                               :transition "slideright"
-;                                               :duration "0.5"
-;                                               (scale :class "volbar"
-;                                                      :orientation "h"
-;                                                      :value volume_percent
-;                                                      :tooltip "volume is on ${volume_percent}%"
-;                                                      :min-value 0
-;                                                      :max-value 100
-;                                                      :onchange "amixer -D pulse sset Master {}%")))))))
-;
-; (defwidget cpu-and-mem []
-;     (box :class "cpu-and-mem"
-;          :orientation "h"
-;          :halign "end"
-;          :valign "center"
-;          :space-evenly "false"
-;          (circular-progress :class "cpu"
-;                             :tooltip "using ${cpu}% cpu"
-;                             :value cpu
-;                             :thickness 12)
-;          (circular-progress :class "mem"
-;                             :tooltip "using ${memory}% ram"
-;                             :value memory
-;                             :thickness 12)))
-
-; (defwidget power-time-cpu-mem-music []
-;     (box :class "time-cpu-mem"
-;          :halign "end"
-;          :valign "center"
-;          :space-evenly "false"
-;          :orientation "h"
-;          (music)
-;          (sep)
-;          (cpu-and-mem)
-;          (sep)
-;          (label :text "${date}/"
-;                 :class "time-label"
-;                 :halign "end"
-;                 :valign "center"
-;                 :space-evenly "false"
-;                 :tooltip "time"
-;                 :orientation "h")
-;          (label :text time0
-;                 :class "time-label"
-;                 :halign "end"
-;                 :valign "center"
-;                 :space-evenly "false"
-;                 :tooltip "time"
-;                 :orientation "h"
-;                 )
-;           (sep)
-;           (power)))
 
 
 ; (defwidget pfp []

@@ -18,13 +18,15 @@ eww daemon &
 
 # Boot picom or compton if it exists
 picom --experimental-backends --config ~/.config/picom/picom.conf &> /dev/null &
-# picom --experimental-backends --config ~/Pobrane/bspdots-main/config/picom/picom.conf &> /dev/null &
 
 # Set the theme.toml config
 leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
 
 # set background
 nitrogen --restore
+
+# get weather
+/home/mm/.config/eww/scripts/weather.sh
 
 # run polkit deamon
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
@@ -33,7 +35,7 @@ nitrogen --restore
 setxkbmap -layout pl
 
 # set touchpad (for Lenovo laptop)
-xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+# xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
 
 # Locksreen
 xidlehook \
@@ -53,8 +55,6 @@ index=0
 sizes=( $(leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' ) )
 for size in "${sizes[@]}"
 do
-  eww open bar
-  eww close bar
   eww open bar
   let index=index+1
 done

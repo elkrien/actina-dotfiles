@@ -1,5 +1,5 @@
 #!/bin/bash
-day_num=$(date "+%m")
+day_num=$(date "+%u")
 
 if [ $day_num == 1 ]; then
 	day="Poniedziałek"

@@ -20,8 +20,8 @@ height = 600
 width = 1200
 
 [[scratchpad]]
-name = "ranger"
-value = "alacritty -e ranger"
+name = "joshuto"
+value = "alacritty -e joshuto"
 x = 350
 y = 250
 height = 600
@@ -55,7 +55,7 @@ key = "Return"
 # Open Ranger in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
-value = "ranger"
+value = "joshuto"
 modifier = ["modkey", "Shift"]
 key = "e"
 
@@ -122,6 +122,13 @@ value = "mailspring"
 modifier = ["modkey"]
 key = "m"
 
+# Open Discord
+[[keybind]]
+command = "Execute"
+value = "powercord"
+modifier = ["modkey"]
+key = "d"
+
 # Screenshot Menu 
 [[keybind]]
 command = "Execute"
@@ -132,15 +139,8 @@ key = "s"
 # Screenshot Menu (rofi)
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/rofi-screenshot"
+value = "simplescreenrecorder"
 modifier = ["modkey", "Shift"]
-key = "s"
-
-# Screenshot rofi stop recording
-[[keybind]]
-command = "Execute"
-value = "~/.scripts/rofi-screenshot -s"
-modifier = ["modkey", "Control"]
 key = "s"
 
 # Windows switcher

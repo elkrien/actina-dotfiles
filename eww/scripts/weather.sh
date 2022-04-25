@@ -92,6 +92,14 @@ if [ ! -z "$weather" ]; then
     fi
       echo "$weather_icon" >  $tmp_weather_icon
       echo "$weather_description" > $tmp_weather_stat
+      
+      desc=$(cat /tmp/weather/weather-stat)
+      desc_count=$(cat /tmp/weather/weather-stat | wc -c)
+      if [ "$desc_count" -lt 15 ]; then
+        echo "$weather_description" > $tmp_weather_stat      
+      else 
+        echo "$(cat /tmp/weather/weather-stat | cut -c1-12)""..." > $tmp_weather_stat
+      fi
       echo "$weather_temp""°C" > $tmp_weather_degree
       echo "$weather_hex" > $tmp_weather_hex
     else
