@@ -1,0 +1,10 @@
+theme = "catppuccin"
+
+[editor]
+auto-completion = true
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"

@@ -24,9 +24,9 @@
 - **Compositor:** Picom (jonaburg)
 - **Notify Daemon:** Dunst
 - **Application Launcher:** Rofi
-- **File Manager:** Nemo + Ranger
+- **File Manager:** Nemo + Joshuto
 - **Music Player:** NCSpot + PyRadio
-- **IDE:** LunarVim + VSCode
+- **Editor/IDE:** Helix + AstroNvim + VSCode
 - **Fonts:** JetBrains Mono Nerd Fonts, Inter Nerd Fonts, Open Sans
 - **Screenlock:** i3lock-color + xidlehook
 - **Wallpapers manager:** Nitrogen

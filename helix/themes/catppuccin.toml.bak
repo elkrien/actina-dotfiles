@@ -1,0 +1,97 @@
+# Catppuccin
+# Author : elkrien <elkrien@gmail.com>
+
+"ui.selection" = { bg = "white" }
+"type" = { fg = "yellow", modifiers = ["italic"] }
+"constructor" = { fg = "lavender" }
+"constant" = { fg = "peach" }
+"constant.character.escape" = { fg = "pink" }
+"constant.numeric" = { fg = "peach" }
+"constant.builtin" = { fg = "lavender", modifiers = ["italic"] }
+"constant.builtin.boolean" = { fg = "peach", modifiers = ["bold", "italic"] }
+"string" = { fg = "green" }
+"string.regexp" = { fg = "peach" }
+"comment" = { fg = "gray", modifiers = ["italic"] }
+#"variable"
+"variable.function" = { fg = "blue", modifiers = ["italic"] }
+"variable.parameter" = { fg = "rosewater", modifiers = ["italic"] }
+"variable.other" = { fg = "white", modifiers = ["italic"] }
+"variable.other.member" = { fg = "rosewater" }
+"variable.builtin" = { fg = "teal" }
+"punctuation" = { fg = "teal" }
+"punctuation.delimeter" = { fg = "teal" }
+"punctuation.bracket" = { fg = "gray1" }
+#"ui.selection" = { fg = "black", bg = "white" }
+
+
+#"function" = { fg = "blue" }
+#"keyword" = { fg = "teal" }
+#"operator" = { fg = "sky" }
+# "punctuation" = { fg = "blue" }
+#"string" = { fg = "green" }
+# "string.regexp" = { fg = "red" }
+#"tag" = { fg = "blue" }
+#"type" = { fg = "blue" }
+# "type.enum.variant" = { fg = "foreground", modifiers = ["italic"] }
+#"variable" = { fg = "peach" }
+# "variable.builtin" = { fg = "blue", modifiers = ["italic"] }
+# "variable.parameter" = { fg ="peach", modifiers = ["italic"] }
+
+#"diff.plus" = { fg = "green" }
+#"diff.delta" = { fg = "yellow" }
+#"diff.minus" = { fg = "red" }
+
+#"ui.background" = { fg = "white", bg = "black2" }
+#"ui.cursor" =  { fg = "black", bg = "white", modifiers = ["dim"] }
+# ui.selection = { bg = "red" }
+#"ui.cursor.select" = { bg = "gray" }
+#"ui.cursor.match" = { fg = "peach", modifiers = ["bold", "underlined"] }
+#"ui.cursor.primary" = { fg = "black", bg = "white", modifier = ["dim"] }
+#"ui.help" = { fg = "foreground", bg = "background_light" }
+#"ui.linenr" = { fg = "selection_background" }
+#"ui.linenr.selected" = { fg = "green" }
+#"ui.menu" = { fg = "foreground", bg = "background_light" }
+#"ui.menu.selected" = { fg = "blue", bg = "background_dark" }
+#"ui.popup" = { fg = "foreground", bg = "background_dark" }
+#"ui.selection" = { bg = "gray2" }
+#"ui.selection.primary" = { bg = "gray2" }
+#"ui.statusline" = { fg = "foreground", bg = "background_light" }
+#"ui.statusline.inactive" = { fg = "comment", bg = "background_dark" }
+#"ui.text" = { fg = "rosewater" }
+#"ui.text.focus" = { fg = "blue" }
+#"ui.window" = { fg = "foreground" }
+
+#"error" = { fg = "red", modifiers = ["bold"] }
+#"warning" = { fg = "yellow" }
+
+#"markup.heading" = { fg = "peach", modifiers = ["bold"] }
+#"markup.list" = "blue"
+#"markup.bold" = { fg = "peach", modifiers = ["bold"] }
+#"markup.italic" = { fg = "yellow", modifiers = ["italic"] }
+#"markup.link.url" = "blue"
+#"markup.link.text" = "pink"
+#"markup.quote" = { fg = "yellow", modifiers = ["italic"] }
+#"markup.raw" = { fg = "foreground" }
+
+[palette]
+black = "#161320"
+black2 = "#1E1E2E"
+black4 = "#575263"
+white = "#D9E0EE"
+gray = "#6E6C7E"
+black4 = "#575263"
+gray1 = "#988BA2"
+gray2 = "C3BAC6"
+red = "#F28FAD"
+peach = "#F8BD96"
+yellow = "#FAE3B0"
+green = "#ABE9B3"
+mauve = "#DDB6F2"
+blue = "#96CDFB"
+pink = "#F5C2E7"
+flamingo = "#F2CDCD"
+maroon = "#E8A2AF"
+teal = "#B5E8E0"
+sky = "#89DCEB"
+lavender = "#C9CBFF"
+rosewater = "#F5E0DC"
