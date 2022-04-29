@@ -8,7 +8,7 @@ env:
 window:
     padding:
         x: 20
-        y: 12
+        y: 20
     dimensions:
         columns: 120
         lines:  35
@@ -17,16 +17,16 @@ window:
 # Fonts
 font:
     normal:
-        family: JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
         style: Regular
     bold:
-        family: JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
         style: Bold
     italic:
-        family: JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
         style: Italic
     bold_italic:
-        family: JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
     style: Bold Italic
     size: 12
 
