@@ -26,7 +26,7 @@
 - **Application Launcher:** Rofi
 - **File Manager:** Nemo + Joshuto
 - **Music Player:** NCSpot + PyRadio
-- **Editor/IDE:** Helix + AstroNvim + VSCode
+- **Editor/IDE:** Helix + LunarVim + VSCode
 - **Fonts:** JetBrains Mono Nerd Fonts, Inter Nerd Fonts, Open Sans
 - **Screenlock:** i3lock-color + xidlehook
 - **Wallpapers manager:** Nitrogen

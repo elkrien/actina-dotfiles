@@ -1,11 +1,14 @@
 # Opacity
 window_opacity: 1.0  # value range is 0 ~ 1
 
+env:
+  TERM: xterm-256color
+
 # Window padding (changes require restart)  
 window:
     padding:
-        x: 8
-        y: 6
+        x: 20
+        y: 12
     dimensions:
         columns: 120
         lines:  35
@@ -27,7 +30,7 @@ font:
     style: Bold Italic
     size: 12
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 
 # Catppuccin theme for Alacritty
@@ -95,8 +98,8 @@ colors:
     white: '#f8f8f2'
 
   indexed_colors:
-    - { index: 16, color: '0xF8BD96' }
-    - { index: 17, color: '0xF5E0DC' }
+    - { index: 16, color: '#F8BD96' }
+    - { index: 17, color: '#F5E0DC' }
       
 # Cursor style
 cursor:
