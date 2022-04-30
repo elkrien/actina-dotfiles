@@ -17,16 +17,16 @@ window:
 # Fonts
 font:
     normal:
-        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
-        style: Regular
+        family: JetBrainsMonoMedium Nerd Font # JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
+        style: Medium
     bold:
-        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JetBrainsMono Nerd Font #JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
         style: Bold
     italic:
-        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JetBrainsMonoMedium Nerd Font #JuliaMono Medium #Fira Code
         style: Italic
     bold_italic:
-        family: JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
+        family: JetBrainsMono Nerd Font #JuliaMono Medium #Fira Code
     style: Bold Italic
     size: 12
 
