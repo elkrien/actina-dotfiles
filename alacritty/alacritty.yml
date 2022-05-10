@@ -38,9 +38,9 @@ draw_bold_text_with_bright_colors: false
 colors:
 
   primary:
-    background: '#1E1D2E'
-    foreground: '#D9E0EE'
-    bright_foreground: '#D9E0EE'
+    background: '#1E1E2E'
+    foreground: '#C6D0F5'
+    bright_foreground: '#C6D0F5'
 
   cursor:
     text: CellBackground
@@ -52,22 +52,22 @@ colors:
 
   search:
     matches:
-      foreground: '#1E1D2E'
-      background: '#ABE9B3'
+      foreground: '#1E1E2E'
+      background: '#A6E3A1'
     focused_match:
-      foreground: '#1E1D2E'
-      background: '#F8BD96'
+      foreground: '#1E1E2E'
+      background: '#FAB387'
     bar:
-      background: '#1A1826'
-      foreground: '#D9E0EE'
+      background: '#12121C'
+      foreground: '#C6D0F5'
 
   hints:
     start:
-      foreground: '#1A1826'
-      background: '#FAE3B0'
+      foreground: '#12121C'
+      background: '#F9E2AF'
     end:
-      foreground: '#FAE3B0'
-      background: '#1A1826'
+      foreground: '#F9E2AF'
+      background: '#12121C'
 
   line_indicator:
     foreground: None
@@ -75,30 +75,30 @@ colors:
 
   selection:
     text: CellForeground
-    background: '#302D41'
+    background: '#36374A'
 
   normal:
-    black: '#6E6C7E'
-    red: '#F28FAD'
-    green: '#ABE9B3'
-    yellow: '#FAE3B0'
-    blue: '#96CDFB'
+    black: '#7E84A0'
+    red: '#F38BA8'
+    green: '#A6E3A1'
+    yellow: '#F9E2AF'
+    blue: '#90C1FB'
+    magenta: '#F5C2E7'
+    cyan: '#89DCEB'
+    white: '#C6D0F5'
+
+  bright:
+    black: '#969DBC'
+    red: '#F38BA8'
+    green: '#A6E3A1'
+    yellow: '#F9E2AF'
+    blue: '#90C1FB'
     magenta: '#F5C2E7'
     cyan: '#89DCEB'
     white: '#D9E0EE'
 
-  bright:
-    black: '#988BA2'
-    red: '#F28FAD'
-    green: '#ABE9B3'
-    yellow: '#FAE3B0'
-    blue: '#96CDFB'
-    magenta: '#F5C2E7'
-    cyan: '#89DCEB'
-    white: '#f8f8f2'
-
   indexed_colors:
-    - { index: 16, color: '#F8BD96' }
+    - { index: 16, color: '#FAB387' }
     - { index: 17, color: '#F5E0DC' }
       
 # Cursor style

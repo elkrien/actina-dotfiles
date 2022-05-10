@@ -10,9 +10,7 @@ configuration {
 }
 
 
-/* @import "colors-tokyonight.rasi" */
-/* @import "colors-dracula.rasi" */
-@import "colors-catppuccin.rasi"
+@import "colors-catppuccin-moccha.rasi"
 
 window {
     border:							3px;

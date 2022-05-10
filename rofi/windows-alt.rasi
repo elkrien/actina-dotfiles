@@ -8,8 +8,7 @@ configuration {
     sidebar-mode: 			        false;
 }
 
-/* @import "colors-dracula.rasi" */
-@import "colors-catppuccin.rasi"
+@import "colors-catppuccin-moccha.rasi"
 
 window {
 	transparency:                   "real";

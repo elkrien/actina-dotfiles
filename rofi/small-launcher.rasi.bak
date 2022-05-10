@@ -10,7 +10,7 @@ configuration {
 	sidebar-mode: 					  false;
 }
 
-/* @import "colors-tokyonight.rasi" */
+@import "colors-catppuccin-latte.rasi"
 
 window {
   transparency:             "real";

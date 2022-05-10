@@ -1,16 +1,18 @@
 #!/bin/bash
 
+source ~/.config/eww/scripts/catppuccin-moccha.sh
+
 status=$(nmcli g | grep -oE "rozłączono")
 essid=$(nmcli c | grep wlp5s0 | awk '{print ($1)}')
 
 if [ $status ] ; then
     icon="睊"
     text=""
-    col="#302D41"
+    col="${black3}"
 else
     icon="直"
     text="${essid}"
-    col="#DDB6F2"
+    col="${mauve}"
 fi
 
 echo "{\"content\": \"$text\", \"icon\": \"$icon\", \"color\": \"$col\"}"

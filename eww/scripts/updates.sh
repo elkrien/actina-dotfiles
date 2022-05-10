@@ -1,11 +1,13 @@
 #!/bin/bash
 
+source ~/.config/eww/scripts/catppuccin-moccha.sh
+
 updatesarch="$(checkupdates 2> /dev/null | wc -l)"
 updatesaur="$(paru -Qua 2> /dev/null | wc -l)"
 updates=$(("$updatesarch" + "$updatesaur"))
 
 if [ $updates != 0 ] ; then
-    col="#F8BD96"
+    col="${peach}"
     if [ $updates == 1 ] ; then
         text="${updates} update"
     else
@@ -13,7 +15,7 @@ if [ $updates != 0 ] ; then
     fi
 else
     text="No updates"
-    col="#ABE9B3"
+    col="${green}"
 fi
 
 echo "{\"content\": \"$text\", \"color\": \"$col\"}"

@@ -159,15 +159,13 @@ lvim.plugins = {
   {
     "catppuccin/nvim",
     as = "catppuccin",
-    config = function()
-      require("user.catppuccin").config()
-      vim.cmd [[colorscheme catppuccin]]
-    end,
   },
+
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
+
   -- {
   --   'wfxr/minimap.vim',
   --   run = "cargo install --locked code-minimap",
@@ -178,23 +176,37 @@ lvim.plugins = {
   --     vim.cmd("let g:minimap_auto_start_win_enter = 1")
   --   end,
   -- },
+
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("user.colorizer").config()
+      require("colorizer").setup({ "*" }, {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      })
     end,
-    event = "BufRead",
   },
+
   {
     "lukas-reineke/indent-blankline.nvim",
-    setup = function()
-      vim.g.indent_blankline_char = "▏"
-    end,
-    config = function()
-      require("user.indent_blankline").config()
-    end,
     event = "BufRead",
+    setup = function()
+      vim.g.indentLine_enabled = 1
+      vim.g.indent_blankline_char = "▏"
+      vim.g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard" }
+      vim.g.indent_blankline_buftype_exclude = { "terminal" }
+      vim.g.indent_blankline_show_trailing_blankline_indent = false
+      vim.g.indent_blankline_show_first_indent_level = false
+      vim.g.indent_blankline_show_current_context = true
+      vim.g.indent_blankline_show_current_context_start = true
+    end
   },
+
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
@@ -203,6 +215,7 @@ lvim.plugins = {
       vim.g.mkdp_auto_start = 1
     end,
   },
+
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
@@ -216,6 +229,7 @@ lvim.plugins = {
       })
     end,
   },
+
   {
     "itchyny/vim-cursorword",
     event = { "BufEnter", "BufNewFile" },
@@ -229,16 +243,18 @@ lvim.plugins = {
       vim.api.nvim_command("augroup END")
     end
   },
+
   {
     "tpope/vim-surround",
     keys = { "c", "d", "y" }
   },
+
   {
     "elkowar/yuck.vim"
   },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+lvim.autocommands.custom_groups = {
+  -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+}

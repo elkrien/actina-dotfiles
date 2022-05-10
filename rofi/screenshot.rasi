@@ -11,9 +11,7 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-/* @import "colors-tokyonight.rasi" */
-/* @import "colors-dracula.rasi" */
-@import "colors-catppuccin.rasi"
+@import "colors-catppuccin-moccha.rasi"
 
 window {
     transparency:                   "real";

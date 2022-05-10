@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.config/eww/scripts/catppuccin-moccha.sh
+
 tmp_weather="/tmp/weather"
 tmp_weather_stat=$tmp_weather/weather-stat
 tmp_weather_degree=$tmp_weather/weather-degree
@@ -28,67 +30,67 @@ if [ ! -z "$weather" ]; then
 	#Big long if statement of doom
 	if [ "$weather_icon_code" == "50d"  ]; then
 			weather_icon=" "
-      weather_hex="#89DCEB"
+      weather_hex="${sky}"
     elif [ "$weather_icon_code" == "50n"  ]; then
       weather_icon=" "
-      weather_hex="#89DCEB"
+      weather_hex="${sky}"
 	elif [ "$weather_icon_code" == "01d"  ]; then
       weather_icon=" "
-      weather_hex="#FAE3B0"
+      weather_hex="${yellow}"
     elif [ "$weather_icon_code" == "01n"  ]; then
       weather_icon=" "
-      weather_hex="#F5C2E7"
+      weather_hex="${pink}"
     elif [ "$weather_icon_code" == "02d"  ]; then
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     elif [ "$weather_icon_code" == "02n"  ]; then
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     elif [ "$weather_icon_code" == "03d"  ]; then
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     elif [ "$weather_icon_code" == "03n"  ]; then
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     elif [ "$weather_icon_code" == "04d"  ]; then
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     elif [ "$weather_icon_code" == "04n"  ]; then
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     elif [ "$weather_icon_code" == "09d"  ]; then
       weather_icon=" "
-      weather_hex="#DDB6F2"
+      weather_hex="${mauve}"
     elif [ "$weather_icon_code" == "09n"  ]; then
       weather_icon=" "
-      weather_hex="#DDB6F2"
+      weather_hex="${mauve}"
     elif [ "$weather_icon_code" == "10d"  ]; then
       weather_icon=" "
-      weather_hex="#DDB6F2"
+      weather_hex="${mauve}"
     elif [ "$weather_icon_code" == "10n"  ]; then
       weather_icon=" "
-      weather_hex="#DDB6F2"
+      weather_hex="${mauve}"
     elif [ "$weather_icon_code" == "11d"  ]; then
       weather_icon=""
-      weather_hex="#E8A2AF"
+      weather_hex="${maroon}"
     elif [ "$weather_icon_code" == "11n"  ]; then
       weather_icon=""
-      weather_hex="#E8A2AF"
+      weather_hex="${maroon}"
     elif [ "$weather_icon_code" == "13d"  ]; then
       weather_icon=" "
-      weather_hex="#D9E0EE"
+      weather_hex="${white}"
     elif [ "$weather_icon_code" == "13n"  ]; then
       weather_icon=" "
-      weather_hex="#D9E0EE"
+      weather_hex="${white}"
     elif [ "$weather_icon_code" == "40d"  ]; then
       weather_icon=" "
-      weather_hex="#89DCEB"
+      weather_hex="${sky}"
     elif [ "$weather_icon_code" == "40n"  ]; then
       weather_icon=" "
-      weather_hex="#89DCEB"
+      weather_hex="${sky}"
     else 
       weather_icon=" "
-      weather_hex="#96CDFB"
+      weather_hex="${blue}"
     fi
       echo "$weather_icon" >  $tmp_weather_icon
       echo "$weather_description" > $tmp_weather_stat
@@ -106,5 +108,5 @@ if [ ! -z "$weather" ]; then
       echo "Weather Unavailable" > $tmp_weather_stat
       echo " " > $tmp_weather_icon
       echo "-" > $tmp_weather_degree
-      echo "#96CDFB" > $tmp_weather_hex
+      echo "${blue}" > $tmp_weather_hex
 fi

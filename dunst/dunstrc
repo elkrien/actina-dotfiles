@@ -22,8 +22,9 @@ padding = 8
 horizontal_padding = 8
 text_icon_padding = 0
 frame_width = 3
-# frame_color = "#bd93f9"   #dracula
-frame_color = "#C9CBFF"     #catppuccin
+# frame_color = "#bd93f9"     #dracula
+# frame_color = "#C9CBFF"     #catppuccin
+frame_color = "#B4BEFE"       #catppuccin-moccha lavender
 separator_color = frame
 corner_radius = 0
 
@@ -90,12 +91,17 @@ icon = /home/mm/.config/dunst/normal.svg
 # frame_color = "#7aa2f7"
 # highlight = "#7aa2f7"
 
-# catppuccin colors
-background = "#1E1D2D"
-foreground = "#D9E0EE"
-frame_color = "#C9CBFF"
-highlight = "#C9CBFF"
+# # catppuccin colors
+# background = "#1E1D2D"
+# foreground = "#D9E0EE"
+# frame_color = "#C9CBFF"
+# highlight = "#C9CBFF"
 
+# catppuccin-moccha colors
+background = "#1E1E2E"
+foreground = "#C6D0F5"
+frame_color = "#B4BEFE"
+highlight = "#B4BEFE"
 
 [urgency_normal]
 timeout = 7
@@ -113,11 +119,17 @@ icon = /home/mm/.config/dunst/normal.svg
 # frame_color = "#7aa2f7"
 # highlight = "#7aa2f7"
 
-# catppuccin colors
-background = "#1E1D2D"
-foreground = "#D9E0EE"
-frame_color = "#C9CBFF"
-highlight = "#C9CBFF"
+# # catppuccin colors
+# background = "#1E1D2D"
+# foreground = "#D9E0EE"
+# frame_color = "#C9CBFF"
+# highlight = "#C9CBFF"
+
+# catppuccin-moccha colors
+background = "#1E1E2E"
+foreground = "#C6D0F5"
+frame_color = "#B4BEFE"
+highlight = "#B4BEFE"
 
 
 [urgency_critical]
@@ -135,11 +147,17 @@ timeout = 0
 # frame_color = "#f7768e"
 # highlight = "#f7768e"
 
+# # catppuccin colors
+# background = "#1E1D2D"
+# foreground = "#D9E0EE"
+# frame_color = "#F28FAD"
+# highlight = "#F28FAD"
+
 # catppuccin colors
-background = "#1E1D2D"
-foreground = "#D9E0EE"
-frame_color = "#F28FAD"
-highlight = "#F28FAD"
+background = "#1E1E2E"
+foreground = "#C6D0F5"
+frame_color = "#F38BA8"
+highlight = "#F38BA8"
 
 # vim: ft=cfg
 
