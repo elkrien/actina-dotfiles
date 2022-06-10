@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-BG='#302D41'  # bg 
-BGD='#1E1E2E' # bgdark
-FG='#D9E0EE'  # fg
-OR='#F8BD96'  # orange 
-GR='#ABE9B3'  # green
-CY='#B5E8E0'  # cyan
-YE='#FAE3B0'  # yellow
-PI='#F5C2E7'  # pink
-RE='#F28FAD'  # red 
-PU='C9CBFF'   # lavender
-BL='#96CDFB'  # blue
-DPU='#C9CBFF' # lavender
+BG='#282a36'  # bg 
+BGD='#22212c' # bgdark
+FG='#f8f8f2'  # fg
+OR='#FFCA80'  # orange 
+GR='#8aFF80'  # green
+CY='#80ffea'  # cyan
+YE='#ffff80'  # yellow
+PI='#ff80bf'  # pink
+RE='#ff5555'  # red 
+PU='#bd93f9'  # purple
+DPU='#bd93f9' # dark purple
 
 i3lock \
 -e                      \

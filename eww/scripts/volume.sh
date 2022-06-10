@@ -33,6 +33,7 @@ else
         icon="奄"
     else 
         icon="婢"
+        class="muted"
     fi
 fi
 

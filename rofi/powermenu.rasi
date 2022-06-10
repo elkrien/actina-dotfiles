@@ -10,7 +10,7 @@ configuration {
 }
 
 
-@import "colors-catppuccin-moccha.rasi"
+@import "colors-catppuccin-macchiato.rasi"
 
 window {
     border:							3px;

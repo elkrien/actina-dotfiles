@@ -28,7 +28,7 @@ updates_table.field_names = [PACKAGE, CURRENT_VERSION, NEW_VERSION]
 
 # Show waiting popup first:
 os.system(
-    f'dunstify -t 900 -i "/home/mm/.config/qtile/icons/updates.svg" " {WAIT_CHECKING} "'
+    f'dunstify -t 1500 -i "/home/mm/.config/qtile/icons/updates.svg" " {WAIT_CHECKING} "'
 )
 
 # Check for updates by pacman and paru (Aur) and merge them together:

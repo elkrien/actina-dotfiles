@@ -1,0 +1,348 @@
+# Opacity
+window_opacity: 1.0  # value range is 0 ~ 1
+
+env:
+  TERM: xterm-256color
+
+# Window padding (changes require restart)  
+window:
+    padding:
+        x: 10
+        y: 10
+    dimensions:
+        columns: 120
+        lines:  35
+    startup_mode: Windowed
+
+# Fonts
+font:
+    normal:
+        family: JetBrainsMonoMedium Nerd Font # JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
+        style: Medium
+    bold:
+        family: JetBrainsMono Nerd Font #JuliaMono Medium #JetBrainsMonoMedium Nerd Font #Fira Code
+        style: Bold
+    italic:
+        family: JetBrainsMonoMedium Nerd Font #JuliaMono Medium #Fira Code
+        style: Italic
+    bold_italic:
+        family: JetBrainsMono Nerd Font #JuliaMono Medium #Fira Code
+    style: Bold Italic
+    size: 10
+
+draw_bold_text_with_bright_colors: false
+
+# Catppuccin themes for Alacritty
+schemes: 
+  Catppuccin: &Catppuccin
+    primary:
+      background: '#1E1D2E'
+      foreground: '#D9E0EE'
+      bright_foreground: '#D9E0EE'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#1E1D2E'
+        background: '#ABE9B3'
+      focused_match:
+        foreground: '#1E1D2E'
+        background: '#F8BD96'
+      bar:
+        background: '#1A1826'
+        foreground: '#D9E0EE'
+    hints:
+      start:
+        foreground: '#1A1826'
+        background: '#FAE3B0'
+      end:
+        foreground: '#FAE3B0'
+        background: '#1A1826'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#302D41'
+    normal:
+      black: '#6E6C7E'
+      red: '#F28FAD'
+      green: '#ABE9B3'
+      yellow: '#FAE3B0'
+      blue: '#96CDFB'
+      magenta: '#F5C2E7'
+      cyan: '#89DCEB'
+      white: '#D9E0EE'
+    bright:
+      black: '#988BA2'
+      red: '#F28FAD'
+      green: '#ABE9B3'
+      yellow: '#FAE3B0'
+      blue: '#96CDFB'
+      magenta: '#F5C2E7'
+      cyan: '#89DCEB'
+      white: '#f8f8f2'
+    indexed_colors:
+      - { index: 16, color: '#F8BD96' }
+      - { index: 17, color: '#F5E0DC' }
+
+  Catppuccin-Moccha: &Catppuccin-Moccha
+    primary:
+      background: '#1E1E2E'
+      foreground: '#CDD6F4'
+      bright_foreground: '#CDD6F4'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#1E1E2E'
+        background: '#A6E3A1'
+      focused_match:
+        foreground: '#1E1E2E'
+        background: '#FAB387'
+      bar:
+        background: '#12121C'
+        foreground: '#CDD6F4'
+    hints:
+      start:
+        foreground: '#12121C'
+        background: '#F9E2AF'
+      end:
+        foreground: '#F9E2AF'
+        background: '#12121C'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#36374A'
+    normal:
+      black: '#7E84A0'
+      red: '#F38BA8'
+      green: '#A6E3A1'
+      yellow: '#F9E2AF'
+      blue: '#90C1FB'
+      magenta: '#F5C2E7'
+      cyan: '#89DCEB'
+      white: '#CDD6F4'
+    bright:
+      black: '#969DBC'
+      red: '#F38BA8'
+      green: '#A6E3A1'
+      yellow: '#F9E2AF'
+      blue: '#90C1FB'
+      magenta: '#F5C2E7'
+      cyan: '#89DCEB'
+      white: '#D9E0EE'
+    indexed_colors:
+      - { index: 16, color: '#FAB387' }
+      - { index: 17, color: '#F5E0DC' }
+
+  Catppuccin-Frappe: &Catppuccin-Frappe
+    primary:
+      background: '#303348'
+      foreground: '#C6CEEF'
+      bright_foreground: '#C6CEEF'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#303348'
+        background: '#A6D189'
+      focused_match:
+        foreground: '#303348'
+        background: '#EF9F76'
+      bar:
+        background: '#252737'
+        foreground: '#CDD6F4'
+    hints:
+      start:
+        foreground: '#252737'
+        background: '#E5C890'
+      end:
+        foreground: '#E5C890'
+        background: '#252737'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#454960'
+    normal:
+      black: '#868CA7'
+      red: '#E78284'
+      green: '#A6D189'
+      yellow: '#E5C890'
+      blue: '#8CAAEE'
+      magenta: '#F4B8E4'
+      cyan: '#99D1DB'
+      white: '#C6CEEF'
+    bright:
+      black: '#9BA2BF'
+      red: '#E78284'
+      green: '#A6D189'
+      yellow: '#E5C890'
+      blue: '#8CAAEE'
+      magenta: '#F4B8E4'
+      cyan: '#99D1DB'
+      white: '#D9E0EE'
+    indexed_colors:
+      - { index: 16, color: '#EF9F76' }
+      - { index: 17, color: '#F2D5CF' }
+  
+  Catppuccin-Latte: &Catppuccin-Latte
+    primary:
+      background: '#FBF7F3'
+      foreground: '#575279'
+      bright_foreground: '#575279'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#FBF7F3'
+        background: '#40A02B'
+      focused_match:
+        foreground: '#FBF7F3'
+        background: '#FE640B'
+      bar:
+        background: '#E9E5E5'
+        foreground: '#575279'
+    hints:
+      start:
+        foreground: '#E9E5E5'
+        background: '#E49320'
+      end:
+        foreground: '#E49320'
+        background: '#E9E5E5'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#D7D2D8'
+    normal:
+      black: '#8E89A2'
+      red: '#D20F39'
+      green: '#40A02B'
+      yellow: '#E49320'
+      blue: '#2A6EF5'
+      magenta: '#EC83D0'
+      cyan: '#04A5E5'
+      white: '#575279'
+    bright:
+      black: '#7B7794'
+      red: '#D20F39'
+      green: '#40A02B'
+      yellow: '#E49320'
+      blue: '#2A6EF5'
+      magenta: '#EC83D0'
+      cyan: '#04A5E5'
+      white: '#575279'
+    indexed_colors:
+      - { index: 16, color: '#FE640B' }
+      - { index: 17, color: '#DE9584' }
+  
+  Catppuccin-Macchiato: &Catppuccin-Macchiato
+    primary:
+      background: '#24273A'
+      foreground: '#C5CFF5'
+      bright_foreground: '#C5CFF5'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#24273A'
+        background: '#A6DA95'
+      focused_match:
+        foreground: '#24273A'
+        background: '#F5A97F'
+      bar:
+        background: '#181926'
+        foreground: '#C5CFF5'
+    hints:
+      start:
+        foreground: '#181926'
+        background: '#EED49F'
+      end:
+        foreground: '#EED49F'
+        background: '#181926'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#3B3F55'
+    normal:
+      black: '#8087A5'
+      red: '#ED8796'
+      green: '#A6DA95'
+      yellow: '#EED49F'
+      blue: '#86AEF8'
+      magenta: '#F5BDE6'
+      cyan: '#91D7E3'
+      white: '#C5CFF5'
+    bright:
+      black: '#979FC0'
+      red: '#ED8796'
+      green: '#A6DA95'
+      yellow: '#EED49F'
+      blue: '#86AEF8'
+      magenta: '#F5BDE6'
+      cyan: '#91D7E3'
+      white: '#D9E0EE'
+    indexed_colors:
+      - { index: 16, color: '#F5A97F' }
+      - { index: 17, color: '#F4DBD6' }
+
+# Set colors
+colors: *Catppuccin-Moccha
+
+# Cursor style
+cursor:
+  style:
+    shape: Beam
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
+
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,         mods: Control|Shift, action: Paste                       }
+  - { key: C,         mods: Control|Shift, action: Copy                        }
+  - { key: Insert,    mods: Shift,         action: PasteSelection              }
+  - { key: Key0,      mods: Control,       action: ResetFontSize               }
+  - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize            }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: F11,       mods: None,          action: ToggleFullscreen            }
+  - { key: Q,         mods: Control|Shift, action: Quit                        }
+  - { key: Paste,     mods: None,          action: Paste                       }
+  - { key: Copy,      mods: None,          action: Copy                        }
+  - { key: L,         mods: Control,       action: ClearLogNotice              }
+  - { key: L,         mods: Control,       chars: "\x0c"                       }
+  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
+  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
+  - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
+  - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }

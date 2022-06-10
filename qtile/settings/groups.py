@@ -4,7 +4,7 @@ from libqtile.lazy import lazy
 from .keys import keys, myTerm
 # from libqtile import hook
 
-groups = (      #            
+groups = (      #      
     Group('', layout='monadtall'),
     Group('', layout='monadtall'),
     Group('', layout='monadtall'),

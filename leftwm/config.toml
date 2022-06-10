@@ -12,7 +12,7 @@ focus_new_windows = true
 
 ### Scratchpads
 [[scratchpad]]
-name = "Alacritty-scratchpad"
+name = "alacritty-scratchpad"
 value = "alacritty"
 x = 350
 y = 250
@@ -20,8 +20,8 @@ height = 600
 width = 1200
 
 [[scratchpad]]
-name = "joshuto"
-value = "alacritty -e joshuto"
+name = "cli-filemanager"
+value = "alacritty -e ranger"
 x = 350
 y = 250
 height = 600
@@ -29,7 +29,7 @@ width = 1200
 
 [[scratchpad]]
 name = "spotify"
-value = "alacritty -e ncspot"
+value = "alacritty -e spotify_player"
 x = 350
 y = 250
 height = 600
@@ -48,14 +48,14 @@ width = 1200
 # Open terminal in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
-value = "Alacritty-scratchpad" # Name set for the scratchpad
+value = "alacritty-scratchpad" # Name set for the scratchpad
 modifier = ["modkey", "Shift"]
 key = "Return"
 
 # Open Ranger in scratchpad
 [[keybind]]
 command = "ToggleScratchPad"
-value = "joshuto"
+value = "cli-filemanager"
 modifier = ["modkey", "Shift"]
 key = "e"
 
@@ -80,7 +80,7 @@ value = "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/small-la
 modifier = ["modkey"]
 key = "r"
 
-# Open Terminal (Alacritty)
+# Open Terminal (alacritty)
 [[keybind]]
 command = "Execute"
 value = "alacritty"
@@ -129,14 +129,14 @@ value = "powercord"
 modifier = ["modkey"]
 key = "d"
 
-# Screenshot Menu 
+# Screenshot 
 [[keybind]]
 command = "Execute"
 value = "flameshot gui"
 modifier = ["modkey"]
 key = "s"
 
-# Screenshot Menu (rofi)
+# Screencast
 [[keybind]]
 command = "Execute"
 value = "simplescreenrecorder"
@@ -150,12 +150,70 @@ value = "rofi -show window -theme ~/.config/rofi/windows-alt.rasi"
 modifier = ["Alt"]
 key = "Tab"
 
-# Show Keybindings
+# Theme Switcher
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/keys.sh"
+value = "eww open --toggle themes-window"
 modifier = ["modkey"]
 key = "t"
+
+# VolumeUp +5%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/volume.sh +5%"
+key = "XF86XK_AudioRaiseVolume"
+
+# VolumeUp +1%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/volume.sh +1%"
+modifier = ["Shift"]
+key = "XF86XK_AudioRaiseVolume"
+
+# VolumeDown -5%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/volume.sh -5%"
+key = "XF86XK_AudioLowerVolume"
+
+# VolumeDown -1%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/volume.sh -1%"
+modifier = ["Shift"]
+key = "XF86XK_AudioLowerVolume"
+
+# VolumeMute Toggle
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/volume.sh toggle"
+key = "XF86XK_AudioMute"
+
+# BrightnessUp +5%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/brightness.sh +5%"
+key = "XF86XK_MonBrightnessUp"
+
+# BrightnessUp +1%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/brightness.sh +1%"
+modifier = ["Shift"]
+key = "XF86XK_MonBrightnessUp"
+
+# BrightnessDown -5%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/brightness.sh 5%-"
+key = "XF86XK_MonBrightnessDown"
+
+# BrightnessDown -1%
+[[keybind]]
+command = "Execute"
+value = "~/.scripts/brightness.sh 1%-"
+modifier = ["Shift"]
+key = "XF86XK_MonBrightnessDown"
 
 # Toggle Full Screen
 [[keybind]]

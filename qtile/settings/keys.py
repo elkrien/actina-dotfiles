@@ -26,7 +26,6 @@ keys = [
     Key("A-<Tab>", lazy.spawn("rofi -show window -theme ~/.config/rofi/windows-alt.rasi")), # Windows switcher
     Key("M-p", lazy.spawn(home + "/.config/qtile/scripts/powermenu.sh")),		    # PowerMenu
     Key("M-t", lazy.spawn(home + "/.config/qtile/scripts/keys.sh")),                # Show Keybindings
-    Key("M-S-s", lazy.spawn(home + "/.config/qtile/scripts/rofi-screenshot")), 	# Rofi screenshot menu (full screen)
     
     # --- Change windows focus ---
     Key("M-j", lazy.layout.down()),	                # Switch window down

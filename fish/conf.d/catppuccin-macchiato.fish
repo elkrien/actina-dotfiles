@@ -1,20 +1,20 @@
-# Catppuccin-Moccha color palette
+# Catppuccin-Macchiato color palette
 
 # --> special
-set -l foreground C6D0F5
-set -l selection 36374A
+set -l foreground CAD3F5
+set -l selection 363A4F
 
 # --> palette
-set -l teal 94E2D5
-set -l flamingo F2CDCD
-set -l magenta CBA6F7
-set -l pink F5C2E7
-set -l red F38BA8
-set -l peach FAB387
-set -l green A6E3A1
-set -l yellow F9E2AF
-set -l blue 90C1FB
-set -l gray 7E84A0
+set -l teal 8BD5CA
+set -l flamingo F0C6C6
+set -l magenta C6A0F6
+set -l pink F5BDE6
+set -l red ED8796
+set -l peach F5A97F
+set -l green A6DA95
+set -l yellow EED49F
+set -l blue 8aadf4
+set -l gray 6E738D
 
 # Syntax Highlighting
 set -g fish_color_normal $foreground

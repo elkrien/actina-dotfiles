@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.config/eww/scripts/catppuccin-moccha.sh
+source ~/.config/eww/scripts/catppuccin-macchiato.sh
 
 status=$(nmcli g | grep -oE "rozłączono")
 essid=$(nmcli c | grep wlp5s0 | awk '{print ($1)}')

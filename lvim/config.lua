@@ -10,8 +10,9 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.colorscheme = "catppuccin"
+vim.g.catppuccin_flavour= "macchiato"
 vim.wo.relativenumber = true
 vim.o.cmdheight = 1
 
@@ -158,7 +159,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.plugins = {
   {
     "catppuccin/nvim",
+    -- branch = "dev",
     as = "catppuccin",
+    -- vim.cmd[[colorscheme catppuccin]]
   },
 
   {
@@ -255,6 +258,6 @@ lvim.plugins = {
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
-lvim.autocommands.custom_groups = {
+-- lvim.autocommands.custom_groups = {
   -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
-}
+-- }

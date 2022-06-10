@@ -11,7 +11,7 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-@import "colors-catppuccin-moccha.rasi"
+@import "colors-catppuccin-macchiato.rasi"
 
 window {
     transparency:                   "real";

@@ -32,75 +32,291 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
+# Catppuccin themes for Alacritty
+schemes: 
+  Catppuccin-013: &Catppuccin-013
+    primary:
+      background: '#1E1D2E'
+      foreground: '#D9E0EE'
+      bright_foreground: '#D9E0EE'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#1E1D2E'
+        background: '#ABE9B3'
+      focused_match:
+        foreground: '#1E1D2E'
+        background: '#F8BD96'
+      bar:
+        background: '#1A1826'
+        foreground: '#D9E0EE'
+    hints:
+      start:
+        foreground: '#1A1826'
+        background: '#FAE3B0'
+      end:
+        foreground: '#FAE3B0'
+        background: '#1A1826'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#302D41'
+    normal:
+      black: '#6E6C7E'
+      red: '#F28FAD'
+      green: '#ABE9B3'
+      yellow: '#FAE3B0'
+      blue: '#96CDFB'
+      magenta: '#F5C2E7'
+      cyan: '#89DCEB'
+      white: '#D9E0EE'
+    bright:
+      black: '#988BA2'
+      red: '#F28FAD'
+      green: '#ABE9B3'
+      yellow: '#FAE3B0'
+      blue: '#96CDFB'
+      magenta: '#F5C2E7'
+      cyan: '#89DCEB'
+      white: '#f8f8f2'
+    indexed_colors:
+      - { index: 16, color: '#F8BD96' }
+      - { index: 17, color: '#F5E0DC' }
 
-# Catppuccin theme for Alacritty
+  Catppuccin-mocha: &Catppuccin-mocha
+    primary:
+      background: '#1E1E2E'
+      foreground: '#CDD6F4'
+      bright_foreground: '#CDD6F4'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#1E1E2E'
+        background: '#A6E3A1'
+      focused_match:
+        foreground: '#1E1E2E'
+        background: '#FAB387'
+      bar:
+        background: '#11111B'
+        foreground: '#CDD6F4'
+    hints:
+      start:
+        foreground: '#11111B'
+        background: '#F9E2AF'
+      end:
+        foreground: '#F9E2AF'
+        background: '#11111B'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#313244'
+    normal:
+      black: '#1E1E2E'
+      red: '#F38BA8'
+      green: '#A6E3A1'
+      yellow: '#F9E2AF'
+      blue: '#89B4FA'
+      magenta: '#CBA6F7'
+      cyan: '#89DCEB'
+      white: '#CDD6F4'
+    bright:
+      black: '#1E1E2E'
+      red: '#F38BA8'
+      green: '#A6E3A1'
+      yellow: '#F9E2AF'
+      blue: '#89B4FA'
+      magenta: '#CBA6F7'
+      cyan: '#89DCEB'
+      white: '#CDD6F4'
+    indexed_colors:
+      - { index: 16, color: '#FAB387' }
+      - { index: 17, color: '#F5E0DC' }
 
-colors:
-
-  primary:
-    background: '#1E1E2E'
-    foreground: '#C6D0F5'
-    bright_foreground: '#C6D0F5'
-
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
-
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-
-  search:
-    matches:
-      foreground: '#1E1E2E'
-      background: '#A6E3A1'
-    focused_match:
-      foreground: '#1E1E2E'
-      background: '#FAB387'
-    bar:
-      background: '#12121C'
+  Catppuccin-frappe: &Catppuccin-frappe
+    primary:
+      background: '#303446'
       foreground: '#C6D0F5'
+      bright_foreground: '#C6D0F5'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#303446'
+        background: '#A6D189'
+      focused_match:
+        foreground: '#303446'
+        background: '#EF9F76'
+      bar:
+        background: '#232634'
+        foreground: '#CDD6F4'
+    hints:
+      start:
+        foreground: '#232634'
+        background: '#E5C890'
+      end:
+        foreground: '#E5C890'
+        background: '#232634'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#414559'
+    normal:
+      black: '#303446'
+      red: '#E78284'
+      green: '#A6D189'
+      yellow: '#E5C890'
+      blue: '#8CAAEE'
+      magenta: '#CA9EE6'
+      cyan: '#99D1DB'
+      white: '#C6D0F5'
+    bright:
+      black: '#303446'
+      red: '#E78284'
+      green: '#A6D189'
+      yellow: '#E5C890'
+      blue: '#8CAAEE'
+      magenta: '#CA9EE6'
+      cyan: '#99D1DB'
+      white: '#C6D0F5'
+    indexed_colors:
+      - { index: 16, color: '#EF9F76' }
+      - { index: 17, color: '#F2D5CF' }
+  
+  Catppuccin-latte: &Catppuccin-latte
+    primary:
+      background: '#EFF1F5'
+      foreground: '#4C4F69'
+      bright_foreground: '#4C4F69'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#EFF1F5'
+        background: '#40A02B'
+      focused_match:
+        foreground: '#EFF1F5'
+        background: '#FE640B'
+      bar:
+        background: '#DCE0E8'
+        foreground: '#4C4F69'
+    hints:
+      start:
+        foreground: '#DCE0E8'
+        background: '#DF8E1D'
+      end:
+        foreground: '#DF8E1D'
+        background: '#DCE0E8'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#CCD0DA'
+    normal:
+      black: '#EFF1F5'
+      red: '#D20F39'
+      green: '#40A02B'
+      yellow: '#DF8E1D'
+      blue: '#1E66F5'
+      magenta: '#EA76CB'
+      cyan: '#04A5E5'
+      white: '#4C4F69'
+    bright:
+      black: '#EFF1F5'
+      red: '#D20F39'
+      green: '#40A02B'
+      yellow: '#DF8E1D'
+      blue: '#1E66F5'
+      magenta: '#EA76CB'
+      cyan: '#04A5E5'
+      white: '#4C4F69'
+    indexed_colors:
+      - { index: 16, color: '#FE640B' }
+      - { index: 17, color: '#DE9584' }
+  
+  Catppuccin-macchiato: &Catppuccin-macchiato
+    primary:
+      background: '#24273A'
+      foreground: '#CAD3F5'
+      bright_foreground: '#CAD3F5'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: '#24273A'
+        background: '#A6DA95'
+      focused_match:
+        foreground: '#24273A'
+        background: '#F5A97F'
+      bar:
+        background: '#181926'
+        foreground: '#CAD3F5'
+    hints:
+      start:
+        foreground: '#181926'
+        background: '#EED49F'
+      end:
+        foreground: '#EED49F'
+        background: '#181926'
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: '#363A4F'
+    normal:
+      black: '#24273A'
+      red: '#ED8796'
+      green: '#A6DA95'
+      yellow: '#EED49F'
+      blue: '#8AADF4'
+      magenta: '#C6A0F6'
+      cyan: '#91D7E3'
+      white: '#CAD3F5'
+    bright:
+      black: '#24273A'
+      red: '#ED8796'
+      green: '#A6DA95'
+      yellow: '#EED49F'
+      blue: '#8AADF4'
+      magenta: '#C6A0F6'
+      cyan: '#91D7E3'
+      white: '#CAD3F5'
+    indexed_colors:
+      - { index: 16, color: '#F5A97F' }
+      - { index: 17, color: '#F4DBD6' }
 
-  hints:
-    start:
-      foreground: '#12121C'
-      background: '#F9E2AF'
-    end:
-      foreground: '#F9E2AF'
-      background: '#12121C'
+# Set colors
+colors: *Catppuccin-macchiato
 
-  line_indicator:
-    foreground: None
-    background: None
-
-  selection:
-    text: CellForeground
-    background: '#36374A'
-
-  normal:
-    black: '#7E84A0'
-    red: '#F38BA8'
-    green: '#A6E3A1'
-    yellow: '#F9E2AF'
-    blue: '#90C1FB'
-    magenta: '#F5C2E7'
-    cyan: '#89DCEB'
-    white: '#C6D0F5'
-
-  bright:
-    black: '#969DBC'
-    red: '#F38BA8'
-    green: '#A6E3A1'
-    yellow: '#F9E2AF'
-    blue: '#90C1FB'
-    magenta: '#F5C2E7'
-    cyan: '#89DCEB'
-    white: '#D9E0EE'
-
-  indexed_colors:
-    - { index: 16, color: '#FAB387' }
-    - { index: 17, color: '#F5E0DC' }
-      
 # Cursor style
 cursor:
   style:

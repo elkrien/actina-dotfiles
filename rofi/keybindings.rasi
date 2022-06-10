@@ -10,7 +10,7 @@ configuration {
 	icon-theme: 					"Papirus-Dark";
 }
 
-@import "colors-catppuccin-moccha.rasi"
+@import "colors-catppuccin-macchiato.rasi"
 
 window {
     transparency:                   "real";

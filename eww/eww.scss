@@ -1,9 +1,9 @@
 // GLOBAL
+@import "catppuccin-macchiato.scss";
+
 * {
   all: unset; //Unsets everything so you can style everything from scratch
 }
-
-@import "catppuccin-moccha.scss";
 
 scale trough highlight {
     all: unset;
@@ -22,15 +22,16 @@ scale trough {
     margin: 0.6rem;
 }
 
+
 // MAIN BAR
 .bar {
-    background-color: $base2;
+    background-color: $base;
     padding: 0 0.6rem;
 }
 
 // TOOLTIP
 tooltip.background {
-    background-color: $base2;
+    background-color: $base;
     font-family: "Inter Nerd Font";
     font-size: 16;
     border-radius: 5px;
@@ -49,14 +50,14 @@ tooltip label {
 
 .ws-button-mine {
   	color: $lavender;
-  	background-color: $base2;
+  	background-color: $base;
   	font-size: 22px;
     font-family: "Inter Nerd Font";
 }
 
 .ws-button-visible {
   	color: $peach;
-  	background-color: $base2;
+  	background-color: $base;
   	font-size: 22px;
     font-family: "Inter Nerd Font";
 }
@@ -155,7 +156,7 @@ tooltip label {
 
 .powermenu
 {
-    background-color: $base2;
+    background-color: $base;
     border-radius: 5px;
     border: 3px solid $surface0;
 }
@@ -216,7 +217,7 @@ tooltip label {
 
 // CALENDAR
 .cal {
-  background-color: $base2;
+  background-color: $base;
   font-family: "Inter Nerd Font";
   font-size: 16px;
   font-weight: normal;
@@ -241,7 +242,7 @@ calendar {
 }
 
 calendar:selected {
-  color: $base1;
+  color: $mantle;
   background-color: $lavender;
   font-family: "Inter Nerd Font";
 }
@@ -252,7 +253,7 @@ calendar.header {
   font-family: "Inter Nerd Font";
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-bottom: 0px solid $base2;
+  border-bottom: 0px solid $base;
 
 }
 
@@ -324,8 +325,9 @@ calendar:indeterminate {
 // MUSIC PLAYER
 .player {
   padding: 20px;
-  background-color: $base2;
+  background-color: $base;
   font-family: "Inter Nerd Font";
+  color: $text;
   border-radius: 5px;
   border: 3px solid $surface0;
 }
@@ -334,16 +336,16 @@ calendar:indeterminate {
   font-size: 30px;
   font-family: "Inter Nerd Font";
   min-width: 80px;
+  color: $text;
   background-color: $surface0;
   border-radius: 7px;
-  color: $text;
   padding: 5px 10px 5px 10px;
   transition: all 150ms;
 }
 
 .player button:hover {
-  background-color: $overlay0;
-  color: $lavender;
+  background-color: $surface1;
+  color: $subtext1;
   font-family: "Inter Nerd Font";
 }
 
@@ -352,8 +354,8 @@ calendar:indeterminate {
   min-height: 100px;
   background-color: $surface0;
   padding: 15px;
-  border-radius: 7px;
   color: $text;
+  border-radius: 7px;
   font-family: "Inter Nerd Font";
 }
 
@@ -364,6 +366,32 @@ calendar:indeterminate {
   min-height: 200px;
 }
 
+// THEMES
+.themes-window
+{ 
+  background-color: $base;
+  border-radius: 5px; 
+  border: 3px solid $surface0;
+}
+.themes-title
+{
+    font-family: "Inter Nerd Font";
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: $peach;
+    font-weight: 700;
+}
+
+.themes-flavour
+{
+  font-family: "Inter Nerd Font";
+  font-size: 20px;
+  font-weight: 700;
+  color: $text;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
 // DASHBOARD
 .dashboard-icon
 {
@@ -375,21 +403,21 @@ calendar:indeterminate {
 
 .dashboard-small-cal
 {  
-  background-color: $base2;
+  background-color: $base;
   border-radius: 5px;
   border: 3px solid $surface0;
 }
 
 .dashboard-time-day
 { 
-  background-color: $base2;
+  background-color: $base;
   border-radius: 5px; 
   border: 3px solid $surface0;
 }
 
 .dashboard-weather-resources
 { 
-  background-color: $base2;
+  background-color: $base;
   border-radius: 5px;
   border: 3px solid $surface0;
 }
@@ -457,13 +485,13 @@ calendar:indeterminate {
 
 .res_circle {
 	background-color: $surface0;
-	border: 0px solid $base1;
+	border: 0px solid $mantle;
 	border-radius: 100%;
 	padding: 0px;
 }
 
 .res_circle_small {
-	background-color: $base2;
+	background-color: $base;
 	border: 0px solid $surface0;
 	border-radius: 100%;
 	padding: 40px;
@@ -473,7 +501,7 @@ calendar:indeterminate {
 
 .res_text_cpu {
 	background-color: $surface0;
-	border: 1px solid $base1;
+	border: 1px solid $mantle;
   font-family: "Inter Nerd Font";
   border-radius: 16px;
 	font-size : 14px;
@@ -485,7 +513,7 @@ calendar:indeterminate {
 
 .res_text_mem {
 	background-color: $surface0;
-	border: 1px solid $base1;
+	border: 1px solid $mantle;
   font-family: "Inter Nerd Font";
   border-radius: 16px;
 	font-size : 14px;
@@ -497,7 +525,7 @@ calendar:indeterminate {
 
 .res_text_disk {
 	background-color: $surface0;
-	border: 1px solid $base1;
+	border: 1px solid $mantle;
   font-family: "Inter Nerd Font";
   border-radius: 16px;
 	font-size : 14px;
@@ -521,26 +549,26 @@ calendar:indeterminate {
 
 /////////////////  NOT USED ///////////////////
 
-// // BATTERY
-// .bat {
-//   font-size: 20px;
-//   color: $maroon;
-//   margin: 0rem 0.6rem;
-//   font-family: "Inter Nerd Font";
-// }
-//
-// // BRIGHTNESS
-// .brightness-icon {
-//   color: $yellow;
-//   font-size: 17px;
-//   font-family: "Font Awesome 6 Free Solid";
-//   margin: 0rem 0.6rem 0rem 0.6rem;
-// }
-//
-// .bribar trough highlight {
-//   background-color: $yellow;
-//   //border-radius: 5px;
-// }
+// BATTERY
+.bat {
+  font-size: 20px;
+  color: $maroon;
+  margin: 0rem 0.6rem;
+  font-family: "Inter Nerd Font";
+}
+
+// BRIGHTNESS
+.brightness-icon {
+  color: $yellow;
+  font-size: 17px;
+  font-family: "Font Awesome 6 Free Solid";
+  margin: 0rem 0.6rem 0rem 0.6rem;
+}
+
+.bribar trough highlight {
+  background-color: $yellow;
+  //border-radius: 5px;
+}
 
 // // POWER MENU BAR
 //
@@ -617,4 +645,4 @@ calendar:indeterminate {
  //     color: $rosewater; 
  //     margin: 0.6rem; 
  //     font-size: 0.5rem; 
- // } 
+ // }

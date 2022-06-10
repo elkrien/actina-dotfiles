@@ -140,8 +140,8 @@
 
 ;; Music bar variables
 (defpoll music-icon :interval "1s" "~/.config/eww/scripts/music.sh get-icon")
-(deflisten music-name "playerctl --player=ncspot --follow metadata --format '{{ artist }} - {{ title }}'")
-(deflisten music-title "playerctl --player=ncspot --follow metadata --format {{title}}")
+(deflisten music-name "playerctl --player=spotify_player --follow metadata --format '{{ artist }} - {{ title }}'")
+(deflisten music-title "playerctl --player=spotify_player --follow metadata --format {{title}}")
 
 ;; Music bar widget
 (defwidget music []
@@ -287,6 +287,59 @@
               :halign "center" 
               :text "${round(EWW_DISK["/"].used_perc,1)}%"))))
 
+;;;;;; THEMES WIDGET
+
+(defwidget themes []
+  (box  :orientation "v"
+        :space-evenly "false"
+        :class "themes-window"
+    (label  :class "themes-title"
+            :text "Select Catppuccin Flavour")
+    (box  :orientation "h"
+          :space-evenly "true"
+      (eventbox :onclick "~/.config/eww/scripts/themes.sh mocha"
+                :cursor "hand"
+        (box  :orientation "v"
+              :space-evenly "false"
+              :halign "middle"
+              :valign "start" 
+          (image  :path "/home/mm/.config/eww/assets/mocha.png"
+                  :image-width 270)
+          (label  :class "themes-flavour"
+                  :text "Mocha")))
+      (eventbox :onclick "~/.config/eww/scripts/themes.sh latte"
+                :cursor "hand"
+        (box  :orientation "v"
+              :space-evenly "false"
+              :halign "middle"
+              :valign "start" 
+          (image  :path "/home/mm/.config/eww/assets/latte.png"
+                  :image-width 270)
+          (label  :class "themes-flavour"
+                  :text "Latte"))))
+    (box  :orientation "h"
+          :space-evenly "true"
+      (eventbox :onclick "~/.config/eww/scripts/themes.sh frappe"
+                :cursor "hand"
+        (box  :orientation "v"
+              :space-evenly "false"
+              :halign "middle"
+              :valign "start" 
+          (image  :path "/home/mm/.config/eww/assets/frappe.png"
+                  :image-width 270)
+          (label  :class "themes-flavour"
+                  :text "Frappe")))
+      (eventbox :onclick "~/.config/eww/scripts/themes.sh macchiato"
+                :cursor "hand"
+      (box  :orientation "v"
+            :space-evenly "false"
+            :halign "middle"
+            :valign "start" 
+        (image  :path "/home/mm/.config/eww/assets/macchiato.png"
+                :image-width 270)
+        (label  :class "themes-flavour"
+                :text "Macchiato"))))))
+
 ;;;;;; POWER MENU WINDOW WIDGET
 
 ;; Powermenu window (box) widget 
@@ -308,7 +361,7 @@
           :halign "center"
           :valign "center"
           :space-evenly "false"
-      (button :onclick "eww open --toggle powermenu-window && ~/.scripts/lock.sh"
+      (button :onclick "eww open --toggle powermenu-window && ~/.config/eww/scripts/lock.sh"
               :class "lock-btn"
               :tooltip "Lock"
               ""))
@@ -375,6 +428,67 @@
       (wifi)
       (time)
       (power-window))))
+
+
+; ;;;;;; BRIGHTNESS WIDGET
+
+; ;; Brightness variables
+; (defvar bright false)
+; (defpoll current-brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+
+; ;; Brightness widget
+; (defwidget bright []
+;   (eventbox
+;     :tooltip "Brightness: ${current-brightness}%"
+;     :onhover "eww update bright=true"  
+;     :onhoverlost "eww update bright=false"
+;     (box
+;       :orientation "h"
+;       :space-evenly false
+;       (eventbox
+;         :cursor "hand"
+;         (button
+;           :class "brightness-icon"
+;           ""
+;         )
+;       )
+;       (revealer
+;         :transition "slideleft"
+; 			  :reveal bright
+; 			  :duration "500ms"
+;         (scale
+;           :class "bribar"
+;           :min 0
+;           :max 101
+;           :onchange "brightnessctl set {}%"
+;           :value current-brightness
+;         )
+;       )
+;     )
+;   )
+; )
+
+; ;;;;;; BATTERY WIDGET
+
+; ;; Battery widget variables
+; (defpoll battery :interval "1s"	"~/.config/eww/scripts/battery.sh icon")
+; (defpoll battery-cappacity :interval "1s"	"~/.config/eww/scripts/battery.sh percent")
+
+; ;; Battery widget
+; (defwidget bat []
+; 	(box
+;     :vexpand "false"
+;     :hexpand "false"
+;     :orientation "h"
+; 		:space-evenly "false"
+; 	  (label
+;       :class "bat"	
+; 		  :halign "end"	
+; 		  :text battery
+; 		  :tooltip "Battery: ${battery-cappacity}%"
+;     )
+;   )
+; )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    WINDOWS    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -470,10 +584,80 @@
                         :anchor "top left")
     (dashboard-resources))
 
+;; THEMES WINDOW
+(defwindow themes-window
+    :monitor 0
+    :wm-ignore true
+    :geometry (geometry :x "600px"
+                        :y "150px"
+                        :width "700"
+                        :height "500"
+                        :anchor "top left")
+    (themes))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; NOT USED WIDGETS AND WINDOWS ;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; ;;;;;; BRIGHTNESS WIDGET
+;
+; ;; Brightness variables
+; (defvar bright false)
+; (defpoll current-brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+;
+; ;; Brightness widget
+; (defwidget bright []
+;   (eventbox 
+;     :tooltip "Brightness: ${current-brightness}%" 
+;     :onhover "eww update bright=true"   
+;     :onhoverlost "eww update bright=false"
+;     (box 
+;       :orientation "h" 
+;       :space-evenly false 
+;       (eventbox 
+;         :cursor "hand"
+;         (button 
+;           :class "brightness-icon" 
+;           ""
+;         )
+;       )
+;       (revealer
+;         :transition "slideleft" 
+; 			  :reveal bright
+; 			  :duration "500ms"
+;         (scale
+;           :class "bribar"
+;           :min 0
+;           :max 101
+;           :onchange "brightnessctl set {}%"
+;           :value current-brightness
+;         )
+;       )
+;     )
+;   )
+; )
+
+; ;;;;;; BATTERY WIDGET
+;
+; ;; Battery widget variables
+; (defpoll battery :interval "1s"	"~/.config/eww/scripts/battery.sh icon")
+; (defpoll battery-cappacity :interval "1s"	"~/.config/eww/scripts/battery.sh percent")
+;
+; ;; Battery widget
+; (defwidget bat []
+; 	(box	
+;     :vexpand "false" 
+;     :hexpand "false" 
+;     :orientation "h"	
+; 		:space-evenly "false"
+; 	  (label	
+;       :class "bat"		
+; 		  :halign "end"		
+; 		  :text battery	
+; 		  :tooltip "Battery: ${battery-cappacity}%"
+;     )
+;   )
+; )
 
 ; ;;;;;; POWER MENU BAR WIDGET (bar revealer)
 ;
@@ -570,65 +754,6 @@
 ;;  )
 ;;)
 
-; ;;;;;; BRIGHTNESS WIDGET
-;
-; ;; Brightness variables
-; (defvar bright false)
-; (defpoll current-brightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
-;
-; ;; Brightness widget
-; (defwidget bright []
-;   (eventbox 
-;     :tooltip "Brightness: ${current-brightness}%" 
-;     :onhover "eww update bright=true"   
-;     :onhoverlost "eww update bright=false"
-;     (box 
-;       :orientation "h" 
-;       :space-evenly false 
-;       (eventbox 
-;         :cursor "hand"
-;         (button 
-;           :class "brightness-icon" 
-;           ""
-;         )
-;       )
-;       (revealer
-;         :transition "slideleft" 
-; 			  :reveal bright
-; 			  :duration "500ms"
-;         (scale
-;           :class "bribar"
-;           :min 0
-;           :max 101
-;           :onchange "brightnessctl set {}%"
-;           :value current-brightness
-;         )
-;       )
-;     )
-;   )
-; )
-
-; ;;;;;; BATTERY WIDGET
-;
-; ;; Battery widget variables
-; (defpoll battery :interval "1s"	"~/.config/eww/scripts/battery.sh icon")
-; (defpoll battery-cappacity :interval "1s"	"~/.config/eww/scripts/battery.sh percent")
-;
-; ;; Battery widget
-; (defwidget bat []
-; 	(box	
-;     :vexpand "false" 
-;     :hexpand "false" 
-;     :orientation "h"	
-; 		:space-evenly "false"
-; 	  (label	
-;       :class "bat"		
-; 		  :halign "end"		
-; 		  :text battery	
-; 		  :tooltip "Battery: ${battery-cappacity}%"
-;     )
-;   )
-; )
 
 ;;;;;;; MEMORY STATUS WIDGET
 ;;(defwidget mem []

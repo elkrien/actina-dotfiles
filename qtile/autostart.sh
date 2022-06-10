@@ -37,4 +37,4 @@ xidlehook \
 # /$HOME/.config/qtile/scripts/locker.sh &
 
 # Touchpad tapping
-# xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1

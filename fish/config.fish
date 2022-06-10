@@ -13,7 +13,7 @@ if test -d ~/.local/bin
 end
 
 #### MICRO COLORS ####
-export MICRO_TRUECOLOR=1
+export "MICRO_TRUECOLOR=1"
 
 #### "BAT" AS A MANPAGER ####
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'" 
@@ -153,7 +153,7 @@ end
 #   ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
 
 # clear screen
-alias cl='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
+alias cl='clear'  #'clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 # ls change to lsd
 # alias ls='lsd -l --icon-theme unicode --group-dirs first' # standard listing
@@ -177,7 +177,7 @@ alias .5='cd ../../../../..'
 alias cat='bat'
 
 # top change to ytop
-alias top='btm'
+alias top='ytop'
 
 # update system
 alias update='sudo pacman -Syu && paru -Sua'
@@ -208,9 +208,6 @@ alias mi='micro'
 # neovim
 alias v='lvim'
 
-# helix
-alias hx='helix'
-
 # du change to dua
 alias du='dua i'
 
@@ -239,4 +236,4 @@ function fish_greeting
 end
 
 #### CLEAR AND SPARK ON START ####
-echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
+#echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo

@@ -1,106 +1,110 @@
 {
-    "dark": [
-        "#22212c",
-        "#22212c"
-    ],
-    "dark_light": [
-        "#2e2b3b",
-        "#2e2b3b"
-    ],
-    "grey": [
-        "#434758",
-        "#434758"
-    ],
-    "light": [
-        "#f8f8f2",
-        "#f8f8f2"
-    ],
-    "text": [
-        "#f8f8f2",
-        "#f8f8f2"
-    ],
-    "focus": [
-        "#bd93f9",
-        "#bd93f9"
-    ],
-    "urgent": [
-        "#80ffea",
-        "#80ffea"
-    ],
-    "active": [
-        "#bd93f9",
-        "#bd93f9"
-    ],
-    "inactive": [
-        "#434758",
-        "#434758"
-    ],
-    "selection": [
-        "#454158",
-        "#454158"
-    ],
-    "red": [
-        "#ff5555",
-        "#ff5555"
-    ],
-    "purple": [
-        "#bd93f9",
-        "#bd93f9"
-    ],
-    "green": [
-        "#8aff80",
-        "#8aff80"
-    ],
-    "yellow": [
-        "#ffff80",
-        "#ffff80"
-    ],
-    "blue": [
-        "#9580ff",
-        "#9580ff"
-    ],
-    "magenta": [
-        "#ff80bf",
-        "#ff80bf"
-    ],
-    "cyan": [
-        "#80ffea",
-        "#80ffea"
-    ],
-    "orange": [
-        "#FFCA80",
-        "#FFCA80"
-    ],
-    "bright-red": [
-        "#ffaa99",
-        "#ffaa99"
-    ],
-    "bright-green": [
-        "#a2ff99",
-        "#a2ff99"
-    ],
-    "bright-yellow": [
-        "#ffff99",
-        "#ffff99"
-    ],
-    "bright-blue": [
-        "#aa99ff",
-        "#aa99ff"
-    ],
-    "bright-magenta": [
-        "#ff99cc",
-        "#ff99cc"
-    ],
-    "bright-cyan": [
-        "#99ffee",
-        "#99ffee"
-    ],
-    "bright-white": [
-        "#ffffff",
-        "#ffffff"
-    ],
-    "comment": [
-        "#7970A9",
-        "#7970A9"
-    ]
+  "dark": [
+    "#22212c",
+    "#22212c"
+  ],
+  "trans": [
+    "#6622212c",
+    "#6622212c"
+  ],
+  "dark_light": [
+    "#2e2b3b",
+    "#2e2b3b"
+  ],
+  "grey": [
+    "#434758",
+    "#434758"
+  ],
+  "light": [
+    "#f8f8f2",
+    "#f8f8f2"
+  ],
+  "text": [
+    "#f8f8f2",
+    "#f8f8f2"
+  ],
+  "focus": [
+    "#bd93f9",
+    "#bd93f9"
+  ],
+  "urgent": [
+    "#80ffea",
+    "#80ffea"
+  ],
+  "active": [
+    "#bd93f9",
+    "#bd93f9"
+  ],
+  "inactive": [
+    "#434758",
+    "#434758"
+  ],
+  "selection": [
+    "#454158",
+    "#454158"
+  ],
+  "red": [
+    "#ff5555",
+    "#ff5555"
+  ],
+  "purple": [
+    "#bd93f9",
+    "#bd93f9"
+  ],
+  "green": [
+    "#8aff80",
+    "#8aff80"
+  ],
+  "yellow": [
+    "#ffff80",
+    "#ffff80"
+  ],
+  "blue": [
+    "#9580ff",
+    "#9580ff"
+  ],
+  "magenta": [
+    "#ff80bf",
+    "#ff80bf"
+  ],
+  "cyan": [
+    "#80ffea",
+    "#80ffea"
+  ],
+  "orange": [
+    "#FFCA80",
+    "#FFCA80"
+  ],
+  "bright-red": [
+    "#ffaa99",
+    "#ffaa99"
+  ],
+  "bright-green": [
+    "#a2ff99",
+    "#a2ff99"
+  ],
+  "bright-yellow": [
+    "#ffff99",
+    "#ffff99"
+  ],
+  "bright-blue": [
+    "#aa99ff",
+    "#aa99ff"
+  ],
+  "bright-magenta": [
+    "#ff99cc",
+    "#ff99cc"
+  ],
+  "bright-cyan": [
+    "#99ffee",
+    "#99ffee"
+  ],
+  "bright-white": [
+    "#ffffff",
+    "#ffffff"
+  ],
+  "comment": [
+    "#7970A9",
+    "#7970A9"
+  ]
 }
