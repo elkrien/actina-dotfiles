@@ -23,7 +23,8 @@ picom --experimental-backends --config ~/.config/picom/picom.conf &> /dev/null &
 leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
 
 # set background
-nitrogen --restore
+# nitrogen --restore
+nitrogen --set-scaled --random ~/Obrazy/Illustrators/
 
 # get weather
 /home/mm/.config/eww/scripts/weather.sh

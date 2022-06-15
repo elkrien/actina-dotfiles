@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/.config/eww/scripts/catppuccin-macchiato.sh
+source ~/.config/eww/scripts/catppuccin-mocha.sh
 
 i3lock \
 -e                      \

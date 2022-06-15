@@ -12,7 +12,7 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.colorscheme = "catppuccin"
-vim.g.catppuccin_flavour= "macchiato"
+vim.g.catppuccin_flavour= "mocha"
 vim.wo.relativenumber = true
 vim.o.cmdheight = 1
 
@@ -86,6 +86,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "typescript",
   "tsx",
   "css",
+  "fish",
+  "scss",
   "rust",
   "java",
   "yaml",

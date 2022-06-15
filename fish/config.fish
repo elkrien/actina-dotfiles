@@ -153,7 +153,7 @@ end
 #   ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
 
 # clear screen
-alias cl='clear'  #'clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
+alias cl='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 # ls change to lsd
 # alias ls='lsd -l --icon-theme unicode --group-dirs first' # standard listing
@@ -236,4 +236,4 @@ function fish_greeting
 end
 
 #### CLEAR AND SPARK ON START ####
-#echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
+echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo

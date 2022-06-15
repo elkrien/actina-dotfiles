@@ -1,0 +1,191 @@
+#!/usr/bin/env bash
+
+## rofi-screenshot
+## Author: ceuk @ github
+## Licence: WTFPL
+## Usage: 
+##    show the menu with rofi-screenshot
+##    stop recording with rofi-screenshot -s
+
+# Screenshot directory
+screenshot_directory="$HOME/Obrazy/Screenshots"
+
+# set ffmpeg defaults
+ffmpeg() {
+    command ffmpeg -hide_banner -loglevel error -nostdin "$@"
+}
+
+video_to_gif() {
+    ffmpeg -i "$1" -vf palettegen -f image2 -c:v png - |
+    ffmpeg -i "$1" -i - -filter_complex paletteuse "$2"
+}
+
+countdown() {
+  notify-send -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagrywanie rozpocznie się za 3 sekundy " -t 1000
+  sleep 1
+  notify-send -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagrywanie rozpocznie się za 2 sekundy " -t 1000
+  sleep 1
+  notify-send -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagrywanie rozpocznie się za 1 sekundę " -t 1000
+  sleep 1
+}
+
+crtc() {
+  dunstify -i "~/.config/qtile/icons/photo-camera.svg" " Screenshot " " Wybierz fragment ekranu "
+  #ffcast -q $(slop -n -f '-g %g ') png /tmp/screenshot_clip.png
+  maim --hidecursor --quiet --quality=3 --format='png' --delay=0.1 --select --highlight --color=0.85,0.87,0.91,0.2 "/tmp/screenshot_clip.png"
+  xclip -selection clipboard -t image/png /tmp/screenshot_clip.png
+  dunstify -I "/tmp/screenshot_clip.png" " Screenshot " " Fragment ekranu zapisano do Schowka "
+  rm /tmp/screenshot_clip.png
+}
+
+crtf() {
+  dunstify -i "~/.config/qtile/icons/photo-camera.svg" " Screenshot " " Wybierz fragment ekranu "
+  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  maim --hidecursor --quiet --quality=3 --format='png' --delay=0.1 --select --highlight --color=0.85,0.87,0.91,0.2 "$screenshot_directory/$dt.png"
+  #ffcast -q $(slop -n -f '-g %g ') png "$screenshot_directory/$dt.png"
+  dunstify -I "$screenshot_directory/$dt.png" " Screenshot" " Fragment ekranu zapisano w $screenshot_directory "
+  xclip -selection clipboard -target 'image/png' -in "$screenshot_directory/$dt.png"
+  # notify-send -i "~/.config/qtile/icons/photo-camera.svg" " Screenshot " " Region saved to $screenshot_directory "
+}
+
+cstc() {
+  ffcast -q png /tmp/screenshot_clip.png
+  maim --hidecursor --quiet --quality=3 --format='png' --delay=1 /tmp/screenshot_clip.png
+  xclip -selection clipboard -t image/png /tmp/screenshot_clip.png
+  dunstify -I "/tmp/screenshot_clip.png" " Screenshot " " Zrzut ekranu zapisano do Schowka "
+  rm /tmp/screenshot_clip.png
+}
+
+cstf() {
+  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  maim --hidecursor --quiet --quality=3 --format='png' --delay=1 "$screenshot_directory/$dt.png"
+  dunstify -I "$screenshot_directory/$dt.png" " Screenshot" " Zrzut ekranu zapisano w $screenshot_directory "
+  xclip -selection clipboard -target 'image/png' -in "$screenshot_directory/$dt.png"
+  #notify-send -i "~/.config/qtile/icons/photo-camera.svg" " Screenshot " " Screenshot saved to $screenshot_directory "
+}
+
+rgrtf() {
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Wybierz fragment obrazu do nagrania "
+  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  ffcast -q $(slop -n -f '-g %g ' && countdown) rec /tmp/screenshot_gif.mp4
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Konwersja do gif... (to może chwilę potrwać) "
+  video_to_gif /tmp/screenshot_gif.mp4 "$screenshot_directory/$dt.gif"
+  rm /tmp/screenshot_gif.mp4
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagranie zapisano w $screenshot_directory "
+}
+
+rgstf() {
+  countdown
+  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  ffcast -q rec /tmp/screenshot_gif.mp4
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Konwersja do gif... (to może chwilę potrwać) "
+  video_to_gif /tmp/screenshot_gif.mp4 "$screenshot_directory/$dt.gif"
+  rm /tmp/screenshot_gif.mp4
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagranie zapisano w $screenshot_directory "
+}
+
+rvrtf() {
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Wybierz fragment obrazu do nagrania "
+  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  ffcast -q $(slop -n -f '-g %g ' && countdown) rec "$screenshot_directory/$dt.mp4"
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagranie zapisano w $screenshot_directory "
+}
+
+rvstf() {
+  countdown
+  dt=$(date '+%d-%m-%Y %H:%M:%S')
+  ffcast -q rec "$screenshot_directory/$dt.mp4"
+  dunstify -i "~/.config/qtile/icons/video-camera.svg" " Screenshot " " Nagranie zapisano w $screenshot_directory "
+}
+
+get_options() {
+  echo "    Przechwytywanie regionu   Schowek"
+  echo "    Przechwytywanie regionu   Plik (PNG)"
+  echo "    Przechwytywanie ekranu   Schowek"
+  echo "    Przechwytywanie ekranu   Plik (PNG)"
+  echo "    Nagraj fragment ekranu   Plik (GIF)"
+  echo "    Nagraj ekran   Plik (GIF)"
+  echo "    Nagraj fragment ekranu   Plik (MP4)"
+  echo "    Nagraj ekran   Plik (MP4)"
+}
+
+check_deps() {
+  if ! hash $1 2>/dev/null; then
+    echo "Error: This script requires $1"
+    exit 1
+  fi
+}
+
+main() {
+  # check dependencies
+  check_deps slop
+  check_deps ffcast
+  check_deps ffmpeg
+  check_deps xclip
+  check_deps rofi
+
+  if [[ $1 == '--help' ]] || [[ $1 = '-h' ]]
+  then
+    echo ### rofi-screenshot
+    echo USAGE: rofi-screenshot [OPTION]
+    echo \(no option\)
+    echo "    show the screenshot menu"
+    echo -s, --stop
+    echo "    stop recording"
+    echo -h, --help
+    echo "    this screen"
+    exit 1
+  fi
+
+  if [[ $1 = '--stop' ]] || [[ $1 = '-s' ]]
+  then
+    pkill -fxn '(/\S+)*ffmpeg\s.*\sx11grab\s.*'
+    exit 1
+  fi
+
+  # Get choice from rofi
+  choice=$( (get_options) | rofi -no-config -dmenu -window-title "Screenshot" -i -fuzzy -theme ~/.config/rofi/screenshot.rasi)
+
+  # If user has not picked anything, exit
+  if [[ -z "${choice// }" ]]; then
+      exit 1
+  fi
+
+  # run the selected command
+  case $choice in
+    '    Przechwytywanie regionu   Schowek')
+      crtc
+      ;;
+    '    Przechwytywanie regionu   Plik (PNG)')
+      crtf
+      ;;
+    '    Przechwytywanie ekranu   Schowek')
+      cstc
+      ;;
+    '    Przechwytywanie ekranu   Plik (PNG)')
+      cstf
+      ;;
+    '    Nagraj fragment ekranu   Plik (GIF)')
+      rgrtf
+      ;;
+    '    Nagraj ekran   Plik (GIF)')
+      rgstf
+      ;;
+    '    Nagraj fragment ekranu   Plik (MP4)')
+      rvrtf
+      ;;
+    '    Nagraj ekran   Plik (MP4)')
+      rvstf
+      ;;
+  esac
+
+  # done
+  set -e
+}
+
+main $1 &
+
+exit 0
+
+!/bin/bash
+

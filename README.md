@@ -15,18 +15,20 @@
 ### 🌼 INFORMATIONS
 
 - **System:** Arch Linux
-- **Window Manager:** Qtile + Qtile Extras / LeftWM + EWW (bar and widgets)
+- **Window Manager:** Qtile + Qtile Extras + Qtile Bar / LeftWM + EWW (bar and widgets)
 - **Colours:** Catppuccin (GTK + all available app themes)
 - **Icons:** Papirus Dark + Catppuccin Folders Colours
-- **Mouse Cursors:** Catppuccin
-- **Terminal:** Kitty / Alacritty
+- **Mouse Cursors:** Catppuccin Cursors
+- **Terminal:** Kitty / Alacritty / Wezterm
 - **Shell:** Fish + Starship
 - **Compositor:** Picom (jonaburg)
 - **Notify Daemon:** Dunst
+- **System Monitor:** Htop + Bottom
+- **System Fetch:** Neofetch + Macchina
 - **Application Launcher:** Rofi
-- **File Manager:** Nemo + Joshuto
-- **Music Player:** NCSpot + PyRadio
-- **Editor/IDE:** Helix + LunarVim + VSCode
+- **File Manager:** Nemo + Ranger (and Joshuto)
+- **Music Player:** spotify_player + PyRadio
+- **Editor/IDE:** LunarVim (and Micro + Helix + VSCode)
 - **Fonts:** JetBrains Mono Nerd Fonts + Inter Nerd Fonts + Open Sans
 - **Screenlock:** i3lock-color + xidlehook
 - **Wallpapers manager:** Nitrogen

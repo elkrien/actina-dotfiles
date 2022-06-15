@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.config/eww/scripts/catppuccin-macchiato.sh
+source ~/.config/eww/scripts/catppuccin-mocha.sh
 
 updatesarch="$(checkupdates 2> /dev/null | wc -l)"
 updatesaur="$(paru -Qua 2> /dev/null | wc -l)"

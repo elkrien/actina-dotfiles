@@ -1,4 +1,4 @@
-theme = "Catppuccin-macchiato"
+theme = "Catppuccin-mocha"
 client_id = "997b1fc67bf4479d89c9358e1fa573c9"
 app_refresh_duration_in_ms = 32
 playback_refresh_duration_in_ms = 0
