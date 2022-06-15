@@ -1,0 +1,86 @@
+{
+  "dark": [
+    "#EFF1F5",
+    "#EFF1F5"
+  ],
+  "dark_light": [
+    "#EFF1F5",
+    "#EFF1F5"
+  ],
+  "grey": [
+    "#CCD0DA",
+    "#CCD0DA"
+  ],
+  "light": [
+    "#4C4F69",
+    "#4C4F69"
+  ],
+  "text": [
+    "#4C4F69",
+    "#4C4F69"
+  ],
+  "focus": [
+    "#7287FD",
+    "#7287FD"
+  ],
+  "urgent": [
+    "#FE640B",
+    "#FE640B"
+  ],
+  "active": [
+    "#7287FD",
+    "#7287FD"
+  ],
+  "inactive": [
+    "#ACB0BE",
+    "#ACB0BE"
+  ],
+  "selection": [
+    "#CCD0DA",
+    "#CCD0DA"
+  ],
+  "red": [
+    "#D20F39",
+    "#D20F39"
+  ],
+  "purple": [
+    "#8839EF",
+    "#8839EF"
+  ],
+  "green": [
+    "#40A02B",
+    "#40A02B"
+  ],
+  "yellow": [
+    "#DF8E1D",
+    "#DF8E1D"
+  ],
+  "blue": [
+    "#1E66F5",
+    "#1E66F5"
+  ],
+  "magenta": [
+    "#EA76CB",
+    "#EA76CB"
+  ],
+  "cyan": [
+    "#04A5E5",
+    "#04A5E5"
+  ],
+  "orange": [
+    "#FE640B",
+    "#FE640B"
+  ],
+  "comment": [
+    "#ACB0BE",
+    "#ACB0BE"
+  ],
+  "teal": [
+    "#179299",
+    "#179299"
+  ],
+  "lavender": [
+    "#7287FD",
+    "#7287FD"
+  ]
+}
