@@ -1,0 +1,9 @@
+{
+  "editor.fontFamily": "'JetBrainsMonoMedium Nerd Font'",
+  "editor.fontSize": 15,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "vscode-icons",
+  "bracketPairColorizer.depreciation-notice": false,
+  "workbench.colorTheme": "Catppuccin Macchiato",
+}

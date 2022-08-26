@@ -27,4 +27,5 @@ return {
     font_size = 12,
     default_cursor_style = "SteadyBar",
     use_fancy_tab_bar = false,
+    window_close_confirmation = "NeverPrompt",
 }

@@ -22,7 +22,6 @@ scale trough {
     margin: 0.6rem;
 }
 
-
 // MAIN BAR
 .bar {
     background-color: $base;
@@ -73,7 +72,6 @@ tooltip label {
   	font-size: 28px;
     font-family: "Inter Nerd Font";
 }
-
 
 //   POWER MENU WINDOW
 .power-icon
@@ -224,7 +222,7 @@ tooltip label {
   border-radius: 5px;
   border: 3px solid $surface0;
   .cal-in {
-    padding: 0px 10px 0px 10px;
+    padding: 50px 10px 50px 10px;
     .cal {
       &.highlight {
           padding: 20px;

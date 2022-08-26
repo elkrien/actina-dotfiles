@@ -361,7 +361,7 @@
           :halign "center"
           :valign "center"
           :space-evenly "false"
-      (button :onclick "eww open --toggle powermenu-window && ~/.config/eww/scripts/lock.sh"
+      (button :onclick "eww close powermenu-window && ~/.config/eww/scripts/lock.sh"
               :class "lock-btn"
               :tooltip "Lock"
               ""))

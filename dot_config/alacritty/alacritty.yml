@@ -96,11 +96,11 @@ schemes:
       foreground: '#CDD6F4'
       bright_foreground: '#CDD6F4'
     cursor:
-      text: CellBackground
-      cursor: CellForeground
+      text: '#1E1E2E'
+      cursor: '#F5E0DC'
     vi_mode_cursor:
-      text: CellBackground
-      cursor: CellForeground
+      text: '#1E1E2E'
+      cursor: '#B4BEFE'
     search:
       matches:
         foreground: '#1E1E2E'
@@ -122,26 +122,26 @@ schemes:
       foreground: None
       background: None
     selection:
-      text: CellForeground
-      background: '#313244'
+      text: '#1E1E2E'
+      background: '#F5E0DC'
     normal:
-      black: '#1E1E2E'
+      black: '#45475A'
       red: '#F38BA8'
       green: '#A6E3A1'
       yellow: '#F9E2AF'
       blue: '#89B4FA'
       magenta: '#CBA6F7'
       cyan: '#89DCEB'
-      white: '#CDD6F4'
+      white: '#BAC2DE'
     bright:
-      black: '#1E1E2E'
+      black: '#585B70'
       red: '#F38BA8'
       green: '#A6E3A1'
       yellow: '#F9E2AF'
       blue: '#89B4FA'
       magenta: '#CBA6F7'
       cyan: '#89DCEB'
-      white: '#CDD6F4'
+      white: '#A6ADC8'
     indexed_colors:
       - { index: 16, color: '#FAB387' }
       - { index: 17, color: '#F5E0DC' }

@@ -10,11 +10,13 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 lvim.colorscheme = "catppuccin"
 vim.g.catppuccin_flavour= "mocha"
 vim.wo.relativenumber = true
 vim.o.cmdheight = 1
+-- to disable icons and use a minimalist setup, uncomment the following
+-- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -23,10 +25,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["Y"] = "y$" -- yank to end of line
 lvim.keys.normal_mode["U"] = "<C-r>" -- U to Redo
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
-
 -- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = false
--- edit a default keymapping
+-- vim.keymap.del("n", "<C-Up>")
+-- override a default keymapping
+-- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -47,7 +49,7 @@ lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 -- }
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -58,13 +60,6 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
 
-lvim.builtin.which_key.mappings["m"] = {
-  name = "+Markdown",
-  m = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
-  p = { "<cmd>MarkdownPreview<cr>", "Start Markdown Preview" },
-  s = { "<cmd>MarkdownPreviewStop<cr>", "Stop Markdown Preview" },
-}
-
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -72,8 +67,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
-lvim.lsp.diagnostics.virtual_text = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -86,8 +80,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "typescript",
   "tsx",
   "css",
-  "fish",
-  "scss",
   "rust",
   "java",
   "yaml",
@@ -95,7 +87,14 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.lualine.active = false
 
+lvim.builtin.which_key.mappings["m"] = {
+  name = "+Markdown",
+  m = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
+  p = { "<cmd>MarkdownPreview<cr>", "Start Markdown Preview" },
+  s = { "<cmd>MarkdownPreviewStop<cr>", "Stop Markdown Preview" },
+}
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
@@ -157,7 +156,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
--- Additional Plugins
 lvim.plugins = {
   {
     "catppuccin/nvim",
@@ -171,6 +169,13 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
 
+  {
+    "feline-nvim/feline.nvim",
+    after = "catppuccin",
+    config = function()
+      require("user.feline")
+    end,
+  },
   -- {
   --   'wfxr/minimap.vim',
   --   run = "cargo install --locked code-minimap",
@@ -185,7 +190,7 @@ lvim.plugins = {
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("colorizer").setup({ "*" }, {
+      require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes
         RRGGBBAA = true, -- #RRGGBBAA hex codes
@@ -257,9 +262,30 @@ lvim.plugins = {
   {
     "elkowar/yuck.vim"
   },
+
+  {
+    "fladson/vim-kitty"
+  },
 }
+-- Additional Plugins
+-- lvim.plugins = {
+--     {"folke/tokyonight.nvim"},
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
-  -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = { "*.json", "*.jsonc" },
+--   -- enable wrap mode for json files only
+--   command = "setlocal wrap",
+-- })
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "zsh",
+--   callback = function()
+--     -- let treesitter use bash highlight for zsh files as well
+--     require("nvim-treesitter.highlight").attach(0, "bash")
+--   end,
+-- })

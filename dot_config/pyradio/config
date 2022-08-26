@@ -78,7 +78,7 @@ force_http = False
 #   black_on_white (bow) (256 colors)
 #   white_on_black (wob) (256 colors)
 # Default value = 'dark'
-theme = dark
+theme = dark_16_colors
 
 # Transparency setting
 # If False, theme colors will be used.

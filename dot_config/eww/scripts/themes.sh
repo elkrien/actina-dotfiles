@@ -75,6 +75,24 @@ sed -i "/focused/cfocused_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/
 fi
 leftwm-command SoftReload
 
+# change VSCode theme
+if [[ $1 == "mocha" ]] 
+then
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Mocha\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+elif [[ $1 == "latte" ]] 
+then
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Latte\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+elif [[ $1 == "frappe" ]]
+then
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Frappe\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+elif [[ $1 == "macchiato" ]]
+then
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Macchiato\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+fi
+
+# change zathura theme
+sed -i "/catppuccin/cinclude catppuccin-$1" ~/.config/zathura/zathurarc
+
 # change Fish theme
 rm ~/.config/fish/conf.d/cat*
 cp ~/.scripts/themes/fish/catppuccin-$1.fish ~/.config/fish/conf.d/

@@ -1,4 +1,4 @@
-theme = "catppuccin"
+theme = "catppuccin_mocha"
 
 [editor]
 auto-completion = true

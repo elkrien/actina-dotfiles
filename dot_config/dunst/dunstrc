@@ -82,6 +82,6 @@ timeout = 7
 
 [urgency_critical]
 timeout = 0
-    
+
 # vim: ft=cfg
 

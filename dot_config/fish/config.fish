@@ -237,3 +237,6 @@ end
 
 #### CLEAR AND SPARK ON START ####
 echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
+
+#### CLEAR AND DRAW DOTS ON START ####
+# echo; echo -e "\e[1;37m   \e[1;31m   \e[1;32m   \e[1;33m   \e[1;34m   \e[1;35m   \e[1;36m "; echo;

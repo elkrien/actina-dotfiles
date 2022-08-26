@@ -360,6 +360,19 @@ command = "MoveWindowToNextWorkspace"
 modifier = ["modkey", "Shift"]
 key = "Right"
 
+# Increase and decrease window size 
+[[keybind]]
+command = "IncreaseMainWidth"
+value = "5"
+modifier = ["modkey", "Control"]
+key = "j"
+
+[[keybind]]
+command = "DecreaseMainWidth"
+value = "5"
+modifier = ["modkey", "Control"]
+key = "h"
+
 [[keybind]]
 command = "FocusPreviousTag"
 modifier = ["Control", "Alt"]
