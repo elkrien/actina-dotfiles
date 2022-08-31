@@ -210,65 +210,8 @@ tooltip label {
     margin: 0rem 0.6rem;
     font-family: "Inter Nerd Font";
     font-size: 17px;
+    font-weight: 500;
     color: $text;
-}
-
-// CALENDAR
-.cal {
-  background-color: $base;
-  font-family: "Inter Nerd Font";
-  font-size: 16px;
-  font-weight: normal;
-  border-radius: 5px;
-  border: 3px solid $surface0;
-  .cal-in {
-    padding: 50px 10px 50px 10px;
-    .cal {
-      &.highlight {
-          padding: 20px;
-      }
-      padding: 5px 5px 5px 5px;
-      margin-left: 10px;
-
-    }
-  }
-}
-
-calendar {
-  color: $text;
-  font-family: "Inter Nerd Font";
-}
-
-calendar:selected {
-  color: $mantle;
-  background-color: $lavender;
-  font-family: "Inter Nerd Font";
-}
-
-calendar.header {
-  color: $text;
-  font-weight: bold;
-  font-family: "Inter Nerd Font";
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom: 0px solid $base;
-
-}
-
-calendar.button {
-  color: $lavender;
-  font-family: "Inter Nerd Font";
-}
-
-calendar.highlight {
-  color: $lavender;
-  font-family: "Inter Nerd Font";
-  font-weight: bold;
-}
-
-calendar:indeterminate {
-  color: $overlay0;
-  font-family: "Inter Nerd Font";
 }
 
 // WIFI
@@ -390,8 +333,9 @@ calendar:indeterminate {
   margin-top: 7px;
   margin-bottom: 20px;
 }
-// DASHBOARD
-.dashboard-icon
+
+// SEARCH ICON
+.search-icon
 {
     color: $sky;
     font-family: "Inter Nerd Font";
@@ -399,82 +343,21 @@ calendar:indeterminate {
     margin: 0px 20px 0px 5px;
 }
 
-.dashboard-small-cal
-{  
-  background-color: $base;
-  border-radius: 5px;
-  border: 3px solid $surface0;
-}
-
-.dashboard-time-day
-{ 
-  background-color: $base;
-  border-radius: 5px; 
-  border: 3px solid $surface0;
-}
-
-.dashboard-weather-resources
-{ 
-  background-color: $base;
-  border-radius: 5px;
-  border: 3px solid $surface0;
-}
-
-.dashboard-time
+// DASHBOARD (RESOURCES STATS)
+.dashboard-icon
 {
+    font-size: 20;
     font-family: "Inter Nerd Font";
-    font-size: 70px;
-    margin-top: 15px;
-    color: $peach;
-    font-weight: 700;
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+    color: $green;
 }
 
-.dashboard-day
-{
-  font-family: "Inter Nerd Font";
-  font-size: 20px;
-  font-weight: 700;
-  color: $green;
-}
-
-.dashboard-month
-{
-  font-family: "Inter Nerd Font";
-  font-size: 20px;
-  font-weight: 700;
-  color: $blue;
-}
-
-.dashboard-date
-{
-  font-family: "Inter Nerd Font";
-  color: $red;
-  font-size: 70px;
-  margin-top: 15px;
-  font-weight: 700;
-;
-}
-.weather-icon {
-  font-size: 100px;
-  margin: 0px 0px 0px 40px;
-  font-family: "Inter Nerd Font";
-}
-
-.weather-stat {
-  font-family: "Inter Nerd Font";
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-  color: $lavender;
-}
-
-.temperature {
-  // margin-left: 35px;
-  margin-top: 30px;
-  font-size: 50px;
-  font-family: "Inter Nerd Font";
-  font-weight: 700;
-  color: $pink;
+.dashboard-resources
+{ 
+  background-color: $base;
+  border-radius: 5px;
+  border: 3px solid $surface0;
 }
 
 .res_box {
@@ -545,28 +428,134 @@ calendar:indeterminate {
 	color: $green;
 }
 
-/////////////////  NOT USED ///////////////////
+// NEW-CALENDAR
+.cal-box {
+			background-color: $surface0;
+			border-radius: 10px;
+	
+			padding: .5em;
+			margin: 2em 0.75em .25em;
+	
+			.month-year {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 0.5em 0em 0em;
+			}
+	
+			.day-names {
+				margin: 1em 1em 0em;
+				font-size: 16px;
+				font-weight: bold;
+				color: $lavender;
+			}
+		
+			.cal {
+				padding: .75em .75em 0em;
+			}
+		}
 
-// BATTERY
-.bat {
+.calendar-time-day
+{ 
+  background-color: $base;
+  border-radius: 5px; 
+  border: 3px solid $surface0;
+}
+
+.calendar-time
+{
+    font-family: "Inter Nerd Font";
+    font-size: 80px;
+    margin-top: 15px;
+    color: $peach;
+    font-weight: 700;
+}
+
+.calendar-day
+{
+  font-family: "Inter Nerd Font";
   font-size: 20px;
-  color: $maroon;
-  margin: 0rem 0.6rem;
+  font-weight: 700;
+  color: $green;
+}
+
+calendar {
+	font-family: "Inter Nerd Font";
+	font-weight: bold;
+  &:selected {
+		color: $green;
+    border-radius: 5px;
+  }
+  &:indeterminate {
+		color: $overlay0;
+  }
+  &.header {
+    font-size: 8px;
+	}
+}
+
+.weather-box
+{ 
+  background-color: $surface0;
+  border-radius: 10px;
+  padding: .5em;
+	margin: 1em 0.75em .25em;
+}
+
+.weather-temperature {
+  // margin-left: 35px;
+  margin-top: 10px;
+  font-size: 50px;
+  font-family: "Inter Nerd Font";
+  font-weight: 700;
+  color: $pink;
+}
+
+.weather-icon {
+  font-size: 120px;
+  margin: 0px 0px 0px 15px;
   font-family: "Inter Nerd Font";
 }
 
-// BRIGHTNESS
-.brightness-icon {
-  color: $yellow;
-  font-size: 17px;
-  font-family: "Font Awesome 6 Free Solid";
-  margin: 0rem 0.6rem 0rem 0.6rem;
+.weather-temp {
+  //margin-left: 35px;
+  margin-top: 25px;
+  font-size: 50px;
+  font-family: "Inter Nerd Font";
+  font-weight: 700;
+  color: $pink;
 }
 
-.bribar trough highlight {
-  background-color: $yellow;
-  //border-radius: 5px;
+.weather-stat {
+  font-family: "Inter Nerd Font";
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  //margin-right: 15px;
+  color: $lavender;
 }
+
+/////////////////  NOT USED ///////////////////
+
+// // BATTERY
+// .bat {
+//   font-size: 20px;
+//   color: $maroon;
+//   margin: 0rem 0.6rem;
+//   font-family: "Inter Nerd Font";
+// }
+
+// // BRIGHTNESS
+// .brightness-icon {
+//   color: $yellow;
+//   font-size: 17px;
+//   font-family: "Font Awesome 6 Free Solid";
+//   margin: 0rem 0.6rem 0rem 0.6rem;
+// }
+
+// .bribar trough highlight {
+//   background-color: $yellow;
+//   //border-radius: 5px;
+// }
 
 // // POWER MENU BAR
 //

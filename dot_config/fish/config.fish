@@ -23,7 +23,7 @@ set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
 
 #### TERMINAL SETTINGS ####
-# set TERM "xterm-256color"
+set TERM "xterm-256color"
 
 #### SETTING EDITOR ####
 set EDITOR "lvim"
@@ -192,9 +192,9 @@ alias mutt='neomutt'
 # df change to duf
 alias df='duf'
 
-# neofetch
-alias neo='neofetch'
-alias neoc='neofetch | lolcat'
+# system fetch (macchina)
+alias neo='macchina'
+alias sysinfo='macchina'
 
 # Get fastest mirrors 
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" 
@@ -211,12 +211,11 @@ alias v='lvim'
 # du change to dua
 alias du='dua i'
 
-# macchina
-alias sysinfo='macchina'
-
 # ranger
 alias r='ranger'
 
+# helix
+alias hx='helix'
 
 #     █████╗ ██╗   ██╗████████╗ ██████╗ ███████╗████████╗ █████╗ ██████╗ ████████╗
 #    ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝

@@ -10,9 +10,16 @@
 # Default value: mpv,mplayer,vlc
 player = mpv,mplayer,vlc
 
+# Open last playlist
+# If this option is enabled, the last opened playlist will be opened
+# the next time PyRadio is opened. This option will take precedence
+# over the "Def. playlist" option.
+# Default value: False
+open_last_playlist = False
+
 # Default playlist
 # This is the playlist to open if none is specified
-# You can scecify full path to CSV file, or if the playlist is in the
+# You can specify full path to CSV file, or if the playlist is in the
 # config directory, playlist name (filename without extension) or
 # playlist number (as reported by -ls command line option)
 # Default value: stations
@@ -77,8 +84,11 @@ force_http = False
 #   light_16_colors (16 colors light theme alternative)
 #   black_on_white (bow) (256 colors)
 #   white_on_black (wob) (256 colors)
+# If theme is watched for changes, prepend its name
+# with an asterisk (i.e. '*my_theme')
+# This is applicable for user themes only!
 # Default value = 'dark'
-theme = dark_16_colors
+theme = catppuccin-mocha
 
 # Transparency setting
 # If False, theme colors will be used.
@@ -87,8 +97,12 @@ theme = dark_16_colors
 # not running, the terminal's background color will be used.
 # Valid values: True, true, False, false
 # Default value: False
-use_transparency = True
+use_transparency = False
 
+# Calculated color factor
+# Valid values: 0-0.2
+# Default value: 0
+calculated_color_factor = 0
 
 # Playlist management
 #
@@ -100,7 +114,7 @@ confirm_station_deletion = True
 
 # Specify whether you will be asked to confirm
 # playlist reloading, when the playlist has not
-# been modified within Pyradio
+# been modified within PyRadio
 # Valid values: True, true, False, false
 # Default value: True
 confirm_playlist_reload = True

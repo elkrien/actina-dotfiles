@@ -120,7 +120,7 @@
   (eventbox
 	  (button :class "date"	
 			      :tooltip "${dateVar}"
-			      :onclick "eww open --toggle calendar"	"${timeVar}")))
+			      :onclick "eww open --toggle new-calendar-window"	"${timeVar}")))
 
 ;;;;;; WORKSPACES WIDGET
 ;; Workspaces widget variables
@@ -135,6 +135,18 @@
         :halign "start"
         :spacing 8
     (literal :content {wm-tags})))
+
+;;;;;; SEARCH WIDGET
+;; Search icon
+(defwidget search-icon []
+  (box  :orientation "h"
+        :halign "end"
+        :valign "center"
+        :space-evenly "false"
+    (button :onclick "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/full-launcher.rasi & disown"
+            :class "search-icon"
+            :tooltip "Applications menu"
+            ""))) ;;   ﯟ ﰧ   ﰧ 
 
 ;;;;;; MUSIC BAR CONTROLS WIDGET
 
@@ -169,14 +181,6 @@
     (literal :content playercontrols :valign "center")))
 
 ;;;;;; DASHBOARD WIDGET
-;; Dashboard variables
-(defpoll number_day :interval "5h" "date \"+%d\"")
-(defpoll month_name :interval "5h" "~/.config/eww/scripts/getmonth.sh")
-(defpoll day_name :interval "5h" "~/.config/eww/scripts/getday.sh")
-(defpoll weather-icon :interval "20m"  "cat /tmp/weather/weather-icon")
-(defpoll temperature :interval "20m"  "cat /tmp/weather/weather-degree")
-(defpoll weather-hex :interval "20m"  "cat /tmp/weather/weather-hex")
-(defpoll weather-stat :interval "20m"  "cat /tmp/weather/weather-stat")
 
 ;; Dashboard icon widget
 (defwidget dashboard-icon []
@@ -184,50 +188,15 @@
         :halign "end"
         :valign "center"
         :space-evenly "false"
-    (button :onclick "eww open-many --toggle dashboard-smcal-window dashboard-bigcal-window dashboard-weather-window dashboard-resources-window"
+    (button :onclick "eww open-many --toggle dashboard-resources-window"
             :class "dashboard-icon"
             :tooltip "Dashboard"
-            ""))) ;;   ﯟ ﰧ   ﰧ 
-
-;; Dashboard small calendar
-(defwidget dashboard-smcal []
-  (box  :orientation "v"
-        :space-evenly "false"
-        :class "dashboard-small-cal"
-    (label  :text "${number_day}"
-            :class "dashboard-date")
-    (label  :text month_name
-            :class "dashboard-month")))
-
-;; Dashboard big calendar
-(defwidget dashboard-bigcal []
-  (box  :orientation "v"
-        :space-evenly "false"
-        :class "dashboard-time-day"
-    (label  :class "dashboard-time"
-            :text "${timeVar}")
-    (label  :class "dashboard-day"
-            :text day_name)))
-
-;; Dashboard weather
-(defwidget dashboard-weather []
-  (box  :space-evenly "false"
-        :class "dashboard-weather-resources"
-        :orientation "h"
-    (box  :orientation "h" 
-          :space-evenly "false"
-      (box  :class "weather-icon" 
-            :style "color: ${weather-hex}" {weather-icon}))
-    (box  :orientation "v" 
-          :space-evenly "false"
-          :hexpand "true"
-      (box  :class "temperature" "${temperature}  ")
-      (box  :class "weather-stat" {weather-stat}))))
+            "龍"))) ;;        ﯟ ﰧ   ﰧ 
 
 ;; Dashboard resources
 (defwidget dashboard-resources []
   (centerbox  :space-evenly "false"
-              :class "dashboard-weather-resources"
+              :class "dashboard-resources"
               :orientation "h" 
  		(box  :class "res_box" 
           :orientation "v" 
@@ -406,14 +375,17 @@
             :onrightclick "systemctl poweroff"
             :class "power-icon"
             :tooltip "PowerMenu"
-            "⏻")))
+            "⏻"
+    )
+  )
+)
 
 ;;;;;; MAIN BAR WIDGET
 (defwidget bar []
   (centerbox
     (box  :space-evenly false 
           :orientation "h"     
-      (dashboard-icon)
+      (search-icon)
       (music))
     (box  :space-evenly false 
           :orientation "h"
@@ -426,9 +398,52 @@
       (volume)
       (micvolume)
       (wifi)
+      (dashboard-icon)
       (time)
       (power-window))))
 
+;;;;;;; CALENDAR WIDGET
+;; Calendar variables
+(defpoll number_day :interval "5h" "date \"+%d\"")
+(defpoll month_name :interval "5h" "~/.config/eww/scripts/getmonth.sh")
+(defpoll day_name :interval "5h" "~/.config/eww/scripts/getday.sh")
+(defpoll weather-icon :interval "20m"  "cat /tmp/weather/weather-icon")
+(defpoll temperature :interval "20m"  "cat /tmp/weather/weather-degree")
+(defpoll weather-hex :interval "20m"  "cat /tmp/weather/weather-hex")
+(defpoll weather-stat :interval "20m"  "cat /tmp/weather/weather-stat")
+
+;; Calendar widget
+(defwidget new-calendar []
+  (box  :orientation "v"
+        :space-evenly "false"
+        :class "calendar-time-day"
+    (label  :class "calendar-time"
+            :text "${timeVar}")
+    (label  :class "calendar-day"
+            :text "${day_name}, ${number_day} ${month_name}")
+    (box  :class "cal-box"
+					:orientation "v"
+					:space-evenly "false"
+					;;(label :class "month-year" :text month_name)
+					(box :class "day-names" :orientation "h" :space-evenly "true"
+						(label :text "Pon")
+						(label :text "Wto")
+						(label :text "Śro")
+						(label :text "Czw")
+						(label :text "Pią")
+						(label :text "Sob")
+						(label :text "Nie")
+					)
+					(calendar :class "cal" 
+						:show-details false :show-heading true :show-day-names false))  
+    (box :class "weather-box" :orientation "h" :space-evenly "true"
+				(box :orientation "h"
+					(box :space-evenly "true"
+						(label :class "weather-icon" :style "color: ${weather-hex};" :text {weather-icon != "" ? weather-icon : " "})
+					  (box :space-evenly "false"
+						  (box :orientation "v" :space-evenly "false"
+							  (label :class "weather-temp" :halign "center" :text "${temperature} ")
+							  (label :class "weather-stat" :halign "center" :text "${weather-stat}"))))))))
 
 ; ;;;;;; BRIGHTNESS WIDGET
 
@@ -494,17 +509,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;    WINDOWS    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; CALENDAR WINDOW 
-(defwindow calendar
-  :monitor 0
-  :wm-ignore true
-	:geometry (geometry :x "-1%" 
-	                    :y "4%" 
-		                  :width "270px" 
-		                  :height "60px"
-                      :anchor "top right")
-  (calendar :class "cal"))
-
 ;; BAR WINDOW
 (defwindow bar 
   :monitor 0
@@ -540,48 +544,16 @@
                         :anchor "top right")
     (powermenu))
 
-;; DASHBOARD WINDOW - SMALL CALENDAR
-(defwindow dashboard-smcal-window
-    :monitor 0
-    :wm-ignore true
-    :geometry (geometry :x "5px"
-                        :y "40px"
-                        :width "160"
-                        :height "160"
-                        :anchor "top left")
-    (dashboard-smcal))
-
-;; DASHBOARD WINDOW - BIG CALENDAR
-(defwindow dashboard-bigcal-window
-    :monitor 0
-    :wm-ignore true
-    :geometry (geometry :x "170px"
-                        :y "40px"
-                        :width "280"
-                        :height "160"
-                        :anchor "top left")
-    (dashboard-bigcal))
-
-;; DASHBOARD WINDOW - WEATHER
-(defwindow dashboard-weather-window
-    :monitor 0
-    :wm-ignore true
-    :geometry (geometry :x "5px"
-                        :y "205px"
-                        :width "445"
-                        :height "160"
-                        :anchor "top left")
-    (dashboard-weather))
 
 ;; DASHBOARD WINDOW - RESOURCES
 (defwindow dashboard-resources-window
     :monitor 0
     :wm-ignore true
-    :geometry (geometry :x "5px"
-                        :y "370px"
+    :geometry (geometry :x "-5px"
+                        :y "40px"
                         :width "445"
                         :height "160"
-                        :anchor "top left")
+                        :anchor "top right")
     (dashboard-resources))
 
 ;; THEMES WINDOW
@@ -594,6 +566,17 @@
                         :height "500"
                         :anchor "top left")
     (themes))
+
+;; NEW CALENDAR WINDOW 
+(defwindow new-calendar-window 
+    :monitor 0
+    :wm-ignore true
+    :geometry (geometry :x "-5px"
+                        :y "40px"
+                        :width "445"
+                        :height "640"
+                        :anchor "top right")
+    (new-calendar))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; NOT USED WIDGETS AND WINDOWS ;;;;;;;;;;;;;;;;;;;;

@@ -93,6 +93,9 @@ fi
 # change zathura theme
 sed -i "/catppuccin/cinclude catppuccin-$1" ~/.config/zathura/zathurarc
 
+# change pyradio theme
+sed -i "/theme =/ctheme = catppuccin-$1" ~/.config/pyradio/config
+
 # change Fish theme
 rm ~/.config/fish/conf.d/cat*
 cp ~/.scripts/themes/fish/catppuccin-$1.fish ~/.config/fish/conf.d/
