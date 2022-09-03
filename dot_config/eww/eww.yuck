@@ -143,7 +143,7 @@
         :halign "end"
         :valign "center"
         :space-evenly "false"
-    (button :onclick "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/full-launcher.rasi & disown"
+    (button :onclick "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/launcher.rasi & disown"
             :class "search-icon"
             :tooltip "Applications menu"
             ""))) ;;   ﯟ ﰧ   ﰧ 
@@ -181,7 +181,6 @@
     (literal :content playercontrols :valign "center")))
 
 ;;;;;; DASHBOARD WIDGET
-
 ;; Dashboard icon widget
 (defwidget dashboard-icon []
   (box  :orientation "h"
@@ -257,6 +256,16 @@
               :text "${round(EWW_DISK["/"].used_perc,1)}%"))))
 
 ;;;;;; THEMES WIDGET
+;; Themes icon widget
+(defwidget themes-icon []
+  (box  :orientation "h"
+        :halign "end"
+        :valign "center"
+        :space-evenly "false"
+    (button :onclick "eww open --toggle themes-window"
+            :class "themes-icon"
+            :tooltip "Themes"
+            ""))) ;;         ﯟ ﰧ   ﰧ 
 
 (defwidget themes []
   (box  :orientation "v"
@@ -310,7 +319,6 @@
                 :text "Macchiato"))))))
 
 ;;;;;; POWER MENU WINDOW WIDGET
-
 ;; Powermenu window (box) widget 
 (defwidget lock-power-restart-logout []
   (box  :orientation "v"
@@ -399,6 +407,8 @@
       (micvolume)
       (wifi)
       (dashboard-icon)
+      (themes-icon)
+      (screenshot-icon)
       (time)
       (power-window))))
 
@@ -444,6 +454,105 @@
 						  (box :orientation "v" :space-evenly "false"
 							  (label :class "weather-temp" :halign "center" :text "${temperature} ")
 							  (label :class "weather-stat" :halign "center" :text "${weather-stat}"))))))))
+
+;;;;;; SCREENSHOTS
+;; Screenshot variables
+(defvar screenshotPath "/tmp/screenshot.png")
+
+;; Screenshot icon widget
+(defwidget screenshot-icon []
+  (box  :orientation "h"
+        :halign "end"
+        :valign "center"
+        :space-evenly "false"
+    (button :onclick "eww open --toggle takeshot"
+            :class "screenshot-bar-icon"
+            :tooltip "Screenshot"
+            ""))) ;;  
+
+;; Screenhsot commands widget
+(defwidget command [cmd ?class icon text]
+  (eventbox 
+    ;:cursor "hand"
+    (box :orientation "v" :space-evenly false
+      (button	:class "${class} screen-icon"
+        :onclick cmd icon)
+      (label :class "screen-text-icon" :text text)
+    )
+  )
+)
+
+;; Screenshot main window
+(defwindow takeshot
+  :monitor 0
+  :geometry (geometry :x "-5px"
+                      :y "40px"
+                      :height "12%" 
+                      :width "25%" 
+                      :anchor "top right")
+  :wm-ignore true
+  (box :valign "fill" :halign "fill" :class "screen-box"
+    (overlay :valign "fill" :halign "fill" :class "screen-box"
+      (box :valign "center" :halign "center" :orientation "v" 
+        :space-evenly false
+        (box :valign "center" :halign "center"
+          :spacing 40
+          (command :class "icon-blue"
+            :cmd "eww close takeshot && sleep 0.5 && ~/.config/eww/scripts/screenshot.sh screen &"
+            :icon ""
+            :text "Ekran"
+          )
+          (command :class "icon-yellow"
+            :cmd "eww close takeshot && sleep 5 && ~/.config/eww/scripts/screenshot.sh screen &"
+            :icon ""
+            :text "Ekran +5s"
+          )
+          (command :class "icon-mauve"
+            :cmd "eww close takeshot && ~/.config/eww/scripts/screenshot.sh window &"
+            :icon ""
+            :text "Okno"
+          )
+          (command :class "icon-green"
+            :cmd "eww close takeshot && ~/.config/eww/scripts/screenshot.sh area &"
+            :icon "麗"
+            :text "Obszar"
+          )
+        )
+      )
+    )
+  )
+)
+
+;;Screenshot preview window
+(defwindow previewshot
+  :geometry (geometry :x "-5px"
+    :width "800px"
+    :height "600px"
+    :anchor "center"
+  )
+  (box :hexpand true :orientation "v" :class "screen-box"
+    :space-evenly false
+    (box :valign "center" :halign "center" :spacing 40 :class "preview-icons"
+      (command :class "icon-blue"
+        :cmd "eww close previewshot && ~/.config/eww/scripts/screenshot.sh save &"
+        :icon ""
+        :text "Zapisz"
+      )
+      (command :class "icon-green"
+        :cmd "eww close previewshot && ~/.config/eww/scripts/screenshot.sh copy &" 
+        :icon ""
+        :text "Kopiuj"
+      )
+      (command  :class "icon-red"
+        :cmd "eww close previewshot"
+        :icon ""
+        :text "Anuluj"
+      )
+    )
+    (box :class "preview" :vexpand true :hexpand true
+      :style "background-image: url('${screenshotPath}');")
+  )
+)
 
 ; ;;;;;; BRIGHTNESS WIDGET
 

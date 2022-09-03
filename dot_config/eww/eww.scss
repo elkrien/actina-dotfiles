@@ -91,7 +91,7 @@ tooltip label {
 
 .lock-btn:hover
 {
-    color: $lavender;
+    color: $surface2;
     font-family: "Inter Nerd Font";
     font-size: 30px;
 }
@@ -105,7 +105,7 @@ tooltip label {
 
 .power-btn:hover
 {
-    color: $lavender;
+    color: $surface2;
     font-family: "Inter Nerd Font";
     font-size: 30px;
 }
@@ -119,7 +119,7 @@ tooltip label {
 
 .restart-btn:hover
 {
-    color: $text;
+    color: $surface2;
     font-family: "Inter Nerd Font";
     font-size: 30px;
 }
@@ -133,7 +133,7 @@ tooltip label {
 
 .sleep-btn:hover
 {
-    color: $lavender;
+    color: $surface2;
     font-family: "Inter Nerd Font";
     font-size: 30px;
 }
@@ -147,7 +147,7 @@ tooltip label {
 
 .logout-btn:hover
 {
-    color: $lavender;
+    color: $surface2;
     font-family: "Inter Nerd Font";
     font-size: 30px;
 }
@@ -334,6 +334,14 @@ tooltip label {
   margin-bottom: 20px;
 }
 
+.themes-icon
+{
+    font-size: 20;
+    font-family: "Inter Nerd Font";
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+    color: $pink;
+}
 // SEARCH ICON
 .search-icon
 {
@@ -350,7 +358,7 @@ tooltip label {
     font-family: "Inter Nerd Font";
     border-radius: 100%;
     margin: 0px 10px 0px 5px;
-    color: $green;
+    color: $yellow;
 }
 
 .dashboard-resources
@@ -480,6 +488,7 @@ tooltip label {
 
 calendar {
 	font-family: "Inter Nerd Font";
+  color: $text;
 	font-weight: bold;
   &:selected {
 		color: $green;
@@ -502,7 +511,6 @@ calendar {
 }
 
 .weather-temperature {
-  // margin-left: 35px;
   margin-top: 10px;
   font-size: 50px;
   font-family: "Inter Nerd Font";
@@ -517,7 +525,6 @@ calendar {
 }
 
 .weather-temp {
-  //margin-left: 35px;
   margin-top: 25px;
   font-size: 50px;
   font-family: "Inter Nerd Font";
@@ -530,9 +537,81 @@ calendar {
   font-size: 20px;
   font-weight: bold;
   margin-top: 5px;
-  //margin-right: 15px;
   color: $lavender;
 }
+
+
+// SCREENSHOT
+.screenshot-bar-icon
+{
+    font-size: 20;
+    font-family: "Inter Nerd Font";
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+    color: $teal;
+}
+
+.screen-icon {
+  font-size: 4rem;
+}
+
+.screen-icon:hover {
+  color: $surface2;
+}
+
+.screen-text-icon {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: "Inter Nerd Font";
+  color: $text;
+}
+
+.screen-title {
+  font-family: "Inter Nerd Font";
+  font-size: 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: $peach;
+  font-weight: 700;
+}
+
+.screen-box {
+  background-color: $base;
+  border-radius: 5px; 
+  border: 3px solid $surface0;
+}
+
+.icon-red {
+  color: $red;
+}
+
+.icon-blue {
+  color: $blue;
+}
+
+.icon-mauve {
+  color: $mauve;
+}
+
+.icon-yellow {
+  color: $yellow;
+}
+
+.icon-green {
+  color: $green;
+}
+
+.preview {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 1rem;
+}
+
+.preview-icons {
+  margin-top: 20px;
+}
+
 
 /////////////////  NOT USED ///////////////////
 
