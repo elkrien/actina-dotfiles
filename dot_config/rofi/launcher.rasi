@@ -20,7 +20,7 @@ window {
 	border-color:			      @se;
   location:               northwest;
   x-offset:               5px;
-  y-offset:               40px;
+  y-offset:               43;
 }
 
 prompt {

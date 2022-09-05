@@ -39,7 +39,7 @@ updates = pacman_updates + "\n" + paru_updates
 # Show updates in dunst:
 if pacman_updates == "" and paru_updates == "":
     os.system(
-        f'dunstify -i "/home/mm/.config/qtile/icons/updates.svg" " {NO_UPDATES} "'
+        f'dunstify -i "~/.scripts/icons/updates.svg" " {NO_UPDATES} "'
     )
 else:
     # Create table with updates from the list:

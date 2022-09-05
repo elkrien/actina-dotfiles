@@ -139,7 +139,7 @@ key = "d"
 # Screenshot 
 [[keybind]]
 command = "Execute"
-value = "flameshot gui"
+value = "eww open --toggle takeshot"
 modifier = ["modkey"]
 key = "s"
 

@@ -275,16 +275,6 @@
             :text "Select Catppuccin Flavour")
     (box  :orientation "h"
           :space-evenly "true"
-      (eventbox :onclick "~/.config/eww/scripts/themes.sh mocha"
-                :cursor "hand"
-        (box  :orientation "v"
-              :space-evenly "false"
-              :halign "middle"
-              :valign "start" 
-          (image  :path "/home/mm/.config/eww/assets/mocha.png"
-                  :image-width 270)
-          (label  :class "themes-flavour"
-                  :text "Mocha")))
       (eventbox :onclick "~/.config/eww/scripts/themes.sh latte"
                 :cursor "hand"
         (box  :orientation "v"
@@ -294,9 +284,7 @@
           (image  :path "/home/mm/.config/eww/assets/latte.png"
                   :image-width 270)
           (label  :class "themes-flavour"
-                  :text "Latte"))))
-    (box  :orientation "h"
-          :space-evenly "true"
+                  :text "Latte")))
       (eventbox :onclick "~/.config/eww/scripts/themes.sh frappe"
                 :cursor "hand"
         (box  :orientation "v"
@@ -306,17 +294,29 @@
           (image  :path "/home/mm/.config/eww/assets/frappe.png"
                   :image-width 270)
           (label  :class "themes-flavour"
-                  :text "Frappe")))
+                  :text "Frappe"))))
+    (box  :orientation "h"
+          :space-evenly "true"
       (eventbox :onclick "~/.config/eww/scripts/themes.sh macchiato"
+                :cursor "hand"
+        (box  :orientation "v"
+              :space-evenly "false"
+              :halign "middle"
+              :valign "start" 
+          (image  :path "/home/mm/.config/eww/assets/macchiato.png"
+                  :image-width 270)
+          (label  :class "themes-flavour"
+                  :text "Macchiato")))
+      (eventbox :onclick "~/.config/eww/scripts/themes.sh mocha"
                 :cursor "hand"
       (box  :orientation "v"
             :space-evenly "false"
             :halign "middle"
             :valign "start" 
-        (image  :path "/home/mm/.config/eww/assets/macchiato.png"
+        (image  :path "/home/mm/.config/eww/assets/mocha.png"
                 :image-width 270)
         (label  :class "themes-flavour"
-                :text "Macchiato"))))))
+                :text "Mocha"))))))
 
 ;;;;;; POWER MENU WINDOW WIDGET
 ;; Powermenu window (box) widget 
@@ -486,7 +486,7 @@
 (defwindow takeshot
   :monitor 0
   :geometry (geometry :x "-5px"
-                      :y "40px"
+                      :y "43px"
                       :height "12%" 
                       :width "25%" 
                       :anchor "top right")
@@ -635,8 +635,8 @@
 (defwindow music-player-window
   :monitor 0
   :wm-ignore true
-  :geometry (geometry :x "20"
-                      :y "40"
+  :geometry (geometry :x "5px"
+                      :y "43px"
                       :width "600"
                       :height "240px"
                       :anchor "top left")
@@ -659,7 +659,7 @@
     :monitor 0
     :wm-ignore true
     :geometry (geometry :x "-5px"
-                        :y "40px"
+                        :y "43px"
                         :width "445"
                         :height "160"
                         :anchor "top right")
@@ -681,7 +681,7 @@
     :monitor 0
     :wm-ignore true
     :geometry (geometry :x "-5px"
-                        :y "40px"
+                        :y "43px"
                         :width "445"
                         :height "640"
                         :anchor "top right")

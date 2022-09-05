@@ -15,21 +15,25 @@ then
   sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/notification-audio-volume-high.svg
   sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/notification-audio-volume-muted.svg
   sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/updates.svg
 elif [[ $1 == "latte" ]] 
 then
   sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/notification-audio-volume-high.svg
   sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/notification-audio-volume-muted.svg
   sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/updates.svg
 elif [[ $1 == "frappe" ]]
 then
   sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/notification-audio-volume-high.svg
   sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/notification-audio-volume-muted.svg
   sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/updates.svg
 elif [[ $1 == "macchiato" ]]
 then
   sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/notification-audio-volume-high.svg
   sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/notification-audio-volume-muted.svg
   sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/updates.svg
 fi
 killall dunst
 
