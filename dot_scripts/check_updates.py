@@ -52,4 +52,3 @@ else:
     os.system(
         f'dunstify "{AVAILABLE_UPDATES}" "{updates_table}"'
     )
-

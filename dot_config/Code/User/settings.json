@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "'JetBrainsMonoMedium Nerd Font'",
+  "editor.fontFamily": "'JuliaMono Medium'",
   "editor.fontSize": 15,
   "editor.bracketPairColorization.enabled": true,
   "editor.fontLigatures": true,

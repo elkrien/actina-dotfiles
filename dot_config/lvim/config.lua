@@ -25,6 +25,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["Y"] = "y$" -- yank to end of line
 lvim.keys.normal_mode["U"] = "<C-r>" -- U to Redo
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+-- lvim.keys.normal_mode["<A-j>"] = ":m .+1<CR>=="
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
