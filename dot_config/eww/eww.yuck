@@ -40,7 +40,7 @@
 
 ;; Updates widget
 (defwidget updates [] 
-  (eventbox :tooltip "System updates" 
+  (eventbox :tooltip "Aktualizacje systemu" 
             :onhover "eww update upd=true"
             :onhoverlost "eww update upd=false"
 		(box  :vexpand "false" 
@@ -73,7 +73,7 @@
 
 ;; Volume widget
 (defwidget volume []
-  (eventbox :tooltip "Sound volume: ${volumepoll.content}%" 
+  (eventbox :tooltip "Głośność dźwięku: ${volumepoll.content}%" 
             :onhover "eww update volum=true && eww update currentVolume=$(pamixer --get-volume)"   
             :onhoverlost "eww update volum=false"
     (box  :orientation "h" 
@@ -92,7 +92,7 @@
 
 ;; Microphone widget
 (defwidget micvolume []
-  (eventbox :tooltip "Mic volume: ${micvolumepoll.content}%"
+  (eventbox :tooltip "Głośność mikrofonu: ${micvolumepoll.content}%"
             :onhover "eww update micvolum=true"
             :onhoverlost "eww update micvolum=false"
     (box  :orientation "h"
@@ -145,7 +145,7 @@
         :space-evenly "false"
     (button :onclick "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/launcher.rasi & disown"
             :class "search-icon"
-            :tooltip "Applications menu"
+            :tooltip "Menu"
             ""))) ;;   ﯟ ﰧ   ﰧ 
 
 ;;;;;; MUSIC BAR CONTROLS WIDGET
@@ -264,7 +264,7 @@
         :space-evenly "false"
     (button :onclick "eww open --toggle themes-window"
             :class "themes-icon"
-            :tooltip "Themes"
+            :tooltip "Motywy"
             ""))) ;;         ﯟ ﰧ   ﰧ 
 
 (defwidget themes []
@@ -272,7 +272,7 @@
         :space-evenly "false"
         :class "themes-window"
     (label  :class "themes-title"
-            :text "Select Catppuccin Flavour")
+            :text "Motywy Catppuccin")
     (box  :orientation "h"
           :space-evenly "true"
       (eventbox :onclick "~/.config/eww/scripts/themes.sh latte"
@@ -332,7 +332,7 @@
           :space-evenly "false"
       (button :onclick "systemctl reboot"
               :class "restart-btn"
-              :tooltip "Restart"
+              :tooltip "Uruchom ponownie"
               ""))
     (box  :orientation "v"
           :halign "center"
@@ -340,7 +340,7 @@
           :space-evenly "false"
       (button :onclick "eww close powermenu-window && ~/.config/eww/scripts/lock.sh"
               :class "lock-btn"
-              :tooltip "Lock"
+              :tooltip "Zablokuj ekran"
               ""))
     (box  :orientation "v"
           :halign "center"
@@ -348,7 +348,7 @@
           :space-evenly "false"
       (button :onclick "systemctl suspend"
               :class "sleep-btn"
-              :tooltip "Suspend"
+              :tooltip "Uśpij"
               ""))
     (box  :orientation "v"
           :halign "center"
@@ -356,7 +356,7 @@
           :space-evenly "false"
       (button :onclick "pkill -f leftwm"
               :class "logout-btn"
-              :tooltip "Logout"
+              :tooltip "Wyloguj"
               ""))
     (box  :orientation "v"
           :halign "center"
@@ -364,7 +364,7 @@
           :space-evenly "false"
       (button :onclick "systemctl poweroff"
               :class "power-btn"
-              :tooltip "Power off"
+              :tooltip "Wyłącz komputer"
               ""))))
 
 ;; Powermenu window widget (box)

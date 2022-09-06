@@ -80,6 +80,7 @@ nemo-share
 neofetch
 neovim
 nerd-fonts-inter
+nerd-fonts-jetbrains-mono
 networkmanager
 nitrogen
 noto-fonts-emoji
@@ -124,6 +125,7 @@ starship
 sudo
 system-config-printer
 ttf-icomoon-feather
+ttf-iosevka-nerd
 ttf-ms-fonts
 ttf-opensans
 ttf-roboto

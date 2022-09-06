@@ -8,7 +8,7 @@ CURRENT_VERSION = "Zainstalowana wersja"
 NEW_VERSION = "Nowa wersja"
 WAIT_CHECKING = "Sprawdzanie aktualizacji..."
 NO_UPDATES = "System aktualny"
-AVAILABLE_UPDATES = " Dostępne aktualizacje: "
+AVAILABLE_UPDATES = " Dostępne aktualizacje"
 
 # Table definition and settings:
 updates_table = PrettyTable(
@@ -44,11 +44,12 @@ if pacman_updates == "" and paru_updates == "":
 else:
     # Create table with updates from the list:
     updates_list = [line.split() for line in updates.splitlines()]
+    no_of_updates = len(updates_list)
     for item in updates_list:
         if item:
             item.pop(2)
             updates_table.add_row(item)
     # Show table in notification popup
     os.system(
-        f'dunstify "{AVAILABLE_UPDATES}" "{updates_table}"'
+        f'dunstify "{AVAILABLE_UPDATES} ({no_of_updates}): " "{updates_table}"'
     )
