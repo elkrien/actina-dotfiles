@@ -8,7 +8,7 @@ CURRENT_VERSION = "Zainstalowana wersja"
 NEW_VERSION = "Nowa wersja"
 WAIT_CHECKING = "Sprawdzanie aktualizacji..."
 NO_UPDATES = "System aktualny"
-AVAILABLE_UPDATES = "Dostępne aktualizacje: "
+AVAILABLE_UPDATES = " Dostępne aktualizacje: "
 
 # Table definition and settings:
 updates_table = PrettyTable(
@@ -28,7 +28,7 @@ updates_table.field_names = [PACKAGE, CURRENT_VERSION, NEW_VERSION]
 
 # Show waiting popup first:
 os.system(
-    f'dunstify -t 1500 " {WAIT_CHECKING} "'
+    f'dunstify -i "~/.config/eww/scripts/icons/updates.svg" -t 1000 " {WAIT_CHECKING} "'
 )
 
 # Check for updates by pacman and paru (Aur) and merge them together:
@@ -39,7 +39,7 @@ updates = pacman_updates + "\n" + paru_updates
 # Show updates in dunst:
 if pacman_updates == "" and paru_updates == "":
     os.system(
-        f'dunstify -i "~/.scripts/icons/updates.svg" " {NO_UPDATES} "'
+        f'dunstify -i "~/.config/eww/scripts/icons/updates.svg" " {NO_UPDATES} "'
     )
 else:
     # Create table with updates from the list:

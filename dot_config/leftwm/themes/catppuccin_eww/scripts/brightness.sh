@@ -12,6 +12,6 @@ getbright=$(brightnessctl get)
 brightness=$((getbright / 60))
 
 # Send notification
-dunstify -a "changeBrightness" -u low -i "/home/mm/.scripts/icons/notification-display-brightness.svg" -r "$msgId" -t 800 \
+dunstify -a "changeBrightness" -u low -i "~/.config/eww/scripts/icons/notification-display-brightness.svg" -r "$msgId" -t 800 \
 -h int:value:"$brightness" "  Jasność: ${brightness}% "
 

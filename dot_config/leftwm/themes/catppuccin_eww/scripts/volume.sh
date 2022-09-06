@@ -16,9 +16,9 @@ case "$@" in
             mute="$(pamixer --get-mute)"
             eww update volumepoll="$(~/.config/eww/scripts/volume.sh {})"
             if [ $mute == "true" ]; then 
-                dunstify -a "changeVolume" -u low -i "~/.scripts/icons/notification-audio-volume-muted.svg" -r "$msgId" -t 800 "  Dźwięk wyciszony  "
+                dunstify -a "changeVolume" -u low -i "~/.config/eww/scripts/icons/notification-audio-volume-muted.svg" -r "$msgId" -t 800 "  Dźwięk wyciszony  "
             else
-                dunstify -a "changeVolume" -u low -i "~/.scripts/icons/notification-audio-volume-high.svg" -r "$msgId" -t 800 \
+                dunstify -a "changeVolume" -u low -i "~/.config/eww/scripts/icons/notification-audio-volume-high.svg" -r "$msgId" -t 800 \
                 -h int:value:"$volume" "  Głośność: ${volume}%  "
             fi
             ;;                        
@@ -27,7 +27,7 @@ case "$@" in
         volume="$(pamixer --get-volume)"
         eww update volumepoll="$(~/.config/eww/scripts/volume.sh {})"
         # volume="$(($vol-1))"
-        dunstify -a "changeVolume" -u low -i "~/.scripts/icons/notification-audio-volume-high.svg" -r "$msgId" -t 800 \
+        dunstify -a "changeVolume" -u low -i "~/.config/eww/scripts/icons/notification-audio-volume-high.svg" -r "$msgId" -t 800 \
         -h int:value:"$volume" "  Głośność: ${volume}%   "
         ;;        
 esac

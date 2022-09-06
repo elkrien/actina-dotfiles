@@ -97,7 +97,7 @@ key = "Return"
 # PowerMenu
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/powermenu.sh"
+value = "~/.config/rofi/powermenu.sh"
 modifier = ["modkey"]
 key = "p"
 
@@ -167,58 +167,58 @@ key = "t"
 # VolumeUp +5%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/volume.sh +5%"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/volume.sh +5%"
 key = "XF86XK_AudioRaiseVolume"
 
 # VolumeUp +1%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/volume.sh +1%"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/volume.sh +1%"
 modifier = ["Shift"]
 key = "XF86XK_AudioRaiseVolume"
 
 # VolumeDown -5%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/volume.sh -5%"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/volume.sh -5%"
 key = "XF86XK_AudioLowerVolume"
 
 # VolumeDown -1%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/volume.sh -1%"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/volume.sh -1%"
 modifier = ["Shift"]
 key = "XF86XK_AudioLowerVolume"
 
 # VolumeMute Toggle
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/volume.sh toggle"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/volume.sh toggle"
 key = "XF86XK_AudioMute"
 
 # BrightnessUp +5%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/brightness.sh +5%"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/brightness.sh +5%"
 key = "XF86XK_MonBrightnessUp"
 
 # BrightnessUp +1%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/brightness.sh +1%"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/brightness.sh +1%"
 modifier = ["Shift"]
 key = "XF86XK_MonBrightnessUp"
 
 # BrightnessDown -5%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/brightness.sh 5%-"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/brightness.sh 5%-"
 key = "XF86XK_MonBrightnessDown"
 
 # BrightnessDown -1%
 [[keybind]]
 command = "Execute"
-value = "~/.scripts/brightness.sh 1%-"
+value = "~/.config/leftwm/themes/catppuccin_eww/scripts/brightness.sh 1%-"
 modifier = ["Shift"]
 key = "XF86XK_MonBrightnessDown"
 

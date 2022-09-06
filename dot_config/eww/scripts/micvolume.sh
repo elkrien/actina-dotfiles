@@ -24,6 +24,7 @@ else
     icon=" "
     if [[ "$volume" -lt 1 ]]; then
         icon=" "
+        class="muted"
     fi
 fi
 

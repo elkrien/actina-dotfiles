@@ -25,18 +25,18 @@ i3lock \
 --time-str="%H:%M:%S"    \
 --date-str="%d-%m-%Y"  \
 --time-size=40 \
---date-size=15 \
+--date-size=17 \
 --wrong-text="Złe hasło!"     \
 --verif-text="Sprawdzam..."  \
 --greeter-text="Wpisz hasło aby odblokować" \
 --noinput-text="Wpisz coś..."  \
 \
---wrong-font=JetBrainsMonoMedium Nerd Font     \
---verif-font=JetBrainsMonoMedium Nerd Font     \
---layout-font=JetBrainsMonoMedium Nerd Font    \
---time-font=JetBrainsMonoMedium Nerd Font      \
---greeter-font=JetBrainsMonoMedium Nerd Font   \
---date-font=JetBrainsMonoMedium Nerd Font      \
+--wrong-font=Inter Nerd Font     \
+--verif-font=Inter Nerd Font     \
+--layout-font=Inter Nerd Font    \
+--time-font=Inter Nerd Font      \
+--greeter-font=Inter Nerd Font   \
+--date-font=Inter Nerd Font      \
 \
 --radius 120            \
 --ring-width 10.0 \

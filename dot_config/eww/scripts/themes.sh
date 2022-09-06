@@ -9,31 +9,31 @@ sed -i "/source/csource ~\/.config\/eww\/scripts\/catppuccin-$1.sh" ~/.config/ew
 
 # change dunst colors
 rm ~/.config/dunst/dunstrc.d/cat*
-cp ~/.scripts/themes/dunst/catppuccin-$1.conf ~/.config/dunst/dunstrc.d
+cp ~/.config/eww/scripts/themes/dunst/catppuccin-$1.conf ~/.config/dunst/dunstrc.d
 if [[ $1 == "mocha" ]] 
 then
-  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/notification-audio-volume-high.svg
-  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/notification-audio-volume-muted.svg
-  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/notification-display-brightness.svg
-  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.scripts/icons/updates.svg
+  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.config/eww/scripts/icons/notification-audio-volume-high.svg
+  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.config/eww/scripts/icons/notification-audio-volume-muted.svg
+  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.config/eww/scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#CDD6F4\"" ~/.config/eww/scripts/icons/updates.svg
 elif [[ $1 == "latte" ]] 
 then
-  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/notification-audio-volume-high.svg
-  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/notification-audio-volume-muted.svg
-  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/notification-display-brightness.svg
-  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.scripts/icons/updates.svg
+  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.config/eww/scripts/icons/notification-audio-volume-high.svg
+  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.config/eww/scripts/icons/notification-audio-volume-muted.svg
+  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.config/eww/scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#4C4F69\"" ~/.config/eww/scripts/icons/updates.svg
 elif [[ $1 == "frappe" ]]
 then
-  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/notification-audio-volume-high.svg
-  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/notification-audio-volume-muted.svg
-  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/notification-display-brightness.svg
-  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.scripts/icons/updates.svg
+  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.config/eww/scripts/icons/notification-audio-volume-high.svg
+  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.config/eww/scripts/icons/notification-audio-volume-muted.svg
+  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.config/eww/scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#C6D0F5\"" ~/.config/eww/scripts/icons/updates.svg
 elif [[ $1 == "macchiato" ]]
 then
-  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/notification-audio-volume-high.svg
-  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/notification-audio-volume-muted.svg
-  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/notification-display-brightness.svg
-  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.scripts/icons/updates.svg
+  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.config/eww/scripts/icons/notification-audio-volume-high.svg
+  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.config/eww/scripts/icons/notification-audio-volume-muted.svg
+  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.config/eww/scripts/icons/notification-display-brightness.svg
+  sed -i "/stroke=/cstroke\=\"\#CAD3F5\"" ~/.config/eww/scripts/icons/updates.svg
 fi
 killall dunst
 
@@ -102,5 +102,5 @@ sed -i "/theme =/ctheme = catppuccin-$1" ~/.config/pyradio/config
 
 # change Fish theme
 rm ~/.config/fish/conf.d/cat*
-cp ~/.scripts/themes/fish/catppuccin-$1.fish ~/.config/fish/conf.d/
+cp ~/.config/eww/scripts/themes/fish/catppuccin-$1.fish ~/.config/fish/conf.d/
 exec fish

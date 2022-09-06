@@ -48,7 +48,7 @@
           :space-evenly "false"
       (eventbox 
         (button :class "module-updates-icon" 
-                :onclick "python3 ~/.scripts/check_updates.py & disown"
+                :onclick "python3 ~/.config/eww/scripts/check_updates.py & disown"
                 :onrightclick "alacritty -e paru & disown"
                 :wrap "false" 
                 :limit-width 20 
@@ -58,7 +58,7 @@
                 :reveal upd
                 :duration "350ms"
 	      (button :class "module-updates-text"
-                :onclick "python3 ~/.scripts/check_updates.py & disown"
+                :onclick "python3 ~/.config/eww/scripts/check_updates.py & disown"
                 :onrightclick "alacritty -e paru & disown"
                 :style "color: ${updatesVar.color};"			  
                 :orientation "h"
@@ -106,7 +106,7 @@
         (scale  :class "volumemicBar"
                 :min 0
                 :max 101
-                :onchange `eww update micvolumepoll="$(./scripts/micvolume.sh {})"`
+                :onchange `eww update micvolumepoll="$(~/.config/eww/scripts/micvolume.sh {})"` 
                 :value "${micvolumepoll.content}")))))
 
 ;;;;;; DATE AND TIME WIDGET
@@ -786,7 +786,7 @@
 ;   	      (button
 ;             :class "button-lock"
 ; 	  			  :tooltip "Lockscreen"
-; 				    :onclick "~/.scripts/lock.sh" ""
+; 				    :onclick "~/.config/eww/scripts/lock.sh" ""
 ;           )
 ;   	      (button
 ;             :class "button-sleep"
