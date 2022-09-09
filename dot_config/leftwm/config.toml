@@ -28,6 +28,14 @@ height = 600
 width = 1200
 
 [[scratchpad]]
+name = "filemanager"
+value = "nemo"
+x = 350
+y = 250
+height = 600
+width = 1200
+
+[[scratchpad]]
 name = "spotify"
 value = "alacritty -e spotify_player"
 x = 350
@@ -56,6 +64,13 @@ key = "Return"
 [[keybind]]
 command = "ToggleScratchPad"
 value = "cli-filemanager"
+modifier = ["modkey", "Control"]
+key = "e"
+
+# Open Nemo in scratchpad
+[[keybind]]
+command = "ToggleScratchPad"
+value = "filemanager"
 modifier = ["modkey", "Shift"]
 key = "e"
 
@@ -129,10 +144,10 @@ value = "mailspring"
 modifier = ["modkey"]
 key = "m"
 
-# Open Discord
+# Open Dashboard
 [[keybind]]
 command = "Execute"
-value = "powercord"
+value = "eww open --toggle dashboard-resources-window"
 modifier = ["modkey"]
 key = "d"
 
@@ -259,7 +274,7 @@ command = "SwapTags"
 modifier = ["modkey"]
 key = "b"
 
-# Movie active window up
+# Move active window up
 [[keybind]]
 command = "MoveWindowUp"
 modifier = ["modkey", "Shift"]
@@ -372,13 +387,13 @@ key = "Right"
 command = "IncreaseMainWidth"
 value = "5"
 modifier = ["modkey", "Control"]
-key = "j"
+key = "k"
 
 [[keybind]]
 command = "DecreaseMainWidth"
 value = "5"
 modifier = ["modkey", "Control"]
-key = "h"
+key = "j"
 
 [[keybind]]
 command = "FocusPreviousTag"
@@ -517,3 +532,25 @@ command = "Execute"
 value = "leftwm-command \"SendWindowToTag 9\" \"SendWorkspaceToTag 0 8\""
 modifier = ["modkey", "Shift"]
 key = "9"
+
+# Lock screen
+[[keybind]]
+command = "Execute"
+value = "~/.config/eww/scripts/lock.sh"
+modifier = ["modkey", "Shift", "Control"]
+key = "l"
+
+# Shutdown computer
+[[keybind]]
+command = "Execute"
+value = "shutdown now"
+modifier = ["modkey", "Control"]
+key = "q"
+
+# Show hotkeys
+[[keybind]]
+command = "Execute"
+value = "~/.config/eww/scripts/keys.sh"
+modifier = ["modkey"]
+key = "k"
+

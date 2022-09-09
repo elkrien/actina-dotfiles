@@ -26,7 +26,7 @@ discard () {
 }
 
 save () {
-    name="screenshot-$(date +%h-%m-%s_%d-%m-%y).png"
+    name="$(date +%d-%m-%Y_%H:%M:%S).png"
     mkdir -p $path
     cp $screenshot $path/$name
     dunstify " Screenshot " " Zrzut ekranu zapisano w $path " -i $screenshot

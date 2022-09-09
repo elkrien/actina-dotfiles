@@ -482,14 +482,14 @@ tooltip label {
 {
   font-family: "Inter Nerd Font";
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   color: $green;
 }
 
 calendar {
 	font-family: "Inter Nerd Font";
   color: $text;
-	font-weight: bold;
+  font-weight: 500;
   &:selected {
 		color: $green;
     border-radius: 5px;
@@ -552,6 +552,7 @@ calendar {
 }
 
 .screen-icon {
+  font-family: "Inter Nerd Font";
   font-size: 4rem;
 }
 
@@ -612,6 +613,12 @@ calendar {
   margin-top: 20px;
 }
 
+//KEYS
+.keys-box {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /////////////////  NOT USED ///////////////////
 

@@ -144,8 +144,10 @@
         :valign "center"
         :space-evenly "false"
     (button :onclick "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/launcher.rasi & disown"
+            :onrightclick "~/.config/eww/scripts/keys.sh"
             :class "search-icon"
-            :tooltip "Menu"
+            :tooltip "Menu (lewy przycisk myszy)
+Skróty klawiatury (prawy przycisk myszy)"
             ""))) ;;   ﯟ ﰧ   ﰧ 
 
 ;;;;;; MUSIC BAR CONTROLS WIDGET
@@ -187,7 +189,7 @@
         :halign "end"
         :valign "center"
         :space-evenly "false"
-    (button :onclick "eww open-many --toggle dashboard-resources-window"
+    (button :onclick "eww open --toggle dashboard-resources-window"
             :class "dashboard-icon"
             :tooltip "Dashboard"
             "龍"))) ;;        ﯟ ﰧ   ﰧ 
@@ -551,6 +553,22 @@
     )
     (box :class "preview" :vexpand true :hexpand true
       :style "background-image: url('${screenshotPath}');")
+  )
+)
+
+;;;;;;; KEYS
+(defvar keysPath "~/.config/eww/scripts/themes/keys/keys-mocha.png")
+
+(defwindow showkeys
+  :geometry (geometry 
+    :width "1416px"
+    :height "743px"
+    :anchor "center"
+  )
+  (box :hexpand true :orientation "v" :class "screen-box"
+    :space-evenly false
+    (box :class "key-box" :vexpand true :hexpand true
+      :style "background-image: url('${keysPath}');")
   )
 )
 

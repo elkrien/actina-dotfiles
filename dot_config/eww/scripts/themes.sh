@@ -82,16 +82,16 @@ leftwm-command SoftReload
 # change VSCode theme
 if [[ $1 == "mocha" ]] 
 then
-  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Mocha\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Mocha\"\," ~/.config/Code/User/settings.json
 elif [[ $1 == "latte" ]] 
 then
-  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Latte\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Latte\"\," ~/.config/Code/User/settings.json
 elif [[ $1 == "frappe" ]]
 then
-  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Frappe\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Frappe\"\," ~/.config/Code/User/settings.json
 elif [[ $1 == "macchiato" ]]
 then
-  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Macchiato\"\," ~/.config/Code/User/settings.jsoned -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+  sed -i "/colorTheme/c\  \"workbench.colorTheme\"\: \"Catppuccin Macchiato\"\," ~/.config/Code/User/settings.json
 fi
 
 # change zathura theme
@@ -99,6 +99,9 @@ sed -i "/catppuccin/cinclude catppuccin-$1" ~/.config/zathura/zathurarc
 
 # change pyradio theme
 sed -i "/theme =/ctheme = catppuccin-$1" ~/.config/pyradio/config
+
+# change keys window theme
+sed -i "/path=/cpath=~\/.config\/eww\/scripts\/themes\/keys\/keys-$1.png" ~/.config/eww/scripts/keys.sh
 
 # change Fish theme
 rm ~/.config/fish/conf.d/cat*
