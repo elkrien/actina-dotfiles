@@ -1,21 +1,21 @@
 ## 👽 ELKRIEN's DOTFILES
 
-### 🦀 LEFTWM
+### 🦀 SCREENSHOT
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice.png"/>
+</p>
+
+### 🐍 WORKFLOW
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/cat-leftwm.gif" width="600px"/>
 </p>
 
-### 🐍 QTILE (not maintained)
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/cat-qtile.gif" width="600px"/>
-</p>
-
 ### 🌼 INFORMATIONS
 
 - **System:** Arch Linux
-- **Window Manager:** LeftWM + EWW (bar and widgets) / Qtile + Qtile Extras + Qtile Bar 
+- **Window Manager:** LeftWM / Qtile + EWW (bar and widgets) 
 - **Colours:** Catppuccin (GTK + all available app themes)
 - **Icons:** Papirus Dark + Catppuccin Folders Colours
 - **Mouse Cursors:** Catppuccin Cursors
