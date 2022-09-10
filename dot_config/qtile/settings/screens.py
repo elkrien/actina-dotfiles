@@ -11,10 +11,17 @@ from .widgets import primary_widgets, secondary_widgets
 from .theme import colors
 import subprocess
 
-def status_bar(widgets):
-    return bar.Bar(widgets, 36, background=colors['dark'], opacity=1.0)
+# def status_bar(widgets):
+#     return bar.Bar(widgets, 36, background=colors['dark'], opacity=1.0)
 
-screens = [Screen(top=status_bar(primary_widgets))]
+# screens = [Screen(top=status_bar(primary_widgets))]
+
+# def init_screens():
+#     return [Screen(top=bar.Gap(size=35))
+#             ]
+# screens = init_screens()
+
+screens = [Screen(top=bar.Gap(size=35))]
 
 xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 
@@ -34,4 +41,4 @@ else:
 
 if connected_monitors > 1:
     for _ in range(1, connected_monitors):
-        screens.append(Screen(top=status_bar(secondary_widgets)))
+        screens.append(Screen(top=bar.Gap(size=35)))

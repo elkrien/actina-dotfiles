@@ -42,32 +42,63 @@ tooltip label {
     font-family: "Inter Nerd Font";
 }
 
-// WORKSPACES
+// // WORKSPACES
+// .workspaces button:hover {
+//   	color: $lavender;
+// }
+
+// .ws-button-mine {
+//   	color: $lavender;
+//   	background-color: $base;
+//   	font-size: 22px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// .ws-button-visible {
+//   	color: $peach;
+//   	background-color: $base;
+//   	font-size: 22px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// .ws-button-busy {
+//   	color: $overlay0;
+//   	font-size: 22px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// .ws-button {
+//   	color: $overlay0;
+//   	font-size: 28px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// NEW WORKSPACES
 .workspaces button:hover {
   	color: $lavender;
 }
 
-.ws-button-mine {
+.active-occupied {
   	color: $lavender;
   	background-color: $base;
   	font-size: 22px;
     font-family: "Inter Nerd Font";
 }
 
-.ws-button-visible {
-  	color: $peach;
+.active-empty {
+  	color: $lavender;
   	background-color: $base;
   	font-size: 22px;
     font-family: "Inter Nerd Font";
 }
 
-.ws-button-busy {
+.inactive-occupied {
   	color: $overlay0;
   	font-size: 22px;
     font-family: "Inter Nerd Font";
 }
 
-.ws-button {
+.inactive-empty {
   	color: $overlay0;
   	font-size: 28px;
     font-family: "Inter Nerd Font";
@@ -619,6 +650,11 @@ calendar {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+
+
+
+
 
 /////////////////  NOT USED ///////////////////
 

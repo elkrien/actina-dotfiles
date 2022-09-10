@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
 
-# systray battery icon
-# cbatticon -u 5 &
-
-# systray volume
-# volumeicon &
-
 # picom
 picom --experimental-backends --config ~/.config/picom/picom.conf &
 
-# Network
-# nm-applet &
+# start eww daemon
+eww daemon &
+
+# get weather for eww widget
+/home/mm/.config/eww/scripts/weather.sh
 
 # Keyboard Layout
 setxkbmap pl &
 
-# Wallpaper
-nitrogen --restore &
+# set background
+# nitrogen --restore
+nitrogen --set-scaled --random ~/Obrazy/Illustrators/ &
 
 # Notification deamon
 dunst &
@@ -29,12 +27,16 @@ xidlehook \
 	--not-when-fullscreen \
 	--not-when-audio \
 	--timer 600 \
-		'$HOME/.config/qtile/scripts/lock.sh' \
+		'$HOME/.config/eww/scripts/lock.sh' \
 		'' \
 	--timer 300 \
 		'systemctl suspend' \
 		'' &
-# /$HOME/.config/qtile/scripts/locker.sh &
 
-# Touchpad tapping
-xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+#open eww 'bar' windows
+eww open bar
+
+# # set touchpad (for Lenovo laptop)
+# xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+
+

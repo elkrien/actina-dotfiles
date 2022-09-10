@@ -31,7 +31,12 @@ toggle_music() {
 		if [[ "$(playerctl status)" == "Paused" ]]; then
       playerctl play-pause 2>&1
     else
-      leftwm-command "ToggleScratchPad spotify"
+      wm=$(wmctrl -m | grep Name | awk '{ print $2 }')
+      if [[ "$wm" == 'Qtile' ]]; then
+        qtile cmd-obj -o group scratchpad -f dropdown_toggle -a 'spotify'
+      else
+        leftwm-command "ToggleScratchPad spotify"
+      fi
 	  fi
   fi
 }

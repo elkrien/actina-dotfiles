@@ -55,29 +55,33 @@ sed -i "/colorscheme/c\"colorscheme\"\: \"catppuccin-$1\"\," ~/.config/micro/set
 # change spotify-player theme
 sed -i "/theme/ctheme \= \"Catppuccin-$1\"" ~/.config/spotify-player/app.toml
 
-# change LeftWM borders colors
-if [[ $1 == "mocha" ]] 
-then
-  sed -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/floating/cfloating_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/default/cdefault_border_color \= \"\#313244\"" ~/.config/leftwm/themes/current/theme.toml
-elif [[ $1 == "latte" ]] 
-then
-  sed -i "/focused/cfocused_border_color \= \"\#7287FD\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/floating/cfloating_border_color \= \"\#7287FD\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/default/cdefault_border_color \= \"\#CCD0DA\"" ~/.config/leftwm/themes/current/theme.toml
-elif [[ $1 == "frappe" ]]
-then
-  sed -i "/focused/cfocused_border_color \= \"\#BABBF1\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/floating/cfloating_border_color \= \"\#BABBF1\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/default/cdefault_border_color \= \"\#414559\"" ~/.config/leftwm/themes/current/theme.toml
-elif [[ $1 == "macchiato" ]]
-then
-sed -i "/focused/cfocused_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/floating/cfloating_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/current/theme.toml
-  sed -i "/default/cdefault_border_color \= \"\#363A4F\"" ~/.config/leftwm/themes/current/theme.toml
+# change Window Manager colors
+wm=$(wmctrl -m | grep Name | awk '{ print $2 }')
+if [[ "$wm" == 'Qtile' ]]; then
+  sed -i "/theme/c\  \"theme\": \"catppuccin-$1\"" ~/.config/qtile/config.json
+else
+  if [[ $1 == "mocha" ]] 
+  then
+    sed -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/floating/cfloating_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/default/cdefault_border_color \= \"\#313244\"" ~/.config/leftwm/themes/current/theme.toml
+  elif [[ $1 == "latte" ]] 
+  then
+    sed -i "/focused/cfocused_border_color \= \"\#7287FD\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/floating/cfloating_border_color \= \"\#7287FD\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/default/cdefault_border_color \= \"\#CCD0DA\"" ~/.config/leftwm/themes/current/theme.toml
+  elif [[ $1 == "frappe" ]]
+  then
+    sed -i "/focused/cfocused_border_color \= \"\#BABBF1\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/floating/cfloating_border_color \= \"\#BABBF1\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/default/cdefault_border_color \= \"\#414559\"" ~/.config/leftwm/themes/current/theme.toml
+  elif [[ $1 == "macchiato" ]]
+  then
+    sed -i "/focused/cfocused_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/floating/cfloating_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/default/cdefault_border_color \= \"\#363A4F\"" ~/.config/leftwm/themes/current/theme.toml
+  fi
 fi
-leftwm-command SoftReload
 
 # change VSCode theme
 if [[ $1 == "mocha" ]] 
@@ -106,4 +110,11 @@ sed -i "/path=/cpath=~\/.config\/eww\/scripts\/themes\/keys\/keys-$1.png" ~/.con
 # change Fish theme
 rm ~/.config/fish/conf.d/cat*
 cp ~/.config/eww/scripts/themes/fish/catppuccin-$1.fish ~/.config/fish/conf.d/
-exec fish
+
+# restart window manager and fish
+eww close themes-window
+if [[ "$wm" == 'Qtile' ]]; then
+  qtile cmd-obj -o cmd -f restart && exec fish
+else
+  leftwm-command SoftReload && exec fish
+fi

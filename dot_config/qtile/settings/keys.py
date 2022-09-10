@@ -3,7 +3,7 @@ from libqtile.config import EzKey as Key
 from libqtile.lazy import lazy
 import os
 
-myTerm = "kitty"
+myTerm = "alacritty"
 home = os.path.expanduser('~')
 
 keys = [
@@ -11,21 +11,23 @@ keys = [
     # --- Applications shortcuts ---
     Key("M-<Return>", lazy.spawn(myTerm)),                                  # Open Terminal (Alacritty)
     Key("M-S-<Return>", lazy.group["scratchpad"].dropdown_toggle('term')),  # Dropdown Terminal (Scratchpad)
-    Key("M-e", lazy.spawn("nemo")),			                            # Open File Explorer (Thunar)
-    Key("M-S-e", lazy.group["scratchpad"].dropdown_toggle('ranger')),       # Open ranger in scratchpad
+    Key("M-e", lazy.spawn("nemo")),			                                # Open File Explorer (Thunar)
+    Key("M-S-e", lazy.group["scratchpad"].dropdown_toggle('nemo')),         # Open Nemo in scratchpad
     Key("M-v", lazy.spawn("code")),			                                # Open Visual Code
     Key("M-w", lazy.spawn("microsoft-edge-stable")),                        # Open web browser (MS Edge)
     Key("M-m", lazy.spawn("mailspring")),	                                # Open mail (mailspring)
     Key("M-a", lazy.group["scratchpad"].dropdown_toggle('radio')),          # Open pyradio in scratchpad
     Key("M-S-a", lazy.group["scratchpad"].dropdown_toggle('spotify')),      # Open ncspot in scratchpad
-    Key("M-s", lazy.spawn("flameshot gui")), 	                            # Screenshot Menu
-    
-    # --- Rofi menu ---
+
+    # --- Rofi and EWW ---
     Key("M-r", lazy.spawn("rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/small-launcher-alt.rasi")), 	# Appplications launcher (small)
-    Key("M-S-r", lazy.spawn("rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/full-launcher.rasi")), 	# Applications launcher (full screen)
+    Key("M-S-r", lazy.spawn("rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/launcher.rasi")), 	# Applications launcher (full)
     Key("A-<Tab>", lazy.spawn("rofi -show window -theme ~/.config/rofi/windows-alt.rasi")), # Windows switcher
     Key("M-p", lazy.spawn(home + "/.config/qtile/scripts/powermenu.sh")),		    # PowerMenu
-    Key("M-t", lazy.spawn(home + "/.config/qtile/scripts/keys.sh")),                # Show Keybindings
+    Key("M-t", lazy.spawn("eww open --toggle themes-window")),                # Show Keybindings
+    Key("M-d", lazy.spawn("eww open --toggle dashboard-resources-window")),   # Show Dashboard
+    Key("M-s", lazy.spawn("eww open --toggle takeshot")), 	                # Screenshot Menu
+    Key("M-S-s", lazy.spawn("simplescreenrecorder")), 	                    # Screencast
     
     # --- Change windows focus ---
     Key("M-j", lazy.layout.down()),	                # Switch window down

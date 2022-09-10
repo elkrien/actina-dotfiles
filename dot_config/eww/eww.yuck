@@ -123,18 +123,31 @@
 			      :onclick "eww open --toggle new-calendar-window"	"${timeVar}")))
 
 ;;;;;; WORKSPACES WIDGET
-;; Workspaces widget variables
-(deflisten wm-tags "leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid")
+; ;; Workspaces widget variables
+; (deflisten wm-tags "leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid")
+
+; ;; Workspaces widget
+; (defwidget workspaces []
+;   (box  :class "workspaces"
+;         :orientation "h"
+;         :space-evenly true
+;         :valign "center"
+;         :halign "start"
+;         :spacing 8
+;     (literal :content {wm-tags})))
+
+;; New workspaces
+;; Workspaces variables
+(deflisten new-workspaces "~/.config/eww/scripts/workspaces.sh")
 
 ;; Workspaces widget
 (defwidget workspaces []
-  (box  :class "workspaces"
-        :orientation "h"
-        :space-evenly true
-        :valign "center"
-        :halign "start"
-        :spacing 8
-    (literal :content {wm-tags})))
+    (eventbox
+        (literal
+            :content new-workspaces
+        )
+    )
+)
 
 ;;;;;; SEARCH WIDGET
 ;; Search icon
@@ -356,7 +369,7 @@ Skróty klawiatury (prawy przycisk myszy)"
           :halign "center"
           :valign "center"
           :space-evenly "false"
-      (button :onclick "pkill -f leftwm"
+      (button :onclick "~/.config/eww/scripts/logout.sh"
               :class "logout-btn"
               :tooltip "Wyloguj"
               ""))

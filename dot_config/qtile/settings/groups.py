@@ -4,44 +4,78 @@ from libqtile.lazy import lazy
 from .keys import keys, myTerm
 # from libqtile import hook
 
-groups = (      #      
-    Group('', layout='monadtall'),
-    Group('', layout='monadtall'),
-    Group('', layout='monadtall'),
-    Group('', layout='monadtall'),
-    Group('', layout='monadtall'),
-    Group('', layout='monadtall'),
-    ScratchPad('scratchpad', [
-        DropDown(
-            'term', myTerm, width=0.7, height=0.7,
-            x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
-        ),
-        DropDown(
-            'ranger', myTerm + ' ranger', width=0.7, height=0.7,
-            x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
-        ),
-        DropDown(
-            'radio', myTerm + ' pyradio', width=0.7, height=0.7,
-            x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
-        ),
-        DropDown(
-            'spotify', myTerm + ' ncspot', width=0.7, height=0.7,
-            x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False  
-        ), ]
+# groups = (      #               
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('', layout='monadtall'),
+#     Group('9', layout='monadtall'),
+#     ScratchPad('scratchpad', [
+#         DropDown(
+#             'term', myTerm, width=0.7, height=0.7,
+#             x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
+#         ),
+#         DropDown(
+#             'ranger', myTerm + ' ranger', width=0.7, height=0.7,
+#             x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
+#         ),
+#         DropDown(
+#             'radio', myTerm + ' pyradio', width=0.7, height=0.7,
+#             x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
+#         ),
+#         DropDown(
+#             'spotify', myTerm + ' ncspot', width=0.7, height=0.7,
+#             x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False  
+#         ), ]
+#     ),
+# )
+groups = [
+        Group("1"),
+        Group("2"),
+        Group("3"),
+        Group("4"),
+        Group("5"),
+        Group("6"),
+        Group("7"),
+        Group("8"),
+        Group("9"),
+        ScratchPad('scratchpad', [
+            DropDown(
+                'term', myTerm, width=0.7, height=0.7,
+                x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
+            ),
+            DropDown(
+                'nemo', 'nemo', width=0.7, height=0.7,
+                x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
+            ),
+            DropDown(
+                'radio', myTerm + ' -e pyradio', width=0.7, height=0.7,
+                x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False
+            ),
+            DropDown(
+                'spotify', myTerm + ' -e spotify_player', width=0.7, height=0.7,
+                x=0.15, y=0.15, opacity=1.0, on_focus_lost_hide=False  
+            ), 
+        ]
     ),
-)
+]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
-    keys.extend([
-        # Switch to workspace N
-        Key(f"M-{actual_key}", lazy.group[group.name].toscreen(toggle=True)),
+    if actual_key != "10": 
+        keys.extend([
+            # Switch to workspace N
+            Key(f"M-{actual_key}", lazy.group[group.name].toscreen(toggle=True)),
 
-        # Send window to workspace N
-        # Key(f"M-S-{actual_key}", lazy.window.togroup(group.name)),
+            # Send window to workspace N
+            # Key(f"M-S-{actual_key}", lazy.window.togroup(group.name)),
 
-        # Send window to workspace N and follow moved window to workspace
-        Key(f"M-S-{actual_key}", lazy.window.togroup(group.name) , lazy.group[group.name].toscreen(toggle=True)),
+            # Send window to workspace N and follow moved window to workspace
+            Key(f"M-S-{actual_key}", lazy.window.togroup(group.name) , lazy.group[group.name].toscreen(toggle=True)),
     ])
 
 # Open application in specified group / workspace: 
