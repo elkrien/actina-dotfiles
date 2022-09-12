@@ -26,9 +26,9 @@
 - **System Monitor:** Htop + Bottom
 - **System Fetch:** Macchina
 - **Application Launcher:** Rofi
-- **File Manager:** Nemo + Ranger (and Joshuto)
+- **File Manager:** Nemo + Ranger
 - **Music Player:** spotify_player + PyRadio
 - **Editor/IDE:** LunarVim (and Micro + Helix + VSCode)
-- **Fonts:** MonoLisa + JetBrains Mono Nerd Fonts + Inter Nerd Fonts + Open Sans
+- **Fonts:** JetBrains Mono Nerd Fonts + Inter Nerd Fonts + Iosevka Nerd Fonts
 - **Screenlock:** i3lock-color + xidlehook
 - **Wallpapers manager:** Nitrogen

@@ -91,7 +91,7 @@ key = "a"
 # Applications launcher (rofi)
 [[keybind]]
 command = "Execute"
-value = "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/full-launcher.rasi"
+value = "rofi -no-config -no-lazy-grab -show drun -theme ~/.config/rofi/launcher.rasi"
 modifier = ["modkey", "Shift"]
 key = "r"
 

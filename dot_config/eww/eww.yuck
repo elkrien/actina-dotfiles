@@ -678,7 +678,7 @@ Skróty klawiatury (prawy przycisk myszy)"
     :monitor 0
     :wm-ignore true
     :geometry (geometry :x "-5px"
-                        :y "40px"
+                        :y "43px"
                         :width "4%"
                         :height "32%"
                         :anchor "top right")
