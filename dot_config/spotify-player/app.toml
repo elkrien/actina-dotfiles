@@ -1,5 +1,5 @@
 theme = "Catppuccin-mocha"
-client_id = "997b1fc67bf4479d89c9358e1fa573c9"
+client_id = ""
 app_refresh_duration_in_ms = 32
 playback_refresh_duration_in_ms = 0
 track_table_item_max_len = 32
