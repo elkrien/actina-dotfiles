@@ -1,10 +1,23 @@
 ## 👽 ELKRIEN's DOTFILES
 
-### 🦀 SCREENSHOT
+### 🦀 SCREENSHOTS
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice.png"/>
-</p>
+<details>
+<summary>🌻 Latte</summary>
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice-latte.png"/>
+</details>
+<details>
+<summary>🪴 Frappé</summary>
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice-frappe.png"/>
+</details>
+<details>
+<summary>🌺 Macchiato</summary>
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice-macchiato.png"/>
+</details>
+<details>
+<summary>🌿 Mocha</summary>
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice-mocha.png"/>
+</details>
 
 ### 🐍 WORKFLOW
 

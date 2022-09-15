@@ -107,6 +107,26 @@ sed -i "/theme =/ctheme = catppuccin-$1" ~/.config/pyradio/config
 # change keys window theme
 sed -i "/path=/cpath=~\/.config\/eww\/scripts\/themes\/keys\/keys-$1.png" ~/.config/eww/scripts/keys.sh
 
+#change gtk theme and cursors
+if [[ $1 == "mocha" ]] 
+then
+  sed -i "/gtk-theme-name/cgtk-theme-name=Catppuccin-Mocha-Lavender" ~/.config/gtk-3.0/settings.ini
+  sed -i "/gtk-cursor-theme-name/cgtk-cursor-theme-name=Catppuccin-Mocha-Lavender-Cursors" ~/.config/gtk-3.0/settings.ini
+elif [[ $1 == "latte" ]] 
+then
+  sed -i "/gtk-theme-name/cgtk-theme-name=Catppuccin-Latte-Lavender" ~/.config/gtk-3.0/settings.ini
+  sed -i "/gtk-cursor-theme-name/cgtk-cursor-theme-name=Catppuccin-Latte-Lavender-Cursors" ~/.config/gtk-3.0/settings.ini
+elif [[ $1 == "frappe" ]]
+then
+  sed -i "/gtk-theme-name/cgtk-theme-name=Catppuccin-Frappe" ~/.config/gtk-3.0/settings.ini
+  sed -i "/gtk-cursor-theme-name/cgtk-cursor-theme-name=Catppuccin-Frappe-Lavender-Cursors" ~/.config/gtk-3.0/settings.ini
+elif [[ $1 == "macchiato" ]]
+then
+  sed -i "/gtk-theme-name/cgtk-theme-name=Catppuccin-Macchiato" ~/.config/gtk-3.0/settings.ini
+  sed -i "/gtk-cursor-theme-name/cgtk-cursor-theme-name=Catppuccin-Macchiato-Lavender-Cursors" ~/.config/gtk-3.0/settings.ini
+fi
+
+
 # change Fish theme
 rm ~/.config/fish/conf.d/cat*
 cp ~/.config/eww/scripts/themes/fish/catppuccin-$1.fish ~/.config/fish/conf.d/
