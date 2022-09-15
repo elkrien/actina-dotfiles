@@ -1,5 +1,11 @@
 ## 👽 ELKRIEN's DOTFILES
 
+### 🐍 WORKFLOW
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/cat-leftwm.gif" width="600px"/>
+</p>
+
 ### 🦀 SCREENSHOTS
 
 <details>
@@ -18,12 +24,6 @@
 <summary>🌿 Mocha</summary>
   <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice-mocha.png"/>
 </details>
-
-### 🐍 WORKFLOW
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/cat-leftwm.gif" width="600px"/>
-</p>
 
 ### 🌼 INFORMATIONS
 
