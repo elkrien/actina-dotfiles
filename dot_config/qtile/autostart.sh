@@ -4,6 +4,7 @@
 picom --experimental-backends --config ~/.config/picom/picom.conf &
 
 # start eww daemon
+sed -i "/include/c\(include \"\.\/workspaces-qtile.yuck\")" ~/.config/eww/eww.yuck
 eww daemon &
 
 # get weather for eww widget

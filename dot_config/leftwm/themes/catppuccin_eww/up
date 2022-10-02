@@ -14,6 +14,7 @@ fi
 ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 
 # start eww daemon
+sed -i "/include/c\(include \"\.\/workspaces-leftwm.yuck\")" ~/.config/eww/eww.yuck
 eww daemon &
 
 # Boot picom or compton if it exists

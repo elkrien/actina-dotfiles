@@ -546,7 +546,7 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="Catppuccin Latte.gpl"
+       palette="Catppuccin Mocha.gpl"
        panel_border="0" />
   </group>
   <group
@@ -627,7 +627,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/mm/Obrazy/" />
+       path="/home/mm/Obrazy/Catppuccin-wallpapers/SVG/" />
     <group
        id="import"
        enable_preview="1"
@@ -1008,7 +1008,7 @@
      org.inkscape.input.svg.scale="auto" />
   <group
      id="desktop"
-     style="-inkscape-font-specification:'Verdana, Bold';font-family:Verdana;font-size:26.66666667px;fill:#eff1f5;font-weight:bold;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000;stroke-width:1.67925921;stroke:#eff1f5">
+     style="-inkscape-font-specification:'Verdana, Bold';font-family:Verdana;font-size:26.66666667px;fill:#a6e3a1;font-weight:bold;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000;stroke-width:1.67925921;stroke:#eff1f5">
     <group
        width="1904"
        height="1026"

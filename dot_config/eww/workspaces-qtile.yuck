@@ -1,0 +1,12 @@
+;;;;;; NEW WORKSPACES (WMCTRL - independent from Window Manager)
+;; Workspaces variables
+(deflisten new-workspaces "~/.config/eww/scripts/workspaces.sh")
+
+;; Workspaces widget
+(defwidget workspaces []
+    (eventbox
+        (literal
+            :content new-workspaces
+        )
+    )
+)

@@ -10,7 +10,7 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.colorscheme = "catppuccin"
 vim.g.catppuccin_flavour= "mocha"
 vim.wo.relativenumber = true
@@ -177,16 +177,17 @@ lvim.plugins = {
       require("user.feline")
     end,
   },
-  -- {
-  --   'wfxr/minimap.vim',
-  --   run = "cargo install --locked code-minimap",
-  --   -- cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
-  --   config = function()
-  --     vim.cmd("let g:minimap_width = 10")
-  --     vim.cmd("let g:minimap_auto_start = 1")
-  --     vim.cmd("let g:minimap_auto_start_win_enter = 1")
-  --   end,
-  -- },
+
+  {
+    "nacro90/numb.nvim",
+    event = "BufRead",
+    config = function()
+      require("numb").setup {
+        show_numbers = true, -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+      }
+    end,
+  },
 
   {
     "norcalli/nvim-colorizer.lua",
@@ -253,6 +254,16 @@ lvim.plugins = {
       vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
       vim.api.nvim_command("augroup END")
     end
+  },
+
+  {
+    "npxbr/glow.nvim",
+    ft = {"markdown"}
+    -- run = "paru -S glow"
+  },
+
+  {
+    "vimwiki/vimwiki"
   },
 
   {

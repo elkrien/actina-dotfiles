@@ -5,5 +5,5 @@
   "editor.fontLigatures": true,
   "workbench.iconTheme": "vscode-icons",
   "bracketPairColorizer.depreciation-notice": false,
-  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.colorTheme": "Catppuccin Mocha",
 }
