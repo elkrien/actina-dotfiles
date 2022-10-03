@@ -25,9 +25,7 @@
 
 ### 🐍 WORKFLOW
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/elkrien/actina-dotfiles/main/assets/catrice-workflow.mp4"/>
-</p>
+https://user-images.githubusercontent.com/78103450/193677327-a5551553-a3c0-448c-b6da-dd6a01c07b2a.mp4
 
 ### 🌼 INFORMATIONS
 
