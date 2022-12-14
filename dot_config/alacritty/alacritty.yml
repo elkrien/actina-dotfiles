@@ -52,7 +52,7 @@ schemes:
       focused_match:
         foreground: '#1E1D2E'
         background: '#F8BD96'
-      bar:
+      colors.footer_bar:
         background: '#1A1826'
         foreground: '#D9E0EE'
     hints:
@@ -108,7 +108,7 @@ schemes:
       focused_match:
         foreground: '#1E1E2E'
         background: '#FAB387'
-      bar:
+      colors.footer_bar:
         background: '#11111B'
         foreground: '#CDD6F4'
     hints:
@@ -164,7 +164,7 @@ schemes:
       focused_match:
         foreground: '#303446'
         background: '#EF9F76'
-      bar:
+      colors.footer_bar:
         background: '#232634'
         foreground: '#CDD6F4'
     hints:
@@ -220,7 +220,7 @@ schemes:
       focused_match:
         foreground: '#EFF1F5'
         background: '#FE640B'
-      bar:
+      colors.footer_bar:
         background: '#DCE0E8'
         foreground: '#4C4F69'
     hints:
@@ -276,7 +276,7 @@ schemes:
       focused_match:
         foreground: '#24273A'
         background: '#F5A97F'
-      bar:
+      colors.footer_bar:
         background: '#181926'
         foreground: '#CAD3F5'
     hints:

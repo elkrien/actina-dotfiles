@@ -62,24 +62,24 @@ if [[ "$wm" == 'Qtile' ]]; then
 else
   if [[ $1 == "mocha" ]] 
   then
-    sed -i "/focused/cfocused_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/floating/cfloating_border_color \= \"\#B4BEFE\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/default/cdefault_border_color \= \"\#313244\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/focused/c\  focused_border_color: \"\#B4BEFE\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/floating/c\  floating_border_color: \"\#B4BEFE\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/default/c\  default_border_color: \"\#313244\"\," ~/.config/leftwm/themes/current/theme.ron
   elif [[ $1 == "latte" ]] 
   then
-    sed -i "/focused/cfocused_border_color \= \"\#7287FD\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/floating/cfloating_border_color \= \"\#7287FD\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/default/cdefault_border_color \= \"\#CCD0DA\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/focused/c\  focused_border_color: \"\#7287FD\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/floating/c\  floating_border_color: \"\#7287FD\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/default/c\  default_border_color: \"\#CCD0DA\"\," ~/.config/leftwm/themes/current/theme.ron
   elif [[ $1 == "frappe" ]]
   then
-    sed -i "/focused/cfocused_border_color \= \"\#BABBF1\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/floating/cfloating_border_color \= \"\#BABBF1\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/default/cdefault_border_color \= \"\#414559\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/focused/c\  focused_border_color: \"\#BABBF1\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/floating/c\  floating_border_color: \"\#BABBF1\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/default/c\  default_border_color: \"\#414559\"\," ~/.config/leftwm/themes/current/theme.ron
   elif [[ $1 == "macchiato" ]]
   then
-    sed -i "/focused/cfocused_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/floating/cfloating_border_color \= \"\#B7BDF8\"" ~/.config/leftwm/themes/current/theme.toml
-    sed -i "/default/cdefault_border_color \= \"\#363A4F\"" ~/.config/leftwm/themes/current/theme.toml
+    sed -i "/focused/c\  focused_border_color: \"\#B7BDF8\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/floating/c\  floating_border_color: \"\#B7BDF8\"\," ~/.config/leftwm/themes/current/theme.ron
+    sed -i "/default/c\  default_border_color: \"\#363A4F\"\," ~/.config/leftwm/themes/current/theme.ron
   fi
 fi
 

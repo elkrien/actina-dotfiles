@@ -1,0 +1,757 @@
+// GLOBAL
+@import "~/.config/eww/common/catppuccin-mocha.scss";
+
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+scale trough highlight {
+    all: unset;
+    background-color: $surface0;
+    min-height: 10px;
+    min-width: 16px;
+    border-radius: 8px;
+}
+
+scale trough {
+    all: unset;
+    background-color: $surface0;
+    border-radius: 8px;
+    min-height: 10px;
+    min-width: 80px;
+    margin: 0.6rem;
+}
+
+// MAIN BAR
+.bar {
+    background-color: $base;
+    padding: 0 0.6rem;
+}
+
+// TOOLTIP
+tooltip.background {
+    background-color: $base;
+    font-family: "Inter Nerd Font";
+    font-size: 16;
+    border-radius: 5px;
+    border: 1px solid $surface0;
+    color: $text;
+}
+tooltip label {
+    margin: 6px;
+    font-family: "Inter Nerd Font";
+}
+
+// // WORKSPACES (LeftWM)
+// .workspaces button:hover {
+//   	color: $lavender;
+// }
+
+// .ws-button-mine {
+//   	color: $lavender;
+//   	background-color: $base;
+//   	font-size: 22px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// .ws-button-visible {
+//   	color: $peach;
+//   	background-color: $base;
+//   	font-size: 22px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// .ws-button-busy {
+//   	color: $overlay0;
+//   	font-size: 22px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// .ws-button {
+//   	color: $overlay0;
+//   	font-size: 28px;
+//    font-family: "Inter Nerd Font";
+// }
+
+// NEW WORKSPACES (WMCTRL - independent from Window Manager)
+.workspaces button:hover {
+  	color: $lavender;
+}
+
+.active-occupied {
+  	color: $lavender;
+  	background-color: $base;
+  	font-size: 22px;
+    font-family: "Inter Nerd Font";
+}
+
+.active-empty {
+  	color: $lavender;
+  	background-color: $base;
+  	font-size: 22px;
+    font-family: "Inter Nerd Font";
+}
+
+.inactive-occupied {
+  	color: $overlay0;
+  	font-size: 22px;
+    font-family: "Inter Nerd Font";
+}
+
+.inactive-empty {
+  	color: $overlay0;
+  	font-size: 28px;
+    font-family: "Inter Nerd Font";
+}
+
+//   POWER MENU WINDOW
+.power-icon
+{
+    color: $red;
+    font-family: "Inter Nerd Font";
+    font-size: 18px;
+    margin: 0px 5px 0px 10px;
+}
+
+.lock-btn
+{
+    color: $green;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.lock-btn:hover
+{
+    color: $surface2;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.power-btn
+{
+    color: $red;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.power-btn:hover
+{
+    color: $surface2;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.restart-btn
+{
+    color: $mauve;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.restart-btn:hover
+{
+    color: $surface2;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.sleep-btn
+{
+    color: $yellow;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.sleep-btn:hover
+{
+    color: $surface2;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.logout-btn
+{
+    color: $blue;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.logout-btn:hover
+{
+    color: $surface2;
+    font-family: "Inter Nerd Font";
+    font-size: 30px;
+}
+
+.powermenu
+{
+    background-color: $base;
+    border-radius: 5px;
+    border: 3px solid $lavender;
+}
+
+
+// SOUND AND MICROPHONE
+.volumemicBar trough highlight {
+    background-color: $sky;
+}
+
+.volumeBar trough highlight {
+    background-color: $blue;
+}
+
+.muted {
+    color: $red;
+    font-family: "Inter Nerd Font";
+    font-size: 20px;
+}
+
+.nomuted {
+    color: $blue;    
+    font-family: "Inter Nerd Font";
+    font-size: 20px;
+}
+
+.loud {
+    color: $yellow;
+    font-family: "Inter Nerd Font";
+    font-size: 20px;
+}
+
+.micnomuted {
+    color: $sky;
+    font-family: "Inter Nerd Font";
+    font-size: 18px;
+}
+
+.micmuted {
+    color: $red;
+    font-family: "Inter Nerd Font";
+    font-size: 18px;
+}
+
+// LABEL
+.label {
+    //font-size: 2rem;
+    margin: 0rem 0rem 0rem 0.6rem;
+}
+
+// TIME AND DATE
+.time, .date {
+    margin: 0rem 0.6rem;
+    font-family: "Inter Nerd Font";
+    font-size: 17px;
+    font-weight: 500;
+    color: $text;
+}
+
+// WIFI
+.module_essid {
+    font-size: 15;
+    margin: 0px 10px 0px 0px;
+    font-family: "Inter Nerd Font";
+}
+
+.module-wifi {
+    font-size: 20;
+    border-radius: 100%;
+    font-family: "Inter Nerd Font";
+    margin: 0px 10px 0px 5px;
+}
+
+// UPDATES
+.module-updates-text {
+    font-size: 15;
+    font-family: "Inter Nerd Font";
+    margin: 0rem 10px 0px 0px;
+}
+
+.module-updates-icon {
+    font-size: 20;
+    font-family: "Inter Nerd Font";
+    border-radius: 100%;
+    margin: 0rem 0.6rem;
+}
+
+// MUSIC BAR
+.music-icon {
+  margin: 0 0.6rem;
+  color: $mauve;
+  font-size: 22px;
+  font-family: "Inter Nerd Font";
+}
+
+.music-title-bar {
+  margin: 0 0.6rem;
+  color: $mauve;
+  font-family: "Inter Nerd Font";
+}
+
+.prev-next-icon {
+  margin: 0 0.6rem;
+  color: $mauve;
+  font-size: 18px;
+  font-family: "Inter Nerd Font";
+}
+
+// MUSIC PLAYER
+.player {
+  padding: 20px;
+  background-color: $base;
+  font-family: "Inter Nerd Font";
+  color: $text;
+  border-radius: 5px;
+  border: 3px solid $lavender;
+}
+
+.player button {
+  font-size: 30px;
+  font-family: "Inter Nerd Font";
+  min-width: 80px;
+  color: $text;
+  background-color: $surface0;
+  border-radius: 7px;
+  padding: 5px 10px 5px 10px;
+  transition: all 150ms;
+}
+
+.player button:hover {
+  background-color: $surface1;
+  color: $subtext1;
+  font-family: "Inter Nerd Font";
+}
+
+.musicinfo {
+  min-width: 310px;
+  min-height: 100px;
+  background-color: $surface0;
+  padding: 15px;
+  color: $text;
+  border-radius: 7px;
+  font-family: "Inter Nerd Font";
+}
+
+.artimg {
+  border-radius: 7px;
+  background-size: cover;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+// THEMES
+.themes-window
+{ 
+  background-color: $base;
+  border-radius: 5px; 
+  border: 3px solid $lavender;
+}
+.themes-title
+{
+    font-family: "Inter Nerd Font";
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: $peach;
+    font-weight: 700;
+}
+
+.themes-flavour
+{
+  font-family: "Inter Nerd Font";
+  font-size: 20px;
+  font-weight: 700;
+  color: $text;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+
+.themes-icon
+{
+    font-size: 20;
+    font-family: "Inter Nerd Font";
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+    color: $pink;
+}
+// SEARCH ICON
+.search-icon
+{
+    color: $sky;
+    font-family: "Inter Nerd Font";
+    font-size: 24px;
+    margin: 0px 20px 0px 5px;
+}
+
+// DASHBOARD (RESOURCES STATS)
+.dashboard-icon
+{
+    font-size: 20;
+    font-family: "Inter Nerd Font";
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+    color: $yellow;
+}
+
+.dashboard-resources
+{ 
+  background-color: $base;
+  border-radius: 5px;
+  border: 3px solid $lavender;
+}
+
+.res_box {
+	padding: 14px 18px 14px 18px;
+}
+
+.res_circle {
+	background-color: $surface0;
+	border: 0px solid $mantle;
+	border-radius: 100%;
+	padding: 0px;
+}
+
+.res_circle_small {
+	background-color: $base;
+	border: 0px solid $surface0;
+	border-radius: 100%;
+	padding: 40px;
+  font-family: "Inter Nerd Font";
+  font-weight: bold;
+}
+
+.res_text_cpu {
+	background-color: $surface0;
+	border: 1px solid $mantle;
+  font-family: "Inter Nerd Font";
+  border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+  color: $red;
+}
+
+.res_text_mem {
+	background-color: $surface0;
+	border: 1px solid $mantle;
+  font-family: "Inter Nerd Font";
+  border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+  color: $blue;
+}
+
+.res_text_disk {
+	background-color: $surface0;
+	border: 1px solid $mantle;
+  font-family: "Inter Nerd Font";
+  border-radius: 16px;
+	font-size : 14px;
+	padding: 0px 8px 0px 8px;
+	margin: 0px 0px 0px 0px;
+	font-weight : bold;
+  color: $green;
+}
+
+.res_cpu {
+	color: $red;
+}
+
+.res_mem {
+	color: $blue;
+}
+
+.res_disk {
+	color: $green;
+}
+
+// NEW-CALENDAR
+.cal-box {
+			background-color: $surface0;
+			border-radius: 10px;
+	
+			padding: .5em;
+			margin: 2em 0.75em .25em;
+	
+			.month-year {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 0.5em 0em 0em;
+			}
+	
+			.day-names {
+				margin: 1em 1em 0em;
+				font-size: 16px;
+				font-weight: bold;
+				color: $lavender;
+			}
+		
+			.cal {
+				padding: .75em .75em 0em;
+			}
+		}
+
+.calendar-time-day
+{ 
+  background-color: $base;
+  border-radius: 5px; 
+  border: 3px solid $lavender;
+}
+
+.calendar-time
+{
+    font-family: "Inter Nerd Font";
+    font-size: 80px;
+    margin-top: 15px;
+    color: $peach;
+    font-weight: 700;
+}
+
+.calendar-day
+{
+  font-family: "Inter Nerd Font";
+  font-size: 20px;
+  font-weight: 600;
+  color: $green;
+}
+
+calendar {
+	font-family: "Inter Nerd Font";
+  color: $text;
+  font-weight: 500;
+  &:selected {
+		color: $green;
+    border-radius: 5px;
+  }
+  &:indeterminate {
+		color: $overlay0;
+  }
+  &.header {
+    font-size: 8px;
+	}
+}
+
+.weather-box
+{ 
+  background-color: $surface0;
+  border-radius: 10px;
+  padding: .5em;
+	margin: 1em 0.75em .25em;
+}
+
+.weather-temperature {
+  margin-top: 10px;
+  font-size: 50px;
+  font-family: "Inter Nerd Font";
+  font-weight: 700;
+  color: $pink;
+}
+
+.weather-icon {
+  font-size: 120px;
+  margin: 0px 0px 0px 15px;
+  font-family: "Inter Nerd Font";
+}
+
+.weather-temp {
+  margin-top: 25px;
+  font-size: 50px;
+  font-family: "Inter Nerd Font";
+  font-weight: 700;
+  color: $pink;
+}
+
+.weather-stat {
+  font-family: "Inter Nerd Font";
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: $lavender;
+}
+
+
+// SCREENSHOT
+.screenshot-bar-icon
+{
+    font-size: 20;
+    font-family: "Inter Nerd Font";
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+    color: $teal;
+}
+
+.screen-icon {
+  font-family: "Inter Nerd Font";
+  font-size: 4rem;
+}
+
+.screen-icon:hover {
+  color: $surface2;
+}
+
+.screen-text-icon {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: "Inter Nerd Font";
+  color: $text;
+}
+
+.screen-title {
+  font-family: "Inter Nerd Font";
+  font-size: 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: $peach;
+  font-weight: 700;
+}
+
+.screen-box {
+  background-color: $base;
+  border-radius: 5px; 
+  border: 3px solid $lavender;
+}
+
+.icon-red {
+  color: $red;
+}
+
+.icon-blue {
+  color: $blue;
+}
+
+.icon-mauve {
+  color: $mauve;
+}
+
+.icon-yellow {
+  color: $yellow;
+}
+
+.icon-green {
+  color: $green;
+}
+
+.preview {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 1rem;
+}
+
+.preview-icons {
+  margin-top: 20px;
+}
+
+//KEYS
+.keys-box {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+
+
+
+/////////////////  NOT USED ///////////////////
+
+// // BATTERY
+// .bat {
+//   font-size: 20px;
+//   color: $maroon;
+//   margin: 0rem 0.6rem;
+//   font-family: "Inter Nerd Font";
+// }
+
+// // BRIGHTNESS
+// .brightness-icon {
+//   color: $yellow;
+//   font-size: 17px;
+//   font-family: "Font Awesome 6 Free Solid";
+//   margin: 0rem 0.6rem 0rem 0.6rem;
+// }
+
+// .bribar trough highlight {
+//   background-color: $yellow;
+//   //border-radius: 5px;
+// }
+
+// // POWER MENU BAR
+//
+// .button-off { 
+//     color: $red;
+//     font-size: 18px;
+//     margin: 0px 5px 0px 0px;
+//     font-family: "Inter Nerd Font";
+// }
+//
+// .button-reb, .button-lock, .button-sleep {
+//     margin: 0 0.4rem;
+// }
+//
+// .button-reb { 
+//     color: $mauve;
+//     font-size: 19px;
+//     font-family: "Inter Nerd Font";
+// }
+//
+// .button-lock {
+//     color: $green;
+//     font-size: 18px;
+//     font-family: "Inter Nerd Font";
+// }
+//
+// .button-sleep {
+//     color: $yellow;
+//     font-size: 18px;
+//     font-family: "Inter Nerd Font";
+// }
+//
+// .button-logout {
+//     color: $maroon;
+//     font-size: 18px;
+//     font-family: "Inter Nerd Font";
+// }
+
+ // // Weather 
+ // .weather-details {  
+ //     margin: 0 0.6rem;  
+ //     color: $text; 
+ //     font-family: "Inter Nerd Font"; 
+ // } 
+ // .weather {
+ //     margin: 0rem 0.6rem; 
+ //     color: $text; 
+ //     font-family: "Inter Nerd Font"; 
+ //     font-size: 17px; 
+ // } 
+ //
+ // // CPU BAR 
+ // .cpubar { 
+ //     color: $blue; 
+ //     background-color: $surface0; 
+ //   	border-radius: 10px; 
+ //     margin: 0.6rem; 
+ // } 
+ //
+ // // HDD BAR 
+ // .diskbar { 
+ //     color: $yellow; 
+ //     background-color: $surface0; 
+ //   	border-radius: 10px; 
+ // } 
+ //
+ // // MEMORY BAR 
+ // .membar { 
+ //     color: $lavender; 
+ //     background-color: $surface0; 
+ //   	border-radius: 10px; 
+ // } 
+ // .iconmem { 
+ //     color: $rosewater; 
+ //     margin: 0.6rem; 
+ //     font-size: 0.5rem; 
+ // }

@@ -20,8 +20,8 @@ eww daemon &
 # Boot picom or compton if it exists
 picom --experimental-backends --config ~/.config/picom/picom.conf &> /dev/null &
 
-# Set the theme.toml config
-leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
+# Set the theme.ron config
+leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 # set background
 # nitrogen --restore

@@ -180,7 +180,7 @@ alias cat='bat'
 alias top='ytop'
 
 # update system
-alias update='sudo pacman -Syu && paru -Sua'
+alias update='sudo pacman -Syu && paru -Sua && eww update updatesVar="$(~/.config/eww/scripts/updates.sh)"'
 
 # paru & yay
 alias paru='paru --skipreview'
