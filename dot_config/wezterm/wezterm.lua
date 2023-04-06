@@ -1,0 +1,67 @@
+local wezterm = require 'wezterm'
+return {
+  font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Medium' }),
+  font_size = 13.0,
+  color_scheme = 'Catppuccin Mocha',
+  window_background_opacity = 1.0,
+  hide_tab_bar_if_only_one_tab = true,
+  default_cursor_style = "SteadyBar",
+  window_close_confirmation = 'NeverPrompt',
+  warn_about_missing_glyphs = false,
+  initial_rows = 45,
+  initial_cols = 170,
+  use_fancy_tab_bar = true,
+  window_decorations = "RESIZE",
+  enable_wayland= true,
+  window_padding = {
+    left = '2cell',
+    right = '2cell',
+    top = '0.5cell',
+    bottom = '0.5cell',
+  },
+  window_frame = {
+    font = wezterm.font { family = 'Roboto', weight = 'Medium' },
+    font_size = 12.0,
+    active_titlebar_bg = '#11111b',
+    inactive_titlebar_bg = '#1e1e2e',
+    border_left_width = '0.25cell',
+    border_right_width = '0.25cell',
+    border_bottom_height = '0.15cell',
+    border_top_height = '0.15cell',
+    border_left_color = '#313244',
+    border_right_color = '#313244',
+    border_bottom_color = '#313244',
+    border_top_color = '#313244',
+  },
+  colors = {
+    tab_bar = {
+      active_tab = {
+        bg_color = '#1e1e2e',
+        fg_color = '#f5e0dc',
+        intensity = 'Normal',
+        underline = 'None',
+        italic = false,
+        strikethrough = false,
+      },
+      inactive_tab = {
+        bg_color = '#313244',
+        fg_color = '#a6adc8',
+      },
+      inactive_tab_hover = {
+        bg_color = '#1e1e2e',
+        fg_color = '#f5e0dc',
+        italic = true,
+      },
+      new_tab = {
+        bg_color = '#11111b',
+        fg_color = '#a6adc8',
+      },
+      new_tab_hover = {
+        bg_color = '#1e1e2e',
+        fg_color = '#f5e0dc',
+        italic = true,
+      },
+      inactive_tab_edge = '#313244',
+    },
+  },
+}
