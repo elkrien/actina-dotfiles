@@ -1,10 +1,11 @@
 # Elkrien
 
 spacing         = 3
-hide_ascii      = true
+hide_ascii      = false
 key_color       = "Green"
 separator       = ""
 separator_color = "Red"
+padding         = 0
 
 [randomize]
 key_color       = false
@@ -23,9 +24,9 @@ hide_delimiters = true
 visible         = false
 
 [box.inner_margin]
-x               = 2
-y               = 1
+x               = 5
+y               = 2
 
 [custom_ascii]
-color           = "Cyan"
-path            = "~/.config/macchina/themes/archlinuxsmall.ascii"
+# color           = "#cba6f7"
+path            = "~/.config/macchina/themes/nobara_logo"

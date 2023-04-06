@@ -1,6 +1,7 @@
 vim.opt.colorcolumn = "80"
 vim.wo.relativenumber = true
 vim.opt.shell = "/bin/fish"
+vim.opt.cursorline = true
 
 local autocmd = vim.api.nvim_create_autocmd
 

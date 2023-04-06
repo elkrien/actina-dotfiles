@@ -1,9 +1,13 @@
 {
   "editor.fontFamily": "'JetBrainsMono Nerd Font'",
-  "editor.fontSize": 15,
-  "editor.bracketPairColorization.enabled": true,
+  "editor.fontSize": 18,
   "editor.fontLigatures": true,
-  "workbench.iconTheme": "vscode-icons",
-  "bracketPairColorizer.depreciation-notice": false,
+  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.colorTheme": "Catppuccin Mocha",
+  "material-icon-theme.folders.color": "#cba6f7",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "terminal.external.linuxExec": "wezterm",
+  "terminal.integrated.fontSize": 17
 }

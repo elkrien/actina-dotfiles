@@ -11,7 +11,7 @@ long_shell = false
 long_kernel = false
 
 # Toggle between displaying the current shell or your user's default one.
-# current_shell = true
+current_shell = true
 
 # Toggle between displaying the number of physical or logical cores of your
 # processor.
@@ -45,4 +45,4 @@ theme = "elkrien"
 #   - Memory
 #   - Battery
 # Example:
-show = ["Distribution", "DesktopEnvironment", "WindowManager", "Terminal", "Shell", "Memory", "ProcessorLoad", "Uptime"]
+show = ["Distribution", "Resolution", "DesktopEnvironment", "WindowManager", "Terminal", "Shell", "Memory", "ProcessorLoad", "Uptime", "Packages"]

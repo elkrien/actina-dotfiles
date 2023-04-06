@@ -183,7 +183,7 @@ alias top='ytop'
 
 # update system
 # alias update='sudo pacman -Syu && paru -Sua && xfce4-panel --plugin-event=genmon-2:refresh:bool:true'
-alias update='sudo dnf update --refresh && flatpak update'
+alias update='sudo dnf update --refresh && flatpak update && cargo install-update -a'
 
 # paru & yay
 alias paru='paru --skipreview'
@@ -209,7 +209,7 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 alias mi='micro'
 
 # neovim
-alias v='lvim'
+alias v='nvim'
 
 # du change to dua
 alias du='dua i'
