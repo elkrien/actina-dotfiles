@@ -16,7 +16,7 @@ end
 export "MICRO_TRUECOLOR=1"
 
 #### "BAT" AS A MANPAGER ####
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'" 
+set -x MANPAGER "sh -c 'col -bx | bat --theme="Catppuccin-mocha" -l man -p'" 
 
 #### SETTINGS FOR DONE (https://github.com/franciscolourenco/done) ####
 set -U __done_min_cmd_duration 10000
@@ -153,7 +153,8 @@ end
 #   ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
 
 # clear screen
-alias cl='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
+# alias cl='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
+alias cl='clear; echo; echo -e "\e[1;30m   \e[1;31m   \e[1;32m   \e[1;33m   \e[1;34m   \e[1;35m   \e[1;36m   \e[1;37m "; echo'
 
 # ls change to lsd
 # alias ls='lsd -l --icon-theme unicode --group-dirs first' # standard listing
@@ -174,13 +175,15 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
 # cat change to bat
-alias cat='bat'
+alias cat='bat --theme="Catppuccin-mocha"'
+alias bat='bat --theme="Catppuccin-mocha"'
 
 # top change to ytop
 alias top='ytop'
 
 # update system
-alias update='sudo pacman -Syu && paru -Sua && eww update updatesVar="$(~/.config/eww/scripts/updates.sh)"'
+# alias update='sudo pacman -Syu && paru -Sua && xfce4-panel --plugin-event=genmon-2:refresh:bool:true'
+alias update='sudo dnf update --refresh && flatpak update'
 
 # paru & yay
 alias paru='paru --skipreview'
@@ -193,7 +196,7 @@ alias mutt='neomutt'
 alias df='duf'
 
 # system fetch (macchina)
-alias neo='macchina'
+alias neo='neofetch'
 alias sysinfo='macchina'
 
 # Get fastest mirrors 
@@ -238,4 +241,4 @@ end
 #echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
 
 #### CLEAR AND DRAW DOTS ON START ####
- echo; echo -e "\e[1;30m   \e[1;31m   \e[1;32m   \e[1;33m   \e[1;34m   \e[1;35m   \e[1;36m   \e[1;37m "; echo;
+echo; echo -e "\e[1;30m   \e[1;31m   \e[1;32m   \e[1;33m   \e[1;34m   \e[1;35m   \e[1;36m   \e[1;37m "; echo;
